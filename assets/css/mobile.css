@@ -152,12 +152,6 @@ body {
     padding: 8px 16px;
 }
 
-.btn-cta-modern {
-    width: 100%;
-    justify-content: center;
-    padding: 14px 24px;
-    font-size: 1rem;
-}
 
 /* Mobile Toggle */
 .navbar-toggler {

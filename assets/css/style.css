@@ -455,38 +455,63 @@ a:hover {
 .lang-switcher-modern {
     display: flex;
     align-items: center;
-    gap: var(--spacing-xs);
-    background: var(--gray-100);
-    padding: 4px 12px;
+    gap: 4px;
+    background: rgba(0, 0, 0, 0.03);
+    padding: 3px;
     border-radius: var(--border-radius-pill);
+    border: 1px solid rgba(0, 0, 0, 0.05);
+    position: relative;
 }
 
 .lang-switcher-modern .btn-lang {
     background: transparent;
     border: none;
-    padding: 4px 8px;
-    font-size: 0.8rem;
-    font-weight: 600;
-    color: var(--gray-500);
+    padding: 6px 12px;
     cursor: pointer;
-    transition: var(--transition-fast);
-    border-radius: var(--border-radius);
+    transition: all 0.4s cubic-bezier(0.165, 0.84, 0.44, 1);
+    border-radius: var(--border-radius-pill);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+    z-index: 1;
 }
 
-.lang-switcher-modern .btn-lang:hover {
-    color: var(--gray-700);
+.lang-switcher-modern .btn-lang .lang-flag {
+    width: 22px;
+    height: 15px;
+    object-fit: cover;
+    border-radius: 2px;
+    display: block;
+    transition: all 0.4s cubic-bezier(0.165, 0.84, 0.44, 1);
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    opacity: 0.5;
+    filter: grayscale(0.4);
 }
 
 .lang-switcher-modern .btn-lang.active {
-    color: var(--primary-color);
     background: var(--white);
-    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+    box-shadow: 0 4px 12px rgba(13, 110, 253, 0.18);
+}
+
+.lang-switcher-modern .btn-lang.active .lang-flag {
+    opacity: 1;
+    filter: grayscale(0);
+    transform: scale(1.15);
+    box-shadow: 0 3px 8px rgba(13, 110, 253, 0.25);
+    border: 1px solid rgba(13, 110, 253, 0.2);
+}
+
+.lang-switcher-modern .btn-lang:hover:not(.active) .lang-flag {
+    opacity: 1;
+    filter: grayscale(0);
+    transform: translateY(-1px);
 }
 
 .lang-divider {
-    color: var(--gray-300);
-    font-size: 0.75rem;
+    display: none; /* Removed for a cleaner look when using pill shapes */
 }
+
 
 /* CTA Button Modern */
 .btn-cta-modern {

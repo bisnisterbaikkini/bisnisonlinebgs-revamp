@@ -79,19 +79,13 @@
                 <!-- Language Switcher -->
                 <div class="lang-switcher-modern">
                     <button type="button" class="btn-lang <?php echo $currentLang === 'id' ? 'active' : ''; ?>" data-lang="id" title="Bahasa Indonesia">
-                        ID
+                        <img src="<?php echo Router::asset('images/flag_id.png'); ?>" alt="ID" class="lang-flag">
                     </button>
                     <span class="lang-divider">|</span>
                     <button type="button" class="btn-lang <?php echo $currentLang === 'en' ? 'active' : ''; ?>" data-lang="en" title="English">
-                        EN
+                        <img src="<?php echo Router::asset('images/flag_en.png'); ?>" alt="EN" class="lang-flag">
                     </button>
                 </div>
-                
-                <!-- CTA Button -->
-                <a href="#registrasi" class="btn btn-cta-modern scroll-link">
-                    <span class="btn-text" data-lang-key="nav.join">Gabung Sekarang</span>
-                    <span class="btn-icon"><i class="bi bi-arrow-right"></i></span>
-                </a>
             </div>
         </div>
     </div>
