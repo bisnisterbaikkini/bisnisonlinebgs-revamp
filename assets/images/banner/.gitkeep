@@ -1,0 +1,5 @@
+# Banner Images Placeholder
+# 
+# Letakkan file banner di folder ini:
+# - banner-landscape.jpeg (untuk Desktop & Tablet, min-width: 768px)
+# - banner-potrait.jpeg (untuk Mobile, max-width: 767px)

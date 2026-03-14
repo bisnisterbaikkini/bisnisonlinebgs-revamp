@@ -1,0 +1,21 @@
+# Placeholder untuk folder images
+# Letakkan semua file gambar di folder ini
+# 
+# File yang diperlukan:
+# - logo.png (Logo utama)
+# - logo-white.png (Logo putih untuk footer)
+# - favicon.ico
+# - favicon-32x32.png
+# - favicon-16x16.png
+# - apple-touch-icon.png
+# - og-image.jpg (Open Graph image 1200x630)
+# - hero-illustration.svg
+# - hero-pattern.svg
+# - 404-illustration.svg
+# - about-company.jpg
+# - about-team.jpg
+#
+# Subfolder:
+# - clients/ (Logo klien)
+# - testimonials/ (Foto testimonial)
+# - team/ (Foto tim)

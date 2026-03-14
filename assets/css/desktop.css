@@ -1,0 +1,1214 @@
+/**
+ * BisnisonlineBGS - Desktop CSS
+ * Styles untuk device dengan lebar > 1024px
+ */
+
+/* ========================================
+   DESKTOP SPECIFIC VARIABLES
+======================================== */
+:root {
+    --header-height-desktop: 80px;
+    --navbar-height-desktop: 70px;
+    --container-max-width: 1320px;
+}
+
+/* ========================================
+   TYPOGRAPHY - DESKTOP
+======================================== */
+h1 {
+    font-size: 2.5rem;
+}
+
+h2 {
+    font-size: 2rem;
+}
+
+h3 {
+    font-size: 1.75rem;
+}
+
+h4 {
+    font-size: 1.5rem;
+}
+
+h5 {
+    font-size: 1.25rem;
+}
+
+h6 {
+    font-size: 1rem;
+}
+
+body {
+    font-size: 1rem;
+}
+
+/* Large Desktop Typography */
+@media (min-width: 1400px) {
+    h1 {
+        font-size: 3rem;
+    }
+
+    h2 {
+        font-size: 2.5rem;
+    }
+
+    h3 {
+        font-size: 2rem;
+    }
+}
+
+/* ========================================
+   HEADER - DESKTOP
+======================================== */
+.site-header {
+    padding: var(--spacing-sm) 0;
+}
+
+.header-top {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.header-contact {
+    display: flex;
+    gap: var(--spacing-xl);
+}
+
+.header-contact a {
+    font-size: 0.875rem;
+    display: flex;
+    align-items: center;
+    gap: var(--spacing-sm);
+}
+
+.header-contact a i {
+    font-size: 1rem;
+}
+
+.header-social a {
+    width: 32px;
+    height: 32px;
+    font-size: 1rem;
+}
+
+.lang-switcher .btn-lang {
+    padding: 6px 12px;
+    font-size: 0.875rem;
+}
+
+/* ========================================
+   NAVBAR - DESKTOP MODERN
+======================================== */
+.site-navbar {
+    padding: var(--spacing-sm) 0;
+}
+
+.brand-logo img {
+    height: 32px;
+}
+
+.site-navbar.navbar-scrolled .brand-logo img {
+    height: 35px;
+}
+
+/* Desktop Navigation */
+.navbar-nav {
+    gap: var(--spacing-xs);
+}
+
+.navbar-nav .nav-link {
+    padding: var(--spacing-sm) var(--spacing-md);
+    font-size: 0.9rem;
+    font-weight: 600;
+}
+
+.navbar-nav .nav-link .nav-icon {
+    display: none;
+}
+
+/* Language Switcher Desktop */
+.lang-switcher-modern {
+    background: var(--gray-50);
+}
+
+/* CTA Button Desktop */
+.btn-cta-modern {
+    padding: 12px 24px;
+}
+
+.btn-cta-modern .btn-text {
+    font-size: 0.875rem;
+}
+
+/* Dropdown menus */
+.navbar-nav .dropdown-menu {
+    border: none;
+    box-shadow: var(--shadow-lg);
+    border-radius: var(--border-radius-lg);
+    padding: var(--spacing-sm) 0;
+    min-width: 220px;
+    animation: dropdownFade 0.2s ease;
+}
+
+@keyframes dropdownFade {
+    from {
+        opacity: 0;
+        transform: translateY(-10px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.dropdown-item {
+    padding: var(--spacing-sm) var(--spacing-lg);
+    font-weight: 500;
+    transition: var(--transition-fast);
+}
+
+.dropdown-item:hover {
+    background: var(--gray-100);
+    color: var(--primary-color);
+    padding-left: calc(var(--spacing-lg) + 5px);
+}
+
+/* Mega Menu (optional) */
+.mega-menu {
+    width: 100%;
+    padding: var(--spacing-lg);
+}
+
+.mega-menu-column {
+    padding: var(--spacing-md);
+}
+
+.mega-menu-title {
+    font-weight: 700;
+    color: var(--primary-color);
+    margin-bottom: var(--spacing-md);
+    font-size: 1rem;
+}
+
+/* ========================================
+   BANNER SECTION - DESKTOP
+======================================== */
+.section-banner {
+    min-height: 100vh;
+}
+
+.banner-picture {
+    height: 100vh;
+}
+
+/* ========================================
+   SECTIONS - DESKTOP
+======================================== */
+.section {
+    padding: 80px 0;
+}
+
+@media (min-width: 1400px) {
+    .section {
+        padding: 100px 0;
+    }
+}
+
+.section-title {
+    margin-bottom: var(--spacing-xxl);
+}
+
+.section-title h2 {
+    font-size: 2.25rem;
+}
+
+.section-title h2::after {
+    width: 100px;
+    height: 4px;
+}
+
+.section-subtitle {
+    font-size: 1.125rem;
+    max-width: 800px;
+}
+
+/* ========================================
+   PROFILE SECTION - DESKTOP
+======================================== */
+.profile-image-wrapper .experience-badge {
+    bottom: -20px;
+    right: -20px;
+    padding: var(--spacing-lg);
+}
+
+.profile-image-wrapper .experience-badge .years {
+    font-size: 2.5rem;
+}
+
+/* ========================================
+   MANAGEMENT SECTION - DESKTOP
+======================================== */
+.management-image {
+    height: 280px;
+}
+
+/* ========================================
+   LEGAL SECTION - DESKTOP
+======================================== */
+.legal-card {
+    padding: var(--spacing-xl);
+}
+
+.legal-icon {
+    width: 80px;
+    height: 80px;
+}
+
+/* ========================================
+   AWARDS SECTION - DESKTOP
+======================================== */
+.award-card {
+    padding: var(--spacing-xl);
+}
+
+.award-icon {
+    width: 70px;
+    height: 70px;
+    font-size: 2rem;
+}
+
+/* ========================================
+   PRODUCT SECTION - DESKTOP
+======================================== */
+.product-image img {
+    max-height: 200px;
+}
+
+/* ========================================
+   ADVANTAGE SECTION - DESKTOP
+======================================== */
+.advantage-card {
+    padding: var(--spacing-xl);
+}
+
+.advantage-icon {
+    width: 70px;
+    height: 70px;
+    font-size: 1.75rem;
+}
+
+/* ========================================
+   BENEFIT SECTION - DESKTOP
+======================================== */
+.benefit-card {
+    padding: var(--spacing-xl);
+}
+
+.benefit-card .benefit-icon {
+    width: 60px;
+    height: 60px;
+    font-size: 1.5rem;
+}
+
+/* ========================================
+   PARTNER SECTION - DESKTOP
+======================================== */
+.partner-logo {
+    height: 100px;
+}
+
+.partner-logo img {
+    max-height: 50px;
+}
+
+/* ========================================
+   START BUSINESS SECTION - DESKTOP
+======================================== */
+.step-card {
+    padding: var(--spacing-xl);
+}
+
+.step-icon {
+    width: 80px;
+    height: 80px;
+    font-size: 2rem;
+}
+
+/* ========================================
+   EVENT SECTION - DESKTOP
+======================================== */
+.event-card.featured .event-image {
+    height: 300px;
+}
+
+.event-card .event-image {
+    height: 200px;
+}
+
+/* ========================================
+   TESTIMONIAL SECTION - DESKTOP
+======================================== */
+.testimonial-card {
+    padding: var(--spacing-xxl);
+}
+
+.testimonial-text {
+    font-size: 1.125rem;
+}
+
+.testimonial-avatar {
+    width: 60px;
+    height: 60px;
+}
+
+/* Testimonial Slider */
+.testimonials-slider {
+    position: relative;
+    overflow: hidden;
+}
+
+.testimonials-slider .slick-dots {
+    bottom: -30px;
+}
+
+/* ========================================
+   REGISTRATION SECTION - DESKTOP
+======================================== */
+.section-mulai-gabung {
+    padding: 80px 0;
+}
+
+.cta-content {
+    padding-right: var(--spacing-xl);
+}
+
+.register-form-card {
+    padding: var(--spacing-xxl);
+}
+
+/* ========================================
+   GRID LAYOUTS - DESKTOP
+======================================== */
+.container {
+    max-width: var(--container-max-width);
+}
+
+@media (min-width: 1400px) {
+    .container {
+        max-width: 1400px;
+    }
+}
+
+/* 3 columns for services */
+.services-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: var(--spacing-xl);
+}
+
+/* 4 columns for features */
+.features-grid-4 {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: var(--spacing-lg);
+}
+
+/* ========================================
+   CARDS - DESKTOP
+======================================== */
+.card {
+    margin-bottom: var(--spacing-xl);
+}
+
+.card-img-top {
+    height: 220px;
+}
+
+.card-body {
+    padding: var(--spacing-xl);
+}
+
+.service-card {
+    padding: var(--spacing-xxl);
+}
+
+.service-icon {
+    width: 90px;
+    height: 90px;
+    font-size: 2.25rem;
+}
+
+/* Card hover effects */
+.card {
+    transition: var(--transition-base);
+}
+
+.card:hover {
+    transform: translateY(-10px);
+    box-shadow: var(--shadow-lg);
+}
+
+/* ========================================
+   FEATURES - DESKTOP
+======================================== */
+.feature-item {
+    gap: var(--spacing-lg);
+    padding: var(--spacing-lg);
+    border-radius: var(--border-radius-lg);
+    transition: var(--transition-base);
+}
+
+.feature-item:hover {
+    background: var(--gray-50);
+}
+
+.feature-icon {
+    width: 70px;
+    height: 70px;
+    font-size: 1.75rem;
+}
+
+/* ========================================
+   CTA SECTION - DESKTOP
+======================================== */
+.cta-section {
+    padding: 80px 0;
+}
+
+.cta-section h2 {
+    font-size: 2.25rem;
+}
+
+.cta-section p {
+    font-size: 1.125rem;
+    max-width: 700px;
+    margin: 0 auto var(--spacing-xl);
+}
+
+/* ========================================
+   FOOTER - DESKTOP
+======================================== */
+.site-footer {
+    padding-top: 80px;
+}
+
+.footer-widgets {
+    display: grid;
+    grid-template-columns: 2fr 1fr 1fr 1fr;
+    gap: var(--spacing-xxl);
+}
+
+.footer-brand {
+    padding-right: var(--spacing-xl);
+}
+
+.footer-brand img {
+    max-height: 60px;
+}
+
+.footer-title {
+    font-size: 1.125rem;
+}
+
+.footer-links a {
+    font-size: 0.9375rem;
+}
+
+.footer-social a {
+    width: 42px;
+    height: 42px;
+}
+
+.footer-bottom {
+    padding: var(--spacing-lg) 0;
+}
+
+.footer-bottom .row {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+/* ========================================
+   BACK TO TOP - DESKTOP
+======================================== */
+.btn-back-to-top {
+    bottom: 40px;
+    right: 40px;
+    width: 50px;
+    height: 50px;
+}
+
+/* ========================================
+   404 PAGE - DESKTOP
+======================================== */
+.error-page {
+    min-height: 60vh;
+}
+
+.error-code {
+    font-size: 10rem;
+}
+
+.error-message {
+    font-size: 1.25rem;
+}
+
+/* ========================================
+   ABOUT PAGE - DESKTOP
+======================================== */
+.about-section {
+    padding: 100px 0;
+}
+
+.about-content {
+    padding-right: var(--spacing-xxl);
+}
+
+.about-image img {
+    border-radius: var(--border-radius-xl);
+    box-shadow: var(--shadow-lg);
+}
+
+.stats-row {
+    display: flex;
+    gap: var(--spacing-xl);
+    margin-top: var(--spacing-xxl);
+}
+
+.stats-item {
+    text-align: center;
+    padding: var(--spacing-lg);
+    background: var(--gray-100);
+    border-radius: var(--border-radius-lg);
+    flex: 1;
+}
+
+.stats-number {
+    font-size: 3rem;
+    font-weight: 800;
+    color: var(--primary-color);
+}
+
+.stats-label {
+    font-size: 1rem;
+    color: var(--gray-600);
+}
+
+/* ========================================
+   CONTACT PAGE - DESKTOP
+======================================== */
+.contact-section {
+    padding: 100px 0;
+}
+
+.contact-info-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: var(--spacing-lg);
+    margin-bottom: var(--spacing-xxl);
+}
+
+.contact-info-item {
+    text-align: center;
+    padding: var(--spacing-xl);
+    background: var(--gray-100);
+    border-radius: var(--border-radius-lg);
+    transition: var(--transition-base);
+}
+
+.contact-info-item:hover {
+    background: var(--white);
+    box-shadow: var(--shadow);
+    transform: translateY(-5px);
+}
+
+.contact-form {
+    background: var(--white);
+    padding: var(--spacing-xxl);
+    border-radius: var(--border-radius-xl);
+    box-shadow: var(--shadow);
+}
+
+.map-container {
+    height: 450px;
+    border-radius: var(--border-radius-xl);
+    overflow: hidden;
+}
+
+/* ========================================
+   PORTFOLIO - DESKTOP
+======================================== */
+.portfolio-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: var(--spacing-xl);
+}
+
+.portfolio-item {
+    position: relative;
+    overflow: hidden;
+    border-radius: var(--border-radius-lg);
+}
+
+.portfolio-overlay {
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(180deg, transparent 0%, rgba(0, 0, 0, 0.8) 100%);
+    display: flex;
+    align-items: flex-end;
+    padding: var(--spacing-lg);
+    opacity: 0;
+    transition: var(--transition-base);
+}
+
+.portfolio-item:hover .portfolio-overlay {
+    opacity: 1;
+}
+
+.portfolio-item:hover img {
+    transform: scale(1.1);
+}
+
+/* ========================================
+   BLOG - DESKTOP
+======================================== */
+.blog-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: var(--spacing-xl);
+}
+
+.blog-post {
+    background: var(--white);
+    border-radius: var(--border-radius-lg);
+    overflow: hidden;
+    box-shadow: var(--shadow-sm);
+    transition: var(--transition-base);
+}
+
+.blog-post:hover {
+    box-shadow: var(--shadow);
+    transform: translateY(-5px);
+}
+
+.blog-with-sidebar {
+    display: grid;
+    grid-template-columns: 2fr 1fr;
+    gap: var(--spacing-xxl);
+}
+
+.blog-sidebar {
+    position: sticky;
+    top: 100px;
+    align-self: start;
+}
+
+/* ========================================
+   PRICING TABLE - DESKTOP
+======================================== */
+.pricing-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: var(--spacing-xl);
+    align-items: center;
+}
+
+.pricing-card {
+    background: var(--white);
+    border-radius: var(--border-radius-xl);
+    padding: var(--spacing-xxl);
+    box-shadow: var(--shadow-sm);
+    transition: var(--transition-base);
+}
+
+.pricing-card:hover {
+    box-shadow: var(--shadow-lg);
+}
+
+.pricing-card.featured {
+    transform: scale(1.05);
+    box-shadow: var(--shadow-lg);
+    border: 2px solid var(--primary-color);
+}
+
+.pricing-card.featured:hover {
+    transform: scale(1.08);
+}
+
+/* ========================================
+   TEAM SECTION - DESKTOP
+======================================== */
+.team-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: var(--spacing-xl);
+}
+
+.team-member {
+    text-align: center;
+    padding: var(--spacing-lg);
+}
+
+.team-avatar {
+    width: 150px;
+    height: 150px;
+    border-radius: 50%;
+    margin: 0 auto var(--spacing-lg);
+    overflow: hidden;
+}
+
+.team-avatar img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: var(--transition-base);
+}
+
+.team-member:hover .team-avatar img {
+    transform: scale(1.1);
+}
+
+/* ========================================
+   FAQ SECTION - DESKTOP
+======================================== */
+.faq-section {
+    max-width: 900px;
+    margin: 0 auto;
+}
+
+.accordion-button {
+    font-size: 1.125rem;
+    font-weight: 600;
+    padding: var(--spacing-lg) var(--spacing-xl);
+}
+
+.accordion-body {
+    padding: var(--spacing-lg) var(--spacing-xl);
+    font-size: 1rem;
+    line-height: 1.8;
+}
+
+/* ========================================
+   UTILITIES - DESKTOP
+======================================== */
+/* Hide on desktop */
+.hide-desktop {
+    display: none !important;
+}
+
+/* Show only on desktop */
+.show-desktop {
+    display: block !important;
+}
+
+/* Desktop specific spacing */
+.py-desktop-xl {
+    padding-top: var(--spacing-xl) !important;
+    padding-bottom: var(--spacing-xl) !important;
+}
+
+.py-desktop-xxl {
+    padding-top: var(--spacing-xxl) !important;
+    padding-bottom: var(--spacing-xxl) !important;
+}
+
+.my-desktop-xl {
+    margin-top: var(--spacing-xl) !important;
+    margin-bottom: var(--spacing-xl) !important;
+}
+
+/* Desktop text utilities */
+.text-desktop-left {
+    text-align: left !important;
+}
+
+.text-desktop-right {
+    text-align: right !important;
+}
+
+.text-desktop-center {
+    text-align: center !important;
+}
+
+/* ========================================
+   ANIMATIONS - DESKTOP
+======================================== */
+/* Scroll Reveal Animations */
+.reveal {
+    opacity: 0;
+    transform: translateY(30px);
+    transition: opacity 0.6s ease, transform 0.6s ease;
+}
+
+.reveal.active {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+/* Stagger Animation */
+.stagger-item {
+    opacity: 0;
+    transform: translateY(20px);
+}
+
+.stagger-item.animate {
+    animation: staggerIn 0.5s ease forwards;
+}
+
+@keyframes staggerIn {
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* Parallax Effect */
+.parallax-bg {
+    background-attachment: fixed;
+    background-position: center;
+    background-size: cover;
+}
+
+/* ========================================
+   CURSOR EFFECTS - DESKTOP
+======================================== */
+.cursor-pointer {
+    cursor: pointer;
+}
+
+/* Interactive elements */
+a,
+button,
+.btn,
+.card,
+.nav-link {
+    cursor: pointer;
+}
+
+/* ========================================
+   SIDEBAR - DESKTOP
+======================================== */
+.sidebar {
+    position: sticky;
+    top: 100px;
+}
+
+.sidebar-widget {
+    background: var(--white);
+    padding: var(--spacing-lg);
+    border-radius: var(--border-radius-lg);
+    margin-bottom: var(--spacing-lg);
+    box-shadow: var(--shadow-sm);
+}
+
+.sidebar-title {
+    font-size: 1.125rem;
+    margin-bottom: var(--spacing-md);
+    padding-bottom: var(--spacing-sm);
+    border-bottom: 2px solid var(--primary-color);
+}
+
+/* ========================================
+   BREADCRUMB - DESKTOP
+======================================== */
+.breadcrumb-section {
+    background: var(--gray-100);
+    padding: var(--spacing-md) 0;
+}
+
+.breadcrumb {
+    margin: 0;
+    font-size: 0.9375rem;
+}
+
+.breadcrumb-item+.breadcrumb-item::before {
+    content: '/';
+}
+
+/* ========================================
+   MODAL - DESKTOP
+======================================== */
+.modal-dialog {
+    max-width: 700px;
+}
+
+.modal-dialog-lg {
+    max-width: 900px;
+}
+
+.modal-dialog-xl {
+    max-width: 1140px;
+}
+
+.modal-content {
+    border: none;
+    border-radius: var(--border-radius-xl);
+    box-shadow: var(--shadow-lg);
+}
+
+.modal-header,
+.modal-footer {
+    padding: var(--spacing-lg) var(--spacing-xl);
+}
+
+.modal-body {
+    padding: var(--spacing-xl);
+}
+
+/* ========================================
+   VIDEO CARD MODERN - DESKTOP
+======================================== */
+.video-card-modern {
+    transition: all 0.4s ease;
+}
+
+.video-card-header {
+    padding: var(--spacing-lg) var(--spacing-xl);
+}
+
+.video-icon {
+    width: 55px;
+    height: 55px;
+    font-size: 1.75rem;
+}
+
+.video-card-header .video-title {
+    font-size: 1.1rem;
+}
+
+.video-card-body {
+    padding: var(--spacing-xl);
+}
+
+/* ========================================
+   OFFICE SECTION - DESKTOP
+======================================== */
+.office-showcase .office-image-wrapper img {
+    max-height: 500px;
+}
+
+.office-info h5 {
+    font-size: 1.5rem;
+}
+
+/* ========================================
+   MANAGEMENT SECTION - DESKTOP
+======================================== */
+.management-photo {
+    height: 300px;
+}
+
+.management-content h4 {
+    font-size: 1.35rem;
+}
+
+.management-stats .stat-value {
+    font-size: 1.75rem;
+}
+
+/* ========================================
+   LEGAL SECTION - DESKTOP
+======================================== */
+.legal-card-modern {
+    padding: var(--spacing-xxl) var(--spacing-xl);
+}
+
+.legal-icon-wrapper {
+    height: 480px;
+    width: 100%;
+}
+
+.legal-icon-wrapper img {
+    max-width: 85%;
+    max-height: 85%;
+}
+
+.legal-content h5 {
+    font-size: 1.15rem;
+}
+
+/* ========================================
+   AWARDS SECTION - DESKTOP
+======================================== */
+.award-card-modern {
+    padding-bottom: var(--spacing-md);
+}
+
+.award-trophy {
+    width: 55px;
+    height: 55px;
+    font-size: 1.5rem;
+}
+
+.award-image-frame img {
+    height: 220px;
+}
+
+.award-details h5 {
+    font-size: 1.05rem;
+}
+
+/* ========================================
+   CHARITY SECTION - DESKTOP
+======================================== */
+.charity-stat-card {
+    padding: var(--spacing-xl);
+}
+
+.charity-stat-card .stat-icon {
+    width: 70px;
+    height: 70px;
+    font-size: 1.75rem;
+}
+
+.charity-stat-card .stat-number {
+    font-size: 2rem;
+}
+
+/* Desktop: 3 items per slide */
+.charity-slide {
+    width: 33.333%;
+}
+
+.gallery-card img {
+    height: 240px;
+}
+
+.slider-btn {
+    width: 55px;
+    height: 55px;
+    font-size: 1.35rem;
+}
+
+.slider-dots .dot {
+    width: 14px;
+    height: 14px;
+}
+
+.carousel-btn-modern {
+    width: 50px;
+    height: 50px;
+    font-size: 1.35rem;
+}
+
+/* ========================================
+   PRODUCT SECTION - DESKTOP
+======================================== */
+.category-tab {
+    padding: 14px 28px;
+    font-size: 0.95rem;
+}
+
+.category-tab:hover {
+    transform: translateY(-2px);
+}
+
+/* Desktop: Product Card Premium Full Image */
+.product-card::before {
+    padding-top: 100%;
+}
+
+.product-card:hover {
+    transform: translateY(-15px) scale(1.03);
+}
+
+.product-info {
+    padding: var(--spacing-xxl) var(--spacing-lg) var(--spacing-lg);
+}
+
+.product-info h5 {
+    font-size: 1.1rem;
+}
+
+.product-tagline {
+    font-size: 0.85rem;
+}
+
+.view-detail {
+    padding: 14px 28px;
+    font-size: 0.9rem;
+}
+
+/* Product Detail Panel - Desktop */
+.detail-panel-inner {
+    max-width: 1000px;
+}
+
+.detail-content {
+    padding: var(--spacing-xxl);
+}
+
+.detail-title {
+    font-size: 2.25rem;
+}
+
+.detail-desc {
+    font-size: 1.05rem;
+}
+
+.benefit-icon {
+    width: 36px;
+    height: 36px;
+}
+
+.benefit-progress {
+    margin-left: 48px;
+}
+
+/* Apple Stemcell - Desktop */
+.applesc-title {
+    font-size: 2.5rem;
+}
+
+.applesc-card-text {
+    padding: var(--spacing-xxl);
+}
+
+.applesc-card-title {
+    font-size: 1.4rem;
+}
+
+.applesc-paragraph {
+    font-size: 1.08rem;
+}
+
+.applesc-single-card {
+    padding: var(--spacing-xxl);
+}
+
+/* Patent Section - Desktop */
+.patent-title {
+    font-size: 1.35rem;
+}
+
+.patent-content {
+    padding: var(--spacing-xxl);
+}
+
+/* ========================================
+   WIDE SCREEN OPTIMIZATIONS
+======================================== */
+@media (min-width: 1600px) {
+    .container {
+        max-width: 1500px;
+    }
+
+    .section {
+        padding: 120px 0;
+    }
+}
+
+/* Ultra wide screens */
+@media (min-width: 1920px) {
+    .container {
+        max-width: 1600px;
+    }
+
+    body {
+        font-size: 1.0625rem;
+    }
+}

@@ -1,0 +1,359 @@
+{
+    "meta": {
+        "lang_code": "id",
+        "lang_name": "Bahasa Indonesia",
+        "lang_flag": "🇮🇩"
+    },
+    "nav": {
+        "home": "Beranda",
+        "about": "Profil",
+        "products": "Produk",
+        "business": "Bisnis",
+        "media": "Media",
+        "register": "Registrasi",
+        "join": "Gabung Sekarang"
+    },
+    "banner": {
+        "badge": "Produk Berkualitas Premium",
+        "title": "Sehat, Cantik & Sukses Bersama BisnisonlineBGS",
+        "subtitle": "Raih kesehatan optimal dengan produk Apple Stemcell berkualitas tinggi dan bangun bisnis sukses bersama kami",
+        "cta_primary": "Gabung Sekarang",
+        "cta_secondary": "Lihat Produk",
+        "scroll": "Scroll untuk melihat lebih",
+        "stats": {
+            "members": "Member Aktif",
+            "cities": "Kota",
+            "years": "Tahun"
+        }
+    },
+    "profile": {
+        "badge": "Tentang Kami",
+        "title": "Profil Perusahaan",
+        "subtitle": "Mengenal lebih dekat Biogreen Science dan perjalanan kami",
+        "video_watch": "TONTON VIDEO DIBAWAH INI",
+        "company_video": "COMPANY PROFILE",
+        "video_unsupported": "Browser Anda tidak mendukung video tag.",
+        "office_label": "Kantor Pusat Kami",
+        "office_name": "Biogreen Science Indonesia",
+        "office_location": "Jakarta, Indonesia",
+        "office_alt": "Kantor Biogreen Science",
+        "company_name": "PT. Bisnisonline BGS Indonesia",
+        "tagline": "Membangun Kesehatan dan Kesuksesan Bersama",
+        "description": "BisnisonlineBGS adalah perusahaan yang bergerak di bidang kesehatan dan kecantikan dengan produk unggulan Apple Stemcell. Didirikan dengan visi untuk memberikan solusi kesehatan terbaik sekaligus membuka peluang bisnis yang menguntungkan bagi seluruh masyarakat Indonesia.",
+        "experience": "Tahun Pengalaman",
+        "feature1": "Produk Berkualitas BPOM",
+        "feature2": "Halal MUI Certified",
+        "feature3": "Jaringan Nasional",
+        "feature4": "Support System Lengkap",
+        "vision_title": "Visi Kami",
+        "vision": "Menjadi perusahaan kesehatan dan kecantikan terdepan di Indonesia yang memberikan dampak positif bagi masyarakat melalui produk berkualitas dan peluang bisnis yang adil.",
+        "mission_title": "Misi Kami",
+        "mission": "Menyediakan produk kesehatan dan kecantikan berkualitas tinggi, memberdayakan masyarakat melalui sistem bisnis yang transparan, dan berkontribusi pada kesejahteraan sosial."
+    },
+    "management": {
+        "badge": "Leadership",
+        "title": "Top Management",
+        "subtitle": "Para pemimpin visioner di balik kesuksesan Biogreen Science",
+        "role_founder": "Founder",
+        "role_ceo": "CEO",
+        "role_advisor": "Advisor",
+        "larry_role": "Founder of Biogreen Science",
+        "larry_desc": "Bapak Larry merupakan seorang entrepreneur muda yang telah mendirikan banyak perusahaan pada usia sebelum 30 tahun. Selain Biogreen Science, KOTA Cinema Mall juga merupakan salah satu dari bisnis beliau dengan aset kelolaan sebesar 1,4 Trilliun Rupiah.",
+        "larry_stat1_label": "Lokasi Bisnis",
+        "larry_stat2_label": "Aset Kelolaan",
+        "ferry_role": "CEO of Biogreen Science",
+        "ferry_desc": "Dalam 20 tahun kariernya, kegigihan serta kemampuan beradaptasi membuat Bpk. Ferry sempat menduduki kursi Top Management pada beberapa perusahaan terbesar di Indonesia sebelum berlabuh di Biogreen Science.",
+        "ferry_stat1_label": "Tahun Karir",
+        "ferry_stat2_label": "Management",
+        "richard_role": "Advisor of Biogreen Science",
+        "richard_desc": "Memiliki keahlian di banyak bidang Biologi: Biologi Molekul, Virologi, Biodefense, Bio Informatika, Teknologi Pangan, Gizi, Kesehatan dan Anti-Aging dengan pengalaman internasional.",
+        "richard_stat1_label": "Negara",
+        "richard_stat2_label": "Qualification"
+    },
+    "legal": {
+        "badge": "Legalitas",
+        "title": "Izin & Sertifikasi",
+        "subtitle": "Legalitas lengkap untuk keamanan dan kepercayaan Anda",
+        "siup_title": "SIUP KBLI47999",
+        "siup_desc": "Surat Izin Usaha Perdagangan",
+        "iso_title": "ISO 9001:2015",
+        "iso_desc": "Standar Manajemen Mutu Internasional",
+        "apli_title": "Anggota APLI",
+        "apli_desc": "Asosiasi Penjual Langsung Indonesia",
+        "apski_title": "Anggota APSKI",
+        "apski_desc": "Asosiasi Pengusaha Suplemen Kesehatan Indonesia",
+        "pse_title": "Terdaftar PSE",
+        "pse_desc": "Penyelenggara Sistem Elektronik"
+    },
+    "awards": {
+        "badge": "Prestasi",
+        "title": "Penghargaan",
+        "subtitle": "Pengakuan atas dedikasi dan kualitas terbaik kami",
+        "award1_title": "APLI Awards 2020",
+        "award1_cat": "Entrepreneurship Of The Year",
+        "award2_title": "Best Nourishing Health Supplement",
+        "award2_cat": "Asia Halal Brand Award",
+        "award3_title": "Best Quality Product & Customer Satisfaction",
+        "award3_cat": "Trusted Of Quality Award"
+    },
+    "charity": {
+        "badge": "CSR",
+        "title": "Kegiatan Amal",
+        "subtitle": "Berbagi kebaikan untuk masyarakat Indonesia",
+        "stat1_label": "Penerima Manfaat",
+        "stat2_label": "Kegiatan/Tahun",
+        "stat3_label": "Kota di Indonesia",
+        "stat4_label": "Dedikasi",
+        "gallery_alt": "Kegiatan Amal Biogreen"
+    },
+    "products": {
+        "badge": "Produk Kami",
+        "title": "Katalog Produk",
+        "subtitle": "Produk berkualitas tinggi untuk kesehatan dan kecantikan Anda",
+        "cat_health": "Health & Wellness",
+        "cat_weight": "Weight Management",
+        "cat_beauty": "Beauty & Skincare",
+        "cat_nutrition": "Nutrition",
+        "best_seller": "Best Seller",
+        "new": "New",
+        "premium": "Premium",
+        "view_detail": "Lihat Detail",
+        "order_now": "Pesan Sekarang",
+        "back": "Kembali",
+        "main_benefits": "Manfaat Utama"
+    },
+    "applesc": {
+        "badge": "Teknologi Stem Cell",
+        "title": "Apple Stemcell",
+        "subtitle": "Dari Apel Langka Swiss untuk Regenerasi Sel",
+        "uttwiler_title": "Uttwiler Spatläuber",
+        "uttwiler_desc": "Diciptakan dari Uttwiler Spatläuber, varian apel khas Swiss yang punya daya hidup tinggi dan bisa tetap segar selama berbulan-bulan setelah dipetik dari pohonnya. Khasiat luar biasa Uttwiler Spatläuber membuat apel ini spesial, menjadikannya sebagai spesies langka dan dilindungi, bahkan Swiss sampai membuat perangko khusus bergambar Uttwiler Spatläuber.",
+        "clinical_title": "PhytoCellTec™ & Uji Klinis",
+        "clinical_desc": "Apple Stemcell Uttwiler Spatläuber hanya dikembangkan oleh Mibelle Biochemistry karena memiliki spesialisasi terbaik dalam mengolah stem cell menggunakan teknologi inovatif yang dinamakan Phytocelltec™. Uji klinis terkait manfaat PhytoCellTec™ Malus Domestica dilakukan oleh para peneliti yang sudah berpengalaman dalam hal pengembangan stem cell.",
+        "patent_tag": "Scientific Authentication",
+        "patent_title": "PATEN FUNGSI PERPADUAN EKSLUSIF",
+        "patent_subtitle": "BAHAN AKTIF APPLESC",
+        "patent_list1": "Membantu Meregenerasi Sel",
+        "patent_list2": "Melindungi Stem Cells dari Kerusakan",
+        "patent_list3": "Anti-Aging",
+        "patent_list4": "Anti radiasi yang disebabkan oleh UV dan polusi udara",
+        "patent_list5": "Meningkatkan Kadar Anti Oksidan di dalam tubuh",
+        "patent_list6": "Mengandung Komposisi Anti Oksidan untuk Menangkal Radikal Bebas",
+        "patent_list7": "Triple Peptide yang Mengandung 3 Amino Acids untuk Detoksifikasi",
+        "patent_list8": "Agen untuk Melindungi Kulit dari Pigmentasi dan Mencerahkan Kulit",
+        "celebrity_tag": "Global Trust",
+        "celebrity_title": "PILIHAN SELEBRITI & PESOHOR DUNIA",
+        "celebrity_desc": "Stem cell dari apel Uttwiler Spatläuber telah digunakan oleh berbagai selebriti dan pesohor dunia seperti Jennifer Lopez, Victoria Beckham, Hellen Miren, dan Michelle Obama, untuk menjaga kecantikan mereka secara alami dan efektif."
+    },
+    "keunggulan": {
+        "badge": "Why Choose Us",
+        "title": "Keunggulan Produk & Layanan",
+        "subtitle": "Dukungan penuh untuk kesuksesan bisnis online Anda",
+        "item1_title": "PRODUK",
+        "item1_desc": "Kami menyediakan produk yang bisa kamu jual. Mulai dari produk-produk kecantikan, kesehatan, hingga weight management dengan kualitas premium yang sudah teruji klinis.",
+        "item1_feat1": "Kualitas Produk Premium",
+        "item1_feat2": "Berbagai Kategori Pilihan",
+        "item1_feat3": "Stok Selalu Tersedia",
+        "item2_title": "PROMOSI",
+        "item2_desc": "Kami menyediakan beberapa konten yang bisa digunakan untuk mempromosikan Produk kamu di social media. Reseller Bisnis Online BGS juga akan mendapatkan training digital marketing secara gratis untuk meningkatkan penjualan.",
+        "item2_feat1": "Konten Siap Pakai",
+        "item2_feat2": "Training Digital Marketing",
+        "item2_feat3": "Support Community",
+        "item3_title": "PENGIRIMAN",
+        "item3_desc": "Kamu cukup mengirimkan data pembeli kepada kami. Selebihnya kami yang akan mengurus sampai pesanan tiba di tangan pembeli. Tentunya barang akan dikirim atas nama kamu (Dropship System).",
+        "item3_feat1": "Operasional Kami Urus",
+        "item3_feat2": "Pengiriman Atas Nama Kamu",
+        "item3_feat3": "Pengiriman Seluruh Indonesia"
+    },
+    "business": {
+        "badge": "Peluang Bisnis",
+        "title": "BAGAIMANA MENGHASILKAN UANG MELALUI BISNIS ONLINE BGS?",
+        "subtitle": "Sistem bisnis yang adil dan menguntungkan untuk semua"
+    },
+    "benefits": {
+        "badge": "Benefits",
+        "title": "Keuntungan Bergabung Bersama Kami",
+        "subtitle": "Berbagai kemudahan dan potensi besar di depan mata Anda",
+        "item1_tag": "Low Risk",
+        "item1_title": "SIMPEL",
+        "item1_desc": "Kamu tidak perlu memiliki stok barang dan menyewa tempat untuk berjualan. Semua operasional dan ketersediaan barang kami yang kelola sepenuhnya.",
+        "item1_feat1": "Tanpa Sewa Gudang",
+        "item1_feat2": "Tanpa Stok Barang",
+        "item2_tag": "Big Opportunity",
+        "item2_title": "POTENSI PENGHASILAN TAK TERBATAS",
+        "item2_desc": "Dengan program referral, kamu berkesempatan untuk punya penghasilan puluhan juta hingga tak terbatas setiap bulan dan jalan-jalan gratis keluar negeri setiap tahun bagi reseller yang berprestasi.",
+        "item2_feat1": "Passive Income",
+        "item2_feat2": "Reward Trip Gratis",
+        "item3_tag": "Continuous Growth",
+        "item3_title": "INOVASI PRODUK",
+        "item3_desc": "Dunia bisnis online terus berkembang. Di sini reseller tidak perlu memikirkan biaya Research & Development (R&D) yang sangat besar karena produk baru yang unik dan inovatif kami yang sediakan secara rutin.",
+        "item3_feat1": "Produk Selalu Up-to-date",
+        "item3_feat2": "Free Research & Development"
+    },
+    "partner": {
+        "badge": "Mitra Kami",
+        "title": "PARTNER RESMI MIBELLE BIOCHEMISTRY SWISS",
+        "subtitle": "Kerjasama dengan berbagai pihak terpercaya",
+        "tag": "Strategic Partnership",
+        "desc": "Mibelle Biochemistry merupakan produsen suplemen makanan dan kosmetik terbesar di Switzerland yang didirikan sejak 1991 oleh Dr. Fred Zülli.",
+        "migros_desc": "Mibelle Biochemistry merupakan salah satu perusahaan milik MIGROS, Perusahaan Ritel Terbesar di Switzerland dan salah satu dari 40 Perusahaan Ritel Terbesar di Dunia."
+    },
+    "start": {
+        "badge": "Mulai Bisnis",
+        "title": "CARA MULAI JUALAN",
+        "subtitle": "Hanya butuh 3 langkah mudah untuk memulai bisnis sukses Anda hari ini",
+        "step1_title": "Registrasi",
+        "step1_desc": "Klik tombol di bawah ini untuk mengisi formulir pendaftaran akun reseller Anda secara gratis.",
+        "step2_title": "Pilih Lisensi",
+        "step2_desc": "Tentukan paket bisnis yang paling sesuai untuk Anda agar mendapatkan harga khusus reseller.",
+        "step3_title": "Mulai Jualan",
+        "step3_desc": "Akses alat promosi dan ikuti training digital marketing untuk mulai menghasilkan pendapatan.",
+        "cta": "Mulai Jualan Sekarang",
+        "cta_subtitle": "Siap untuk meraih sukses bersama ribuan reseller lainnya?"
+    },
+    "events": {
+        "badge": "Event",
+        "title": "EVENT TAHUNAN",
+        "subtitle": "Momen berharga dalam perjalanan sukses dan kebersamaan keluarga besar Biogreen Science",
+        "caption_title": "Biogreen Annual Grand Day",
+        "caption_desc": "Merayakan kesuksesan dan inspirasi tanpa batas"
+    },
+    "testimonials": {
+        "badge": "Top Leader",
+        "title": "TESTIMONI",
+        "subtitle": "Kisah sukses dan perjalanan inspiratif para Leader Biogreen Science"
+    },
+    "register": {
+        "badge": "Bergabung",
+        "title": "KLIK TOMBOL DIBAWAH INI UNTUK MENDAFTAR MENJADI RESELLER BISNIS ONLINE BGS!",
+        "subtitle": "MENJALANKAN BISNIS ONLINE BGS MEMBUAT ANDA BERGABUNG DENGAN +/- 160.000 RESELLER & KOMUNITAS YANG SIAP MEMBANTU ANDA SECARA OFFLINE MAUPUN ONLINE",
+        "silver": "Daftar Paket Silver",
+        "gold": "Daftar Paket Gold",
+        "platinum": "Daftar Paket Platinum",
+        "stardiamond": "Daftar Paket Star Diamond"
+    },
+    "footer": {
+        "about": "Pionir dalam menghadirkan solusi kesehatan dan kecantikan berbasis teknologi Stem Cell Apel Swiss. Kami berkomitmen memberdayakan individu melalui produk premium dan peluang bisnis digital yang inovatif.",
+        "menu_title": "Menu Utama",
+        "products_title": "Produk Unggulan",
+        "contact_title": "Hubungi Kami",
+        "office": "Kantor Pusat:",
+        "address": "Gedung Biogreen Science, Jakarta Selatan, Indonesia",
+        "wa_support": "WhatsApp Support:",
+        "email_official": "Email Official:",
+        "all_rights": "Semua hak dilindungi",
+        "privacy": "Kebijakan Privasi",
+        "terms": "Syarat & Ketentuan"
+    },
+    "common": {
+        "loading": "Memuat...",
+        "sending": "Mengirim...",
+        "error": "Terjadi kesalahan",
+        "success": "Pendaftaran berhasil! Tim kami akan segera menghubungi Anda.",
+        "failed": "Gagal",
+        "verified": "Terverifikasi",
+        "certified": "Tersertifikasi",
+        "member": "Anggota",
+        "registered": "Terdaftar"
+    },
+    "product_names": {
+        "nad_boost": "Bio NAD+ Boost",
+        "applesc_plus": "AppleSC Plus",
+        "sc_mild": "Bio SC Mild",
+        "sc_mild_capsule": "Bio Mild Capsule",
+        "sc_gold": "Bio SC Gold",
+        "inflavia": "Bio Inflavia",
+        "rawgenic": "Bio Rawgenic",
+        "collagen": "Bio Collagen",
+        "fiber": "Bio Fiber",
+        "protein": "Bio Protein"
+    },
+    "product_details": {
+        "bionadboost": {
+            "desc": "Suplemen kesehatan untuk perbaikan DNA melalui peningkatan volume NAD+ dan energi sel untuk aktivasi proses peremajaan tubuh dengan mencegah kerusakan dan penuaan DNA.",
+            "b1": "Memperbaiki DNA",
+            "b2": "Pembalikan Usia Organ Tubuh",
+            "b3": "Meningkatkan Energi Selular"
+        },
+        "applescplus": {
+            "desc": "Biogreen Science memiliki produk terbaru dan lebih baik dari pendahulunya untuk membantu melawan penuaan dini dan menjaga kesehatan, yaitu Applesc Plus. Applesc Plus sekarang memiliki delapan bahan aktif: PhytoCellTec™ Malus Domestica, PhytoCellTec™ Solar Vitis, L-Glutathione, Ascorbic Acid, New Collagen (CollactiveTM), Stevia, Snow Algae NU dan ViquaTM.",
+            "b1": "Membantu Meregenerasi Sel",
+            "b2": "Melindungi Stem Cells dari Kerusakan",
+            "b3": "Anti-Aging",
+            "b4": "Anti Radiasi UV & Polusi",
+            "b5": "Meningkatkan Kadar Anti Oksidan",
+            "b6": "Menangkal Radikal Bebas",
+            "b7": "Triple Peptide Protection",
+            "b8": "Mencerahkan Kulit"
+        },
+        "applesc": {
+            "desc": "Ditemukan oleh ilmuwan pada tahun 2003, para ilmuwan menemukan sebuah pohon apel unik di tengah hutan Alpen Swiss yang memiliki khasiat penyembuhan diri yang menakjubkan. PhytoCellTecTM Malus Domestica membantu meregenerasi sel dan melindungi stem cells dari kerusakan.",
+            "b1": "Membantu Meregenerasi Sel",
+            "b2": "Melindungi Stem Cells dari Kerusakan",
+            "b3": "Anti-Aging",
+            "b4": "Anti Radiasi UV & Polusi",
+            "b5": "Meningkatkan Kadar Anti Oksidan",
+            "b6": "Mencerahkan Kulit"
+        },
+        "bioscmild": {
+            "desc": "Bio SC Mild adalah produk yang menggunakan 2 bahan aktif yaitu Ashwagandha terbaik di dunia (KSM-66®) dan patented Macca. Membantu menjaga keseimbangan tubuh dan meningkatkan stamina.",
+            "b1": "Meningkatkan Fungsi Seksual",
+            "b2": "Meningkatkan Daya Ingat",
+            "b3": "Menjaga Keseimbangan Tubuh",
+            "b4": "Meningkatkan Kinerja Olahraga",
+            "b5": "Antioksidan Alami"
+        },
+        "biomildcapsule": {
+            "desc": "Bio Mild Capsule mengandung Ashwagandha (KSM-66®) dan Macca untuk membantu menurunkan tingkat stres, meningkatkan fokus, dan menjaga vitalitas tubuh.",
+            "b1": "Menurunkan Tingkat Stres",
+            "b2": "Meningkatkan Fungsi Seksual",
+            "b3": "Meningkatkan Daya Ingat",
+            "b4": "Meningkatkan Fokus",
+            "b5": "Menjaga Vitalitas",
+            "b6": "Antioksidan Alami"
+        },
+        "bioscgold": {
+            "desc": "Bio SC GOLD mengandung ekstrak ginseng dan PhytoCellTec™ Malus Domestica untuk membantu meningkatkan stamina pria, energi, dan menjaga kesehatan reproduksi.",
+            "b1": "Meningkatkan Stamina Pria",
+            "b2": "Menambah Energi",
+            "b3": "Mencegah Kanker",
+            "b4": "Meningkatkan Kinerja Otak",
+            "b5": "Meningkatkan Kekebalan Tubuh"
+        },
+        "bioinflavia": {
+            "desc": "Tercipta dari pilihan rempah-rempah terbaik asli Indonesia yang membantu tubuh menghadang berbagai masalah kesehatan yang dipicu oleh inflamasi.",
+            "b1": "Meningkatkan Imunitas",
+            "b2": "Memelihara Kesehatan Tubuh",
+            "b3": "Meredakan Inflamasi",
+            "b4": "Melindungi dari Virus"
+        },
+        "biorawgenic": {
+            "desc": "Bio-Rawgenic adalah solusi Weight Management alami yang kaya protein, serat, vitamin dan mineral untuk membantu mencapai berat badan ideal.",
+            "b1": "Mengikat Lemak 5x Lebih Efektif",
+            "b2": "Membantu Penurunan Berat Badan",
+            "b3": "Meningkatkan Imunitas",
+            "b4": "Meningkatkan Metabolisme",
+            "b5": "Memperbaiki Kolesterol",
+            "b6": "Menurunkan LDL",
+            "b7": "Antioksidan Alami"
+        },
+        "beauty2": {
+            "desc": "Kolagen premium untuk menjaga elastisitas kulit, kelembaban, dan mencegah penuaan dini secara alami.",
+            "b1": "Elastisitas Kulit",
+            "b2": "Kelembaban Terjaga",
+            "b3": "Anti-Aging"
+        },
+        "nutrition1": {
+            "desc": "Suplemen serat tinggi untuk mendukung kesehatan pencernaan, metabolisme optimal, dan detoksifikasi alami.",
+            "b1": "Pencernaan Lancar",
+            "b2": "Metabolisme Optimal",
+            "b3": "Detoksifikasi Alami"
+        },
+        "nutrition2": {
+            "desc": "Protein berkualitas tinggi untuk pembentukan massa otot, recovery cepat, dan performa fisik yang optimal.",
+            "b1": "Massa Otot",
+            "b2": "Recovery Cepat",
+            "b3": "Performa Optimal"
+        }
+    }
+}

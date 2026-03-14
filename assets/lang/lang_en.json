@@ -1,0 +1,359 @@
+{
+    "meta": {
+        "lang_code": "en",
+        "lang_name": "English",
+        "lang_flag": "🇬🇧"
+    },
+    "nav": {
+        "home": "Home",
+        "about": "Profile",
+        "products": "Products",
+        "business": "Business",
+        "media": "Media",
+        "register": "Register",
+        "join": "Join Now"
+    },
+    "banner": {
+        "badge": "Premium Quality Products",
+        "title": "Healthy, Beautiful & Successful with BisnisonlineBGS",
+        "subtitle": "Achieve optimal health with high-quality Apple Stemcell products and build a successful business with us",
+        "cta_primary": "Join Now",
+        "cta_secondary": "View Products",
+        "scroll": "Scroll to see more",
+        "stats": {
+            "members": "Active Members",
+            "cities": "Cities",
+            "years": "Years"
+        }
+    },
+    "profile": {
+        "badge": "About Us",
+        "title": "Company Profile",
+        "subtitle": "Get to know Biogreen Science and our journey",
+        "video_watch": "WATCH THE VIDEO BELOW",
+        "company_video": "COMPANY PROFILE",
+        "video_unsupported": "Your browser does not support the video tag.",
+        "office_label": "Our Head Office",
+        "office_name": "Biogreen Science Indonesia",
+        "office_location": "Jakarta, Indonesia",
+        "office_alt": "Biogreen Science Office",
+        "company_name": "PT. Bisnisonline BGS Indonesia",
+        "tagline": "Building Health and Success Together",
+        "description": "BisnisonlineBGS is a company engaged in health and beauty with Apple Stemcell as our flagship product. Founded with a vision to provide the best health solutions while opening profitable business opportunities for all people.",
+        "experience": "Years of Experience",
+        "feature1": "BPOM Quality Products",
+        "feature2": "Halal MUI Certified",
+        "feature3": "National Network",
+        "feature4": "Complete Support System",
+        "vision_title": "Our Vision",
+        "vision": "To become the leading health and beauty company in Indonesia that provides positive impact for society through quality products and fair business opportunities.",
+        "mission_title": "Our Mission",
+        "mission": "To provide high-quality health and beauty products, empower communities through transparent business systems, and contribute to social welfare."
+    },
+    "management": {
+        "badge": "Leadership",
+        "title": "Top Management",
+        "subtitle": "Visionary leaders behind Biogreen Science's success",
+        "role_founder": "Founder",
+        "role_ceo": "CEO",
+        "role_advisor": "Advisor",
+        "larry_role": "Founder of Biogreen Science",
+        "larry_desc": "Mr. Larry is a young entrepreneur who has founded many companies before the age of 30. Besides Biogreen Science, KOTA Cinema Mall is also one of his businesses with managed assets of 1.4 Trillion Rupiah.",
+        "larry_stat1_label": "Business Locations",
+        "larry_stat2_label": "Managed Assets",
+        "ferry_role": "CEO of Biogreen Science",
+        "ferry_desc": "In his 20-year career, persistence and adaptability allowed Mr. Ferry to hold Top Management positions at several of the largest companies in Indonesia before joining Biogreen Science.",
+        "ferry_stat1_label": "Career Years",
+        "ferry_stat2_label": "Management",
+        "richard_role": "Advisor of Biogreen Science",
+        "richard_desc": "Has expertise in many fields of Biology: Molecular Biology, Virology, Biodefense, Bioinformatics, Food Technology, Nutrition, Health and Anti-Aging with international experience.",
+        "richard_stat1_label": "Countries",
+        "richard_stat2_label": "Qualification"
+    },
+    "legal": {
+        "badge": "Legal",
+        "title": "Licenses & Certifications",
+        "subtitle": "Complete legality for your safety and trust",
+        "siup_title": "SIUP KBLI47999",
+        "siup_desc": "Trading Business License",
+        "iso_title": "ISO 9001:2015",
+        "iso_desc": "International Quality Management Standard",
+        "apli_title": "APLI Member",
+        "apli_desc": "Indonesian Direct Selling Association",
+        "apski_title": "APSKI Member",
+        "apski_desc": "Indonesian Health Supplement Entrepreneurs Association",
+        "pse_title": "PSE Registered",
+        "pse_desc": "Electronic System Provider"
+    },
+    "awards": {
+        "badge": "Achievements",
+        "title": "Awards",
+        "subtitle": "Recognition of our dedication and best quality",
+        "award1_title": "APLI Awards 2020",
+        "award1_cat": "Entrepreneurship Of The Year",
+        "award2_title": "Best Nourishing Health Supplement",
+        "award2_cat": "Asia Halal Brand Award",
+        "award3_title": "Best Quality Product & Customer Satisfaction",
+        "award3_cat": "Trusted Of Quality Award"
+    },
+    "charity": {
+        "badge": "CSR",
+        "title": "Charity Activities",
+        "subtitle": "Sharing goodness for the Indonesian people",
+        "stat1_label": "Beneficiaries",
+        "stat2_label": "Activities/Year",
+        "stat3_label": "Cities in Indonesia",
+        "stat4_label": "Dedication",
+        "gallery_alt": "Biogreen Charity Activity"
+    },
+    "products": {
+        "badge": "Our Products",
+        "title": "Product Catalog",
+        "subtitle": "High quality products for your health and beauty",
+        "cat_health": "Health & Wellness",
+        "cat_weight": "Weight Management",
+        "cat_beauty": "Beauty & Skincare",
+        "cat_nutrition": "Nutrition",
+        "best_seller": "Best Seller",
+        "new": "New",
+        "premium": "Premium",
+        "view_detail": "View Detail",
+        "order_now": "Order Now",
+        "back": "Back",
+        "main_benefits": "Key Benefits"
+    },
+    "applesc": {
+        "badge": "Stem Cell Technology",
+        "title": "Apple Stemcell",
+        "subtitle": "From Rare Swiss Apple for Cell Regeneration",
+        "uttwiler_title": "Uttwiler Spatläuber",
+        "uttwiler_desc": "Created from Uttwiler Spatläuber, a unique Swiss apple variety that has high vitality and can stay fresh for months after being picked from the tree. The extraordinary benefits of Uttwiler Spatläuber make this apple special, making it a rare and protected species, even Switzerland created a special stamp featuring the Uttwiler Spatläuber.",
+        "clinical_title": "PhytoCellTec™ & Clinical Test",
+        "clinical_desc": "Apple Stemcell Uttwiler Spatläuber is only developed by Mibelle Biochemistry because it has the best specialization in processing stem cells using an innovative technology called Phytocelltec™. Clinical tests related to the benefits of PhytoCellTec™ Malus Domestica were carried out by researchers experienced in stem cell development.",
+        "patent_tag": "Scientific Authentication",
+        "patent_title": "EXCLUSIVE BLEND FUNCTION PATENT",
+        "patent_subtitle": "APPLESC ACTIVE INGREDIENTS",
+        "patent_list1": "Helps Regenerate Cells",
+        "patent_list2": "Protects Stem Cells from Damage",
+        "patent_list3": "Anti-Aging",
+        "patent_list4": "Anti-radiation caused by UV and air pollution",
+        "patent_list5": "Increase Anti-Oxidant Levels in the body",
+        "patent_list6": "Contains Anti-Oxidant Composition to Neutralize Free Radicals",
+        "patent_list7": "Triple Peptide Containing 3 Amino Acids for Detoxification",
+        "patent_list8": "Agent to Protect Skin from Pigmentation and Brighten Skin",
+        "celebrity_tag": "Global Trust",
+        "celebrity_title": "CHOICE OF CELEBRITIES & GLOBAL FIGURES",
+        "celebrity_desc": "Stem cells from the Uttwiler Spatläuber apple have been used by various global celebrities and figures such as Jennifer Lopez, Victoria Beckham, Hellen Miren, and Michelle Obama, to maintain their beauty naturally and effectively."
+    },
+    "keunggulan": {
+        "badge": "Why Choose Us",
+        "title": "Advantages of Products & Services",
+        "subtitle": "Full support for your online business success",
+        "item1_title": "PRODUCTS",
+        "item1_desc": "We provide products you can sell. Starting from beauty products, health, to weight management with premium quality that is clinically tested.",
+        "item1_feat1": "Premium Product Quality",
+        "item1_feat2": "Various Category Options",
+        "item1_feat3": "Stock Always Available",
+        "item2_title": "PROMOTION",
+        "item2_desc": "We provide various contents that can be used to promote your products on social media. BisnisonlineBGS resellers will also get free digital marketing training to increase sales.",
+        "item2_feat1": "Ready-to-use Content",
+        "item2_feat2": "Digital Marketing Training",
+        "item2_feat3": "Support Community",
+        "item3_title": "SHIPPING",
+        "item3_desc": "You just need to send buyer data to us. We will handle the rest until the order arrives. Of course, items will be sent on your behalf (Dropship System).",
+        "item3_feat1": "Operational Handled By Us",
+        "item3_feat2": "Shipping On Your Behalf",
+        "item3_feat3": "Nationwide Shipping"
+    },
+    "business": {
+        "badge": "Business Opportunity",
+        "title": "HOW TO MAKE MONEY THROUGH BGS ONLINE BUSINESS?",
+        "subtitle": "A fair and profitable business system for everyone"
+    },
+    "benefits": {
+        "badge": "Benefits",
+        "title": "Benefits of Joining Us",
+        "subtitle": "Various conveniences and great potential before your eyes",
+        "item1_tag": "Low Risk",
+        "item1_title": "SIMPLE",
+        "item1_desc": "You don't need to have stock or rent a place to sell. All operations and product availability are fully managed by us.",
+        "item1_feat1": "No Warehouse Rent",
+        "item1_feat2": "No Product Stock",
+        "item2_tag": "Big Opportunity",
+        "item2_title": "UNLIMITED INCOME POTENTIAL",
+        "item2_desc": "With the referral program, you have the opportunity to earn tens of millions to unlimited every month and free international trips every year for high-achieving resellers.",
+        "item2_feat1": "Passive Income",
+        "item2_feat2": "Free Reward Trip",
+        "item3_tag": "Continuous Growth",
+        "item3_title": "PRODUCT INNOVATION",
+        "item3_desc": "The online business world continues to evolve. Here, resellers don't need to worry about huge Research & Development (R&D) costs because we regularly provide new unique and innovative products.",
+        "item3_feat1": "Always Up-to-date Products",
+        "item3_feat2": "Free Research & Development"
+    },
+    "partner": {
+        "badge": "Our Partners",
+        "title": "OFFICIAL PARTNER MIBELLE BIOCHEMISTRY SWITZERLAND",
+        "subtitle": "Collaboration with various trusted parties",
+        "tag": "Strategic Partnership",
+        "desc": "Mibelle Biochemistry is the largest food supplement and cosmetic manufacturer in Switzerland, founded in 1991 by Dr. Fred Zülli.",
+        "migros_desc": "Mibelle Biochemistry is a subsidiary of MIGROS, the largest retail company in Switzerland and one of the 40 largest retail companies in the world."
+    },
+    "start": {
+        "badge": "Start Business",
+        "title": "HOW TO START SELLING",
+        "subtitle": "Only needs 3 easy steps to start your successful business today",
+        "step1_title": "Registration",
+        "step1_desc": "Click the button below to fill out the free reseller account registration form.",
+        "step2_title": "Choose License",
+        "step2_desc": "Determine the business package that suits you best to get special reseller prices.",
+        "step3_title": "Start Selling",
+        "step3_desc": "Access promotion tools and follow digital marketing training to start generating income.",
+        "cta": "Start Selling Now",
+        "cta_subtitle": "Ready to achieve success with thousands of other resellers?"
+    },
+    "events": {
+        "badge": "Event",
+        "title": "ANNUAL EVENTS",
+        "subtitle": "Precious moments in the journey of success and togetherness of the Biogreen Science family",
+        "caption_title": "Biogreen Annual Grand Day",
+        "caption_desc": "Celebrating success and inspiration without limits"
+    },
+    "testimonials": {
+        "badge": "Top Leader",
+        "title": "TESTIMONIALS",
+        "subtitle": "Real success stories and inspiring journeys of Biogreen Science Leaders"
+    },
+    "register": {
+        "badge": "Join Us",
+        "title": "CLICK THE BUTTON BELOW TO REGISTER AS A BGS ONLINE BUSINESS RESELLER!",
+        "subtitle": "RUNNING BGS ONLINE BUSINESS MAKES YOU JOIN +/- 160,000 RESELLERS & COMMUNITIES READY TO HELP YOU OFFLINE AND ONLINE",
+        "silver": "Register Silver Package",
+        "gold": "Register Gold Package",
+        "platinum": "Register Platinum Package",
+        "stardiamond": "Register Star Diamond Package"
+    },
+    "footer": {
+        "about": "Pioneer in presenting health and beauty solutions based on Swiss Apple Stem Cell technology. We are committed to empowering individuals through premium products and innovative digital business opportunities.",
+        "menu_title": "Main Menu",
+        "products_title": "Featured Products",
+        "contact_title": "Contact Us",
+        "office": "Head Office:",
+        "address": "Biogreen Science Building, South Jakarta, Indonesia",
+        "wa_support": "WhatsApp Support:",
+        "email_official": "Official Email:",
+        "all_rights": "All rights reserved",
+        "privacy": "Privacy Policy",
+        "terms": "Terms of Service"
+    },
+    "common": {
+        "loading": "Loading...",
+        "sending": "Sending...",
+        "error": "An error occurred",
+        "success": "Registration successful! Our team will contact you shortly.",
+        "failed": "Failed",
+        "verified": "Verified",
+        "certified": "Certified",
+        "member": "Member",
+        "registered": "Registered"
+    },
+    "product_names": {
+        "nad_boost": "Bio NAD+ Boost",
+        "applesc_plus": "AppleSC Plus",
+        "sc_mild": "Bio SC Mild",
+        "sc_mild_capsule": "Bio Mild Capsule",
+        "sc_gold": "Bio SC Gold",
+        "inflavia": "Bio Inflavia",
+        "rawgenic": "Bio Rawgenic",
+        "collagen": "Bio Collagen",
+        "fiber": "Bio Fiber",
+        "protein": "Bio Protein"
+    },
+    "product_details": {
+        "bionadboost": {
+            "desc": "A health supplement for DNA repair by increasing NAD+ volume and cellular energy to activate the body's rejuvenation process by preventing DNA damage and aging.",
+            "b1": "DNA Repair",
+            "b2": "Organ Age Reversal",
+            "b3": "Boost Cellular Energy"
+        },
+        "applescplus": {
+            "desc": "Biogreen Science features its latest and improved product to help fight premature aging and maintain health. Applesc Plus now contains eight active ingredients including PhytoCellTec™ Malus Domestica and Solar Vitis.",
+            "b1": "Cell Regeneration",
+            "b2": "Protect Stem Cells",
+            "b3": "Anti-Aging",
+            "b4": "UV & Pollution Protection",
+            "b5": "Increase Antioxidants",
+            "b6": "Fight Free Radicals",
+            "b7": "Triple Peptide Protection",
+            "b8": "Skin Brightening"
+        },
+        "applesc": {
+            "desc": "Discovered in 2003, scientists found a unique apple tree in the Swiss Alps with amazing self-healing properties. PhytoCellTecTM Malus Domestica helps regenerate cells and protect stem cells from damage.",
+            "b1": "Cell Regeneration",
+            "b2": "Protect Stem Cells",
+            "b3": "Anti-Aging",
+            "b4": "UV & Pollution Protection",
+            "b5": "Increase Antioxidants",
+            "b6": "Skin Brightening"
+        },
+        "bioscmild": {
+            "desc": "Bio SC Mild utilizes Ashwagandha (KSM-66®) and patented Macca. Helps maintain body balance and improve stamina for both men and women.",
+            "b1": "Improve Sexual Function",
+            "b2": "Enhance Memory",
+            "b3": "Maintain Body Balance",
+            "b4": "Improve Athletic Performance",
+            "b5": "Natural Antioxidant"
+        },
+        "biomildcapsule": {
+            "desc": "Bio Mild Capsule contains Ashwagandha (KSM-66®) and Macca to help lower stress levels, improve focus, and maintain body vitality.",
+            "b1": "Reduced Stress Levels",
+            "b2": "Improve Sexual Function",
+            "b3": "Enhance Memory",
+            "b4": "Improved Focus",
+            "b5": "Maintain Vitality",
+            "b6": "Natural Antioxidant"
+        },
+        "bioscgold": {
+            "desc": "Bio SC GOLD contains ginseng extract and PhytoCellTec™ Malus Domestica to help boost male stamina, energy, and maintain reproductive health.",
+            "b1": "Boost Male Stamina",
+            "b2": "Increase Energy",
+            "b3": "Cancer Prevention",
+            "b4": "Enhance Brain Function",
+            "b5": "Boost Immune System"
+        },
+        "bioinflavia": {
+            "desc": "Created from a selection of Indonesia's finest spices to help the body combat various health issues triggered by inflammation.",
+            "b1": "Boost Immunity",
+            "b2": "Maintain General Health",
+            "b3": "Relieve Inflammation",
+            "b4": "Protect from Viruses"
+        },
+        "biorawgenic": {
+            "desc": "Bio-Rawgenic is a natural Weight Management solution rich in protein, fiber, vitamins, and minerals to help achieve your ideal weight.",
+            "b1": "Bind Fat 5x More Effectively",
+            "b2": "Weight Loss Support",
+            "b3": "Boost Immunity",
+            "b4": "Improve Metabolism",
+            "b5": "Improve Cholesterol Levels",
+            "b6": "Lower LDL",
+            "b7": "Natural Antioxidant"
+        },
+        "beauty2": {
+            "desc": "Premium collagen to maintain skin elasticity, moisture, and prevent natural signs of aging.",
+            "b1": "Skin Elasticity",
+            "b2": "Moisture Retention",
+            "b3": "Anti-Aging"
+        },
+        "nutrition1": {
+            "desc": "High fiber supplement to support digestive health, optimal metabolism, and natural detoxification.",
+            "b1": "Healthy Digestion",
+            "b2": "Optimal Metabolism",
+            "b3": "Natural Detox"
+        },
+        "nutrition2": {
+            "desc": "High-quality protein for muscle formation, rapid recovery, and optimal physical performance.",
+            "b1": "Muscle Development",
+            "b2": "Rapid Recovery",
+            "b3": "Optimal Performance"
+        }
+    }
+}

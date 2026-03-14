@@ -1,0 +1,833 @@
+/**
+ * BisnisonlineBGS - Tablet CSS
+ * Styles untuk device dengan lebar 768px - 1024px
+ */
+
+/* ========================================
+   TABLET SPECIFIC VARIABLES
+======================================== */
+:root {
+    --header-height-tablet: 70px;
+    --navbar-height-tablet: 60px;
+}
+
+/* ========================================
+   TYPOGRAPHY - TABLET
+======================================== */
+h1 { font-size: 2.25rem; }
+h2 { font-size: 1.875rem; }
+h3 { font-size: 1.5rem; }
+h4 { font-size: 1.25rem; }
+h5 { font-size: 1.125rem; }
+h6 { font-size: 1rem; }
+
+body {
+    font-size: 1rem;
+}
+
+/* ========================================
+   HEADER - TABLET
+======================================== */
+.site-header {
+    padding: var(--spacing-sm) 0;
+}
+
+.header-top {
+    flex-wrap: nowrap;
+}
+
+.header-contact {
+    gap: var(--spacing-md);
+}
+
+.header-contact a {
+    font-size: 0.875rem;
+}
+
+.header-social a {
+    width: 30px;
+    height: 30px;
+}
+
+.lang-switcher .btn-lang {
+    padding: 4px 10px;
+    font-size: 0.8125rem;
+}
+
+/* ========================================
+   NAVBAR - TABLET
+======================================== */
+/* Brand Logo */
+.brand-logo img {
+    height: 28px;
+}
+
+.site-navbar.navbar-scrolled .brand-logo img {
+    height: 32px;
+}
+
+/* Navigation Links */
+.navbar-nav .nav-link {
+    padding: var(--spacing-sm) var(--spacing-md);
+    font-size: 0.875rem;
+}
+
+/* Tablet specific - collapse menu at 992px */
+@media (max-width: 991px) {
+    .navbar-collapse {
+        position: absolute;
+        top: 100%;
+        left: 0;
+        right: 0;
+        background: var(--white);
+        box-shadow: 0 10px 40px rgba(0, 0, 0, 0.15);
+        border-radius: 0 0 var(--border-radius-xl) var(--border-radius-xl);
+        padding: var(--spacing-lg);
+        max-height: 75vh;
+        overflow-y: auto;
+    }
+    
+    .navbar-nav .nav-link {
+        padding: var(--spacing-md);
+        font-size: 1rem;
+        border-radius: var(--border-radius-lg);
+    }
+    
+    .navbar-nav .nav-link .nav-icon {
+        display: inline-flex;
+        width: 40px;
+        height: 40px;
+        align-items: center;
+        justify-content: center;
+        background: var(--gray-100);
+        border-radius: var(--border-radius);
+        margin-right: var(--spacing-sm);
+    }
+    
+    .navbar-nav .nav-link::before {
+        display: none;
+    }
+    
+    .navbar-nav .nav-link.active .nav-icon {
+        background: var(--primary-color);
+        color: var(--white);
+    }
+    
+    .navbar-actions {
+        flex-direction: row;
+        justify-content: space-between;
+        margin-top: var(--spacing-lg);
+        padding-top: var(--spacing-lg);
+        border-top: 1px solid var(--gray-200);
+    }
+    
+    .btn-cta-modern {
+        flex: 1;
+        justify-content: center;
+    }
+}
+
+/* ========================================
+   BANNER SECTION - TABLET
+======================================== */
+.section-banner {
+    min-height: 100vh;
+}
+
+.banner-picture {
+    height: 100vh;
+}
+
+/* ========================================
+   SECTIONS - TABLET
+======================================== */
+.section {
+    padding: var(--spacing-xxl) 0;
+}
+
+.section-title h2 {
+    font-size: 1.875rem;
+}
+
+.section-subtitle {
+    font-size: 1rem;
+}
+
+/* ========================================
+   PROFILE SECTION - TABLET
+======================================== */
+.profile-image-wrapper .experience-badge {
+    bottom: -15px;
+    right: -15px;
+}
+
+/* ========================================
+   MANAGEMENT SECTION - TABLET
+======================================== */
+.management-image {
+    height: 250px;
+}
+
+/* ========================================
+   LEGAL SECTION - TABLET
+======================================== */
+.legal-card {
+    padding: var(--spacing-lg);
+}
+
+/* ========================================
+   AWARDS SECTION - TABLET
+======================================== */
+.award-card {
+    padding: var(--spacing-lg);
+}
+
+/* ========================================
+   PRODUCT SECTION - TABLET
+======================================== */
+.product-image img {
+    max-height: 180px;
+}
+
+/* ========================================
+   ADVANTAGE SECTION - TABLET
+======================================== */
+.advantage-card {
+    padding: var(--spacing-lg);
+}
+
+/* ========================================
+   BENEFIT SECTION - TABLET
+======================================== */
+.benefit-card {
+    padding: var(--spacing-lg);
+}
+
+/* ========================================
+   PARTNER SECTION - TABLET
+======================================== */
+.partner-logo {
+    height: 90px;
+}
+
+/* ========================================
+   START BUSINESS SECTION - TABLET
+======================================== */
+.step-card {
+    padding: var(--spacing-lg);
+}
+
+/* ========================================
+   EVENT SECTION - TABLET
+======================================== */
+.event-card.featured .event-image {
+    height: 250px;
+}
+
+.event-card .event-image {
+    height: 180px;
+}
+
+/* ========================================
+   TESTIMONIAL SECTION - TABLET
+======================================== */
+.testimonial-card {
+    padding: var(--spacing-lg);
+}
+
+/* ========================================
+   REGISTRATION SECTION - TABLET
+======================================== */
+.section-mulai-gabung {
+    padding: var(--spacing-xxl) 0;
+}
+
+.register-form-card {
+    padding: var(--spacing-xl);
+}
+
+/* ========================================
+   GRID LAYOUTS - TABLET
+======================================== */
+/* 2 columns for services on tablet */
+.services-grid .col-lg-4 {
+    flex: 0 0 50%;
+    max-width: 50%;
+}
+
+/* 2 columns for features on tablet */
+.features-grid .col-lg-6 {
+    flex: 0 0 100%;
+    max-width: 100%;
+}
+
+/* ========================================
+   CARDS - TABLET
+======================================== */
+.card {
+    margin-bottom: var(--spacing-lg);
+}
+
+.card-img-top {
+    height: 180px;
+}
+
+.service-card {
+    padding: var(--spacing-lg);
+}
+
+.service-icon {
+    width: 70px;
+    height: 70px;
+    font-size: 1.75rem;
+}
+
+/* ========================================
+   FEATURES - TABLET
+======================================== */
+.feature-item {
+    gap: var(--spacing-md);
+}
+
+.feature-icon {
+    width: 55px;
+    height: 55px;
+    font-size: 1.375rem;
+}
+
+/* ========================================
+   TESTIMONIALS - TABLET
+======================================== */
+.testimonial-text {
+    font-size: 1rem;
+}
+
+/* ========================================
+   CTA SECTION - TABLET
+======================================== */
+.cta-section {
+    padding: var(--spacing-xxl) 0;
+}
+
+.cta-section h2 {
+    font-size: 1.875rem;
+}
+
+/* ========================================
+   FOOTER - TABLET
+======================================== */
+.site-footer {
+    padding-top: var(--spacing-xxl);
+}
+
+/* 2 columns footer on tablet */
+.footer-widgets .col-lg-3 {
+    flex: 0 0 50%;
+    max-width: 50%;
+    margin-bottom: var(--spacing-lg);
+}
+
+.footer-brand img {
+    max-height: 45px;
+}
+
+.footer-title {
+    font-size: 1.125rem;
+}
+
+.footer-social a {
+    width: 38px;
+    height: 38px;
+}
+
+.footer-bottom {
+    padding: var(--spacing-md) 0;
+}
+
+/* ========================================
+   BACK TO TOP - TABLET
+======================================== */
+.btn-back-to-top {
+    bottom: 25px;
+    right: 25px;
+    width: 45px;
+    height: 45px;
+}
+
+/* ========================================
+   404 PAGE - TABLET
+======================================== */
+.error-page {
+    min-height: 55vh;
+}
+
+.error-code {
+    font-size: 6rem;
+}
+
+.error-message {
+    font-size: 1.125rem;
+}
+
+/* ========================================
+   ABOUT PAGE - TABLET
+======================================== */
+.about-section .row {
+    align-items: center;
+}
+
+.about-image {
+    margin-bottom: var(--spacing-lg);
+}
+
+.stats-row {
+    flex-wrap: wrap;
+}
+
+.stats-item {
+    flex: 0 0 50%;
+    max-width: 50%;
+    padding: var(--spacing-md);
+}
+
+.stats-number {
+    font-size: 2.5rem;
+}
+
+/* ========================================
+   FORMS - TABLET
+======================================== */
+.form-row {
+    display: flex;
+    gap: var(--spacing-md);
+}
+
+.form-row .form-group {
+    flex: 1;
+}
+
+.btn-lg {
+    padding: var(--spacing-md) var(--spacing-xl);
+}
+
+/* ========================================
+   CONTACT PAGE - TABLET
+======================================== */
+.contact-info-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: var(--spacing-lg);
+}
+
+.map-container {
+    height: 350px;
+}
+
+/* ========================================
+   PORTFOLIO - TABLET
+======================================== */
+.portfolio-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: var(--spacing-lg);
+}
+
+.portfolio-item {
+    margin-bottom: 0;
+}
+
+/* ========================================
+   BLOG - TABLET
+======================================== */
+.blog-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: var(--spacing-lg);
+}
+
+.blog-sidebar {
+    margin-top: var(--spacing-xl);
+}
+
+/* ========================================
+   UTILITIES - TABLET
+======================================== */
+.container {
+    max-width: 720px;
+    padding-left: var(--spacing-lg);
+    padding-right: var(--spacing-lg);
+}
+
+/* Hide on tablet */
+.hide-tablet {
+    display: none !important;
+}
+
+/* Show only on tablet */
+.show-tablet {
+    display: block !important;
+}
+
+/* Text alignment tablet */
+.text-center-tablet {
+    text-align: center !important;
+}
+
+.text-left-tablet {
+    text-align: left !important;
+}
+
+/* Spacing adjustments */
+.py-tablet-lg { padding-top: var(--spacing-lg) !important; padding-bottom: var(--spacing-lg) !important; }
+.py-tablet-xl { padding-top: var(--spacing-xl) !important; padding-bottom: var(--spacing-xl) !important; }
+.my-tablet-lg { margin-top: var(--spacing-lg) !important; margin-bottom: var(--spacing-lg) !important; }
+
+/* ========================================
+   BREADCRUMB - TABLET
+======================================== */
+.breadcrumb {
+    font-size: 0.875rem;
+    padding: var(--spacing-md) 0;
+}
+
+/* ========================================
+   MODAL - TABLET
+======================================== */
+.modal-dialog {
+    max-width: 600px;
+    margin: var(--spacing-xl) auto;
+}
+
+.modal-body {
+    padding: var(--spacing-lg);
+}
+
+/* ========================================
+   PRICING TABLE - TABLET
+======================================== */
+.pricing-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: var(--spacing-lg);
+}
+
+.pricing-card {
+    margin-bottom: 0;
+}
+
+.pricing-card.featured {
+    transform: scale(1.02);
+}
+
+/* ========================================
+   TEAM SECTION - TABLET
+======================================== */
+.team-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: var(--spacing-lg);
+}
+
+.team-member {
+    margin-bottom: 0;
+}
+
+/* ========================================
+   FAQ SECTION - TABLET
+======================================== */
+.faq-section .accordion-button {
+    font-size: 1rem;
+    padding: var(--spacing-md) var(--spacing-lg);
+}
+
+.faq-section .accordion-body {
+    padding: var(--spacing-md) var(--spacing-lg);
+}
+
+/* ========================================
+   LANDSCAPE ORIENTATION ADJUSTMENTS
+======================================== */
+@media (orientation: landscape) and (max-height: 600px) {
+    .section-banner {
+        min-height: 100vh;
+    }
+    
+    .banner-picture {
+        height: 100vh;
+    }
+    
+    .section {
+        padding: var(--spacing-lg) 0;
+    }
+}
+
+/* ========================================
+   HIGH DPI TABLET ADJUSTMENTS
+======================================== */
+@media (-webkit-min-device-pixel-ratio: 2), (min-resolution: 192dpi) {
+    .service-icon,
+    .feature-icon {
+        image-rendering: -webkit-optimize-contrast;
+    }
+}
+
+/* ========================================
+   TOUCH OPTIMIZATIONS - TABLET
+======================================== */
+.nav-link,
+.btn,
+a {
+    min-height: 44px;
+}
+
+/* Better touch targets for interactive elements */
+.card {
+    cursor: pointer;
+}
+
+.card:active {
+    transform: scale(0.99);
+}
+
+/* Hover effects for touch devices */
+@media (hover: none) {
+    .card:hover {
+        transform: none;
+        box-shadow: var(--shadow-sm);
+    }
+    
+    .btn:hover {
+        transform: none;
+    }
+    
+    .service-card:hover .service-icon {
+        transform: none;
+    }
+}
+
+/* ========================================
+   VIDEO CARD MODERN - TABLET
+======================================== */
+.video-card-modern {
+    margin-bottom: var(--spacing-lg);
+}
+
+.video-card-header {
+    padding: var(--spacing-md) var(--spacing-lg);
+}
+
+.video-icon {
+    width: 45px;
+    height: 45px;
+    font-size: 1.35rem;
+}
+
+.video-card-header .video-title {
+    font-size: 0.95rem;
+}
+
+.video-card-body {
+    padding: var(--spacing-lg);
+}
+
+/* ========================================
+   OFFICE SECTION - TABLET
+======================================== */
+.office-showcase .office-image-wrapper img {
+    max-height: 400px;
+}
+
+.office-info h5 {
+    font-size: 1.25rem;
+}
+
+/* ========================================
+   MANAGEMENT SECTION - TABLET
+======================================== */
+.management-photo {
+    height: 250px;
+}
+
+.management-content h4 {
+    font-size: 1.15rem;
+}
+
+.management-desc p {
+    font-size: 0.85rem;
+}
+
+.management-stats .stat-value {
+    font-size: 1.35rem;
+}
+
+.management-stats .stat-label {
+    font-size: 0.7rem;
+}
+
+/* ========================================
+   LEGAL SECTION - TABLET
+======================================== */
+.legal-card-modern {
+    padding: var(--spacing-lg);
+}
+
+.legal-icon-wrapper {
+    width: 100%;
+    height: 400px;
+}
+
+.legal-content h5 {
+    font-size: 1rem;
+}
+
+.legal-content p {
+    font-size: 0.8rem;
+}
+
+/* ========================================
+   AWARDS SECTION - TABLET
+======================================== */
+.award-trophy {
+    width: 45px;
+    height: 45px;
+    font-size: 1.15rem;
+}
+
+.award-image-frame img {
+    height: 180px;
+}
+
+.award-details {
+    padding: var(--spacing-md);
+}
+
+.award-details h5 {
+    font-size: 0.9rem;
+    min-height: 54px;
+}
+
+.award-category {
+    font-size: 0.8rem;
+}
+
+/* ========================================
+   CHARITY SECTION - TABLET
+======================================== */
+.charity-stat-card {
+    padding: var(--spacing-lg);
+}
+
+.charity-stat-card .stat-icon {
+    width: 55px;
+    height: 55px;
+    font-size: 1.35rem;
+}
+
+.charity-stat-card .stat-number {
+    font-size: 1.5rem;
+}
+
+/* Tablet: 2 items per slide */
+.charity-slide {
+    width: 50%;
+}
+
+.gallery-card img {
+    height: 200px;
+}
+
+.charity-slider-controls {
+    margin-top: var(--spacing-lg);
+}
+
+.slider-btn {
+    width: 45px;
+    height: 45px;
+}
+
+.carousel-btn-modern {
+    width: 42px;
+    height: 42px;
+    font-size: 1.15rem;
+}
+
+/* ========================================
+   PRODUCT SECTION - TABLET
+======================================== */
+.category-tab {
+    padding: 10px 20px;
+    font-size: 0.85rem;
+}
+
+/* Tablet: Product Card Premium Full Image */
+.product-card::before {
+    padding-top: 100%;
+}
+
+.product-info {
+    padding: var(--spacing-xl) var(--spacing-md) var(--spacing-md);
+}
+
+.product-info h5 {
+    font-size: 0.95rem;
+}
+
+.product-tagline {
+    font-size: 0.75rem;
+}
+
+.view-detail {
+    padding: 12px 20px;
+    font-size: 0.8rem;
+}
+
+/* Product Detail Panel - Tablet */
+.detail-panel-inner {
+    max-width: 90%;
+}
+
+.detail-content {
+    padding: var(--spacing-lg);
+}
+
+.detail-title {
+    font-size: 1.75rem;
+}
+
+.benefit-progress {
+    height: 7px;
+}
+
+/* Apple Stemcell - Tablet */
+.section-apple-stemcell {
+    padding: var(--spacing-xxl) 0;
+}
+
+.applesc-title {
+    font-size: 2rem;
+}
+
+.applesc-card-text {
+    padding: var(--spacing-lg) var(--spacing-xl);
+}
+
+.applesc-card-title {
+    font-size: 1.25rem;
+}
+
+.applesc-paragraph {
+    font-size: 1rem;
+}
+
+.applesc-single-card {
+    padding: var(--spacing-lg);
+}
+
+/* Patent Section - Tablet */
+.patent-title {
+    font-size: 1.1rem;
+}
+
+.patent-item {
+    padding: var(--spacing-lg);
+}
