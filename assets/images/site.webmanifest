@@ -1,0 +1,16 @@
+{
+    "name": "BisnisonlineBGS",
+    "short_name": "BO BGS",
+    "description": "Bisnis Online Terpercaya & Produk Apple Stemcell",
+    "icons": [
+        {
+            "src": "logo-square.png",
+            "sizes": "512x512",
+            "type": "image/png"
+        }
+    ],
+    "theme_color": "#0d6efd",
+    "background_color": "#ffffff",
+    "display": "standalone",
+    "start_url": "/?utm_source=web_app_manifest"
+}

@@ -240,17 +240,31 @@
             if ($target.length) {
                 const offsetTop = $target.offset().top - this.scrollOffset;
                 
+                // Show loading bar for visual feedback during nav
+                if (window.BisnisonlineBGS && window.BisnisonlineBGS.LazyLoader) {
+                    $('#loading-bar').addClass('active').css('width', '30%');
+                }
+
                 // Toggle mobile menu classes immediately
                 if ($('body').hasClass('mobile-nav-open')) {
                     $('.navbar-collapse').collapse('hide');
                     $('body').removeClass('mobile-nav-open');
                 }
 
-                // Native smooth scroll is often more "refined" and GPU accelerated
                 window.scrollTo({
                     top: offsetTop,
                     behavior: 'smooth'
                 });
+
+                // Complete the nav bar progress
+                setTimeout(() => {
+                    $('#loading-bar').css('width', '100%');
+                    setTimeout(() => {
+                        $('#loading-bar').fadeOut(() => {
+                            $('#loading-bar').removeClass('active').css('width', '0%').show();
+                        });
+                    }, 500);
+                }, 800);
 
                 // Update URL hash
                 if (history.pushState) {
@@ -1427,16 +1441,42 @@
     // LAZY LOADER
     // ========================================
     const LazyLoader = {
+        totalImages: 0,
+        loadedImages: 0,
+        $bar: null,
+
         init: function() {
-            console.log('LazyLoader Initialized');
+            this.$bar = $('#loading-bar');
             this.observeImages();
             this.observeContent();
+        },
+
+        updateProgress: function() {
+            if (this.totalImages === 0) return;
+            const progress = (this.loadedImages / this.totalImages) * 100;
+            
+            if (this.$bar.length) {
+                this.$bar.addClass('active').css('width', progress + '%');
+                
+                if (progress >= 100) {
+                    setTimeout(() => {
+                        this.$bar.fadeOut((() => {
+                            this.$bar.removeClass('active').css('width', '0%').show();
+                            this.totalImages = 0;
+                            this.loadedImages = 0;
+                        }));
+                    }, 500);
+                }
+            }
         },
 
         observeImages: function() {
             const self = this;
             const images = document.querySelectorAll('img[data-src], video[data-src]');
             
+            this.totalImages = images.length;
+            this.loadedImages = 0;
+
             if ('IntersectionObserver' in window) {
                 const imageObserver = new IntersectionObserver((entries, observer) => {
                     entries.forEach(entry => {
@@ -1446,7 +1486,7 @@
                         }
                     });
                 }, {
-                    rootMargin: '50px 0px',
+                    rootMargin: '100px 0px',
                     threshold: 0.01
                 });
 
@@ -1455,23 +1495,37 @@
                     imageObserver.observe(img);
                 });
             } else {
-                // Fallback for older browsers
                 images.forEach(img => self.loadImage(img));
             }
         },
 
         loadImage: function(el) {
+            const self = this;
             const src = el.getAttribute('data-src');
             if (!src) return;
 
             if (el.tagName.toLowerCase() === 'video') {
                 el.poster = src;
                 el.classList.add('loaded');
+                self.loadedImages++;
+                self.updateProgress();
             } else {
-                el.src = src;
-                el.onload = () => {
+                // Ensure the background loading gif is visible
+                el.src = "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7";
+                
+                const img = new Image();
+                img.src = src;
+                img.onload = () => {
+                    el.src = src;
                     el.classList.add('loaded');
                     el.removeAttribute('data-src');
+                    self.loadedImages++;
+                    self.updateProgress();
+                };
+                img.onerror = () => {
+                    el.classList.add('loaded', 'error');
+                    self.loadedImages++;
+                    self.updateProgress();
                 };
             }
         },
@@ -1483,12 +1537,49 @@
                 const contentObserver = new IntersectionObserver((entries, observer) => {
                     entries.forEach(entry => {
                         if (entry.isIntersecting) {
-                            entry.target.classList.add('animate-in');
-                            observer.unobserve(entry.target);
+                            const section = entry.target;
+                            section.classList.add('active-loading');
+                            
+                            // Get all lazy images/videos in this specific section
+                            const sectionMedia = section.querySelectorAll('img.lazy-load, video.lazy-load');
+                            
+                            const checkAndReveal = () => {
+                                // Logic: Wait until at least some images are loaded OR timeout
+                                // This ensures the loading animation loops naturally while waiting
+                                let allLoaded = true;
+                                sectionMedia.forEach(media => {
+                                    if (!media.classList.contains('loaded')) {
+                                        allLoaded = false;
+                                    }
+                                });
+
+                                if (allLoaded) {
+                                    setTimeout(() => {
+                                        section.classList.add('animate-in');
+                                        section.classList.remove('active-loading');
+                                    }, 400); // Small grace period for AOS
+                                } else {
+                                    // Not all loaded yet, keep checking every 200ms
+                                    // This creates the dynamic looping feel the user wants
+                                    setTimeout(checkAndReveal, 200);
+                                }
+                            };
+
+                            // Fallback timeout to prevent infinite loading state (e.g., if an image fails)
+                            const fallbackTimeout = setTimeout(() => {
+                                section.classList.add('animate-in');
+                                section.classList.remove('active-loading');
+                            }, 5000); // Max 5 seconds loading per section
+
+                            // Start the checking loop
+                            setTimeout(checkAndReveal, 600); 
+
+                            observer.unobserve(section);
                         }
                     });
                 }, {
-                    threshold: 0.1
+                    rootMargin: '0px 0px -5% 0px', 
+                    threshold: 0.01 
                 });
 
                 contents.forEach(content => contentObserver.observe(content));
@@ -1515,12 +1606,18 @@
         WhatsAppManager.init();
         LazyLoader.init();
         
+        // Hide Page Loader
+        setTimeout(function() {
+            $('#page-loader').addClass('fade-out');
+            setTimeout(function() {
+                $('#page-loader').remove();
+            }, 500);
+        }, 300);
+
         // Trigger initial scroll to update nav state
         $(window).trigger('scroll');
         
         console.log('BisnisonlineBGS App Initialized');
-        console.log('Current Language:', LangManager.currentLang);
-        console.log('Device Type:', Utils.getDeviceType());
     });
 
     // ========================================

@@ -11,7 +11,13 @@ $currentLang = isset($currentLang) ? $currentLang : (isset($_COOKIE['lang']) ? $
 <!-- ========================================
      1. BERANDA (HOME) - Banner Section
 ======================================== -->
-<section id="beranda" class="section-banner section-parallax-bg">
+<section id="beranda" class="section-banner section-parallax-bg" data-lazy-content>
+    <div class="container h-100 d-flex align-items-center">
+        <div class="banner-content" data-aos="fade-right">
+            <h1 class="visually-hidden">BisnisonlineBGS - Bisnis Online Terpercaya & Produk Apple Stemcell</h1>
+            <!-- Jika ingin ada teks banner yang kelihatan, bisa ditaruh di sini -->
+        </div>
+    </div>
 </section>
 
 <!-- ========================================
@@ -19,7 +25,7 @@ $currentLang = isset($currentLang) ? $currentLang : (isset($_COOKIE['lang']) ? $
 ======================================== -->
 
 <!-- 2.1 Company Profile -->
-<section id="profil" class="section section-company-profile">
+<section id="profil" class="section section-company-profile" data-lazy-content>
     <div class="container">
         <div class="section-title" data-aos="fade-up">
             <span class="section-badge" data-lang-key="profile.badge">Tentang Kami</span>
@@ -40,8 +46,8 @@ $currentLang = isset($currentLang) ? $currentLang : (isset($_COOKIE['lang']) ? $
                     </div>
                     <div class="video-card-body">
                         <div class="video-wrapper-modern">
-                            <video controls
-                                data-src="<?php echo Router::asset('images/video-poster-company-new.png'); ?>">
+                            <video controls preload="none"
+                                poster="<?php echo Router::asset('images/video-poster-company-new.png'); ?>">
                                 <source src="<?php echo Router::asset('video/Company-Profile.mp4'); ?>"
                                     type="video/mp4">
                                 Browser Anda tidak mendukung video tag.
@@ -65,8 +71,11 @@ $currentLang = isset($currentLang) ? $currentLang : (isset($_COOKIE['lang']) ? $
             <!-- Desktop & Tablet: Single Landscape Image -->
             <div class="office-showcase d-none d-md-block" data-lazy-content>
                 <div class="office-image-wrapper">
-                    <img data-src="<?php echo Router::asset('images/office-lascape.jpeg'); ?>" src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" alt="Biogreen Science Office"
-                        data-lang-alt="profile.office_alt" class="img-fluid lazy-load">
+                    <img data-src="<?php echo Router::asset('images/office-lascape.jpeg'); ?>" 
+                         src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" 
+                         alt="Biogreen Science Office"
+                         width="1200" height="600"
+                         data-lang-alt="profile.office_alt" class="img-fluid lazy-load">
                     <div class="office-overlay">
                         <div class="office-info">
                             <h5><i class="bi bi-building me-2"></i><span data-lang-key="profile.office_name">Biogreen
@@ -93,7 +102,8 @@ $currentLang = isset($currentLang) ? $currentLang : (isset($_COOKIE['lang']) ? $
                                 <div class="office-slide">
                                     <img data-src="<?php echo Router::asset('images/office-' . $i . '-potrait.jpeg'); ?>"
                                         src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7"
-                                        class="d-block w-100 lazy-load" alt="Office <?php echo $i; ?>"
+                                        class="d-block w-100 lazy-load" alt="Office <?php echo $i; ?>" 
+                                        width="400" height="600"
                                         data-lang-alt="profile.office_alt">
                                     <div class="slide-counter"><?php echo $i; ?> / 5</div>
                                 </div>
@@ -115,7 +125,7 @@ $currentLang = isset($currentLang) ? $currentLang : (isset($_COOKIE['lang']) ? $
 </section>
 
 <!-- 2.2 Top Management -->
-<section class="section section-top-management">
+<section class="section section-top-management" data-lazy-content>
     <div class="management-bg-pattern"></div>
     <div class="container position-relative">
         <div class="section-title" data-aos="fade-up">
@@ -131,7 +141,9 @@ $currentLang = isset($currentLang) ? $currentLang : (isset($_COOKIE['lang']) ? $
                 <div class="management-card-modern">
                     <div class="card-ribbon"><span data-lang-key="management.role_founder">Founder</span></div>
                     <div class="management-photo">
-                        <img data-src="<?php echo Router::asset('images/larry.jpeg'); ?>" src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" alt="Larry Widjaja" class="lazy-load">
+                        <img data-src="<?php echo Router::asset('images/larry.jpeg'); ?>" 
+                             src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" 
+                             alt="Larry Widjaja" width="400" height="500" class="lazy-load">
                         <div class="photo-overlay">
                             <div class="social-links">
                                 <a href="#"><i class="bi bi-linkedin"></i></a>
@@ -171,7 +183,9 @@ $currentLang = isset($currentLang) ? $currentLang : (isset($_COOKIE['lang']) ? $
                 <div class="management-card-modern">
                     <div class="card-ribbon ribbon-ceo"><span data-lang-key="management.role_ceo">CEO</span></div>
                     <div class="management-photo">
-                        <img data-src="<?php echo Router::asset('images/ferry.png'); ?>" src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" alt="Ferry Lesmana Admaja" class="lazy-load">
+                        <img data-src="<?php echo Router::asset('images/ferry.png'); ?>" 
+                             src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" 
+                             alt="Ferry Lesmana Admaja" width="400" height="500" class="lazy-load">
                         <div class="photo-overlay">
                             <div class="social-links">
                                 <a href="#"><i class="bi bi-linkedin"></i></a>
@@ -209,7 +223,9 @@ $currentLang = isset($currentLang) ? $currentLang : (isset($_COOKIE['lang']) ? $
                     <div class="card-ribbon ribbon-advisor"><span data-lang-key="management.role_advisor">Advisor</span>
                     </div>
                     <div class="management-photo">
-                        <img data-src="<?php echo Router::asset('images/richard.jpeg'); ?>" src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" alt="Richard" class="lazy-load">
+                        <img data-src="<?php echo Router::asset('images/richard.jpeg'); ?>" 
+                             src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" 
+                             alt="Richard" width="400" height="500" class="lazy-load">
                         <div class="photo-overlay">
                             <div class="social-links">
                                 <a href="#"><i class="bi bi-linkedin"></i></a>
@@ -246,7 +262,7 @@ $currentLang = isset($currentLang) ? $currentLang : (isset($_COOKIE['lang']) ? $
 </section>
 
 <!-- 2.3 Legalitas -->
-<section class="section section-legalitas bg-light">
+<section class="section section-legalitas bg-light" data-lazy-content>
     <div class="container">
         <div class="section-title" data-aos="fade-up">
             <span class="section-badge" data-lang-key="legal.badge">Legalitas</span>
@@ -263,8 +279,9 @@ $currentLang = isset($currentLang) ? $currentLang : (isset($_COOKIE['lang']) ? $
                         <div class="legal-glow"></div>
                         <div class="legal-icon-wrapper">
                             <div class="legal-icon-bg"></div>
-                            <img data-src="<?php echo Router::asset('images/legal/SIUP KBLI47999.png'); ?>" src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7"
-                                alt="SIUP KBLI47999" class="lazy-load">
+                            <img data-src="<?php echo Router::asset('images/legal/SIUP KBLI47999.png'); ?>" 
+                                 src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7"
+                                 alt="SIUP KBLI47999" width="60" height="60" class="lazy-load">
                         </div>
                         <div class="legal-content">
                             <h5 data-lang-key="legal.siup_title">SIUP KBLI47999</h5>
@@ -281,8 +298,9 @@ $currentLang = isset($currentLang) ? $currentLang : (isset($_COOKIE['lang']) ? $
                         <div class="legal-glow"></div>
                         <div class="legal-icon-wrapper">
                             <div class="legal-icon-bg"></div>
-                            <img data-src="<?php echo Router::asset('images/legal/ISO 9001 2015.png'); ?>" src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7"
-                                alt="ISO 9001:2015" class="lazy-load">
+                            <img data-src="<?php echo Router::asset('images/legal/ISO 9001 2015.png'); ?>" 
+                                 src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7"
+                                 alt="ISO 9001:2015 Certification" width="60" height="60" class="lazy-load">
                         </div>
                         <div class="legal-content">
                             <h5 data-lang-key="legal.iso_title">ISO 9001:2015</h5>
@@ -299,8 +317,9 @@ $currentLang = isset($currentLang) ? $currentLang : (isset($_COOKIE['lang']) ? $
                         <div class="legal-glow"></div>
                         <div class="legal-icon-wrapper">
                             <div class="legal-icon-bg"></div>
-                            <img data-src="<?php echo Router::asset('images/legal/TANDA KEANGGOTAAN ASOSIASI PENJUAL LANGSUNG INDONESIA (APLI).png'); ?>" src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7"
-                                alt="APLI" class="lazy-load">
+                            <img data-src="<?php echo Router::asset('images/legal/TANDA KEANGGOTAAN ASOSIASI PENJUAL LANGSUNG INDONESIA (APLI).png'); ?>" 
+                                 src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7"
+                                 alt="APLI - Asosiasi Penjual Langsung Indonesia" width="60" height="60" class="lazy-load">
                         </div>
                         <div class="legal-content">
                             <h5 data-lang-key="legal.apli_title">Anggota APLI</h5>
@@ -317,8 +336,9 @@ $currentLang = isset($currentLang) ? $currentLang : (isset($_COOKIE['lang']) ? $
                         <div class="legal-glow"></div>
                         <div class="legal-icon-wrapper">
                             <div class="legal-icon-bg"></div>
-                            <img data-src="<?php echo Router::asset('images/legal/TANDA KEANGGOTAAN ASOSIASI PENGUSAHA SUPLEMEN KESEHATAN INDONESIA (APSKI).png'); ?>" src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7"
-                                alt="APSKI" class="lazy-load">
+                            <img data-src="<?php echo Router::asset('images/legal/TANDA KEANGGOTAAN ASOSIASI PENGUSAHA SUPLEMEN KESEHATAN INDONESIA (APSKI).png'); ?>" 
+                                 src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7"
+                                 alt="APSKI - Asosiasi Pengusaha Suplemen Kesehatan Indonesia" width="60" height="60" class="lazy-load">
                         </div>
                         <div class="legal-content">
                             <h5 data-lang-key="legal.apski_title">Anggota APSKI</h5>
@@ -335,8 +355,9 @@ $currentLang = isset($currentLang) ? $currentLang : (isset($_COOKIE['lang']) ? $
                         <div class="legal-glow"></div>
                         <div class="legal-icon-wrapper">
                             <div class="legal-icon-bg"></div>
-                            <img data-src="<?php echo Router::asset('images/legal/TANDA TERDAFTAR PENYELENGARA SISTEM ELEKTRONIK.png'); ?>" src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7"
-                                alt="PSE" class="lazy-load">
+                            <img data-src="<?php echo Router::asset('images/legal/TANDA TERDAFTAR PENYELENGARA SISTEM ELEKTRONIK.png'); ?>" 
+                                 src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7"
+                                 alt="PSE - Penyelenggara Sistem Elektronik" width="60" height="60" class="lazy-load">
                         </div>
                         <div class="legal-content">
                             <h5 data-lang-key="legal.pse_title">Terdaftar PSE</h5>
@@ -352,7 +373,7 @@ $currentLang = isset($currentLang) ? $currentLang : (isset($_COOKIE['lang']) ? $
 </section>
 
 <!-- 2.4 Penghargaan -->
-<section class="section section-penghargaan">
+<section class="section section-penghargaan" data-lazy-content>
     <div class="awards-bg-decoration"></div>
     <div class="container position-relative">
         <div class="section-title" data-aos="fade-up">
@@ -372,8 +393,9 @@ $currentLang = isset($currentLang) ? $currentLang : (isset($_COOKIE['lang']) ? $
                             <i class="bi bi-trophy-fill"></i>
                         </div>
                         <div class="award-image-frame">
-                            <img data-src="<?php echo Router::asset('images/penghargaan/APLI Awards 2020 Potrait.png'); ?>" src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7"
-                                alt="APLI Awards 2020" class="lazy-load">
+                            <img data-src="<?php echo Router::asset('images/penghargaan/APLI Awards 2020 Potrait.png'); ?>" 
+                                 src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7"
+                                 alt="APLI Awards 2020 Achievement" width="300" height="450" class="lazy-load">
                             <div class="award-year-badge">2020</div>
                         </div>
                         <div class="award-details">
@@ -390,8 +412,9 @@ $currentLang = isset($currentLang) ? $currentLang : (isset($_COOKIE['lang']) ? $
                             <i class="bi bi-star-fill"></i>
                         </div>
                         <div class="award-image-frame">
-                            <img data-src="<?php echo Router::asset('images/penghargaan/Best Nourshing Health Supplement Potrait.png'); ?>" src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7"
-                                alt="Best Nourshing Health Supplement" class="lazy-load">
+                            <img data-src="<?php echo Router::asset('images/penghargaan/Best Nourshing Health Supplement Potrait.png'); ?>" 
+                                 src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7"
+                                 alt="Best Nourishing Health Supplement" width="300" height="450" class="lazy-load">
                             <div class="award-year-badge">2019</div>
                         </div>
                         <div class="award-details">
@@ -408,8 +431,9 @@ $currentLang = isset($currentLang) ? $currentLang : (isset($_COOKIE['lang']) ? $
                             <i class="bi bi-gem"></i>
                         </div>
                         <div class="award-image-frame">
-                            <img data-src="<?php echo Router::asset('images/penghargaan/The Best Quality Product & Customer Satisfaction Of The Year 2018.png'); ?>" src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7"
-                                alt="The Best Quality Product & Customer Satisfaction Of The Year 2018" class="lazy-load">
+                            <img data-src="<?php echo Router::asset('images/penghargaan/The Best Quality Product & Customer Satisfaction Of The Year 2018.png'); ?>" 
+                                 src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7"
+                                 alt="The Best Quality Product & Customer Satisfaction Of The Year 2018" width="300" height="450" class="lazy-load">
                             <div class="award-year-badge">2018</div>
                         </div>
                         <div class="award-details">
@@ -431,7 +455,7 @@ $currentLang = isset($currentLang) ? $currentLang : (isset($_COOKIE['lang']) ? $
                         <div class="award-slide">
                             <div class="award-slide-image">
                                 <img src="<?php echo Router::asset('images/penghargaan/APLI Awards 2020 Potrait.png'); ?>"
-                                    alt="APLI Awards 2020">
+                                    alt="APLI Awards 2020" width="280" height="400">
                             </div>
                             <div class="award-slide-info">
                                 <div class="award-slide-year">2020</div>
@@ -444,7 +468,7 @@ $currentLang = isset($currentLang) ? $currentLang : (isset($_COOKIE['lang']) ? $
                         <div class="award-slide">
                             <div class="award-slide-image">
                                 <img src="<?php echo Router::asset('images/penghargaan/Best Nourshing Health Supplement Potrait.png'); ?>"
-                                    alt="Asia Halal Brand 2019">
+                                    alt="Asia Halal Brand 2019" width="280" height="400">
                             </div>
                             <div class="award-slide-info">
                                 <div class="award-slide-year">2019</div>
@@ -457,7 +481,7 @@ $currentLang = isset($currentLang) ? $currentLang : (isset($_COOKIE['lang']) ? $
                         <div class="award-slide">
                             <div class="award-slide-image">
                                 <img src="<?php echo Router::asset('images/penghargaan/The Best Quality Product & Customer Satisfaction Of The Year 2018.png'); ?>"
-                                    alt="Best Of Indonesia 2018">
+                                    alt="Best Of Indonesia 2018" width="280" height="400">
                             </div>
                             <div class="award-slide-info">
                                 <div class="award-slide-year">2018</div>
@@ -489,7 +513,7 @@ $currentLang = isset($currentLang) ? $currentLang : (isset($_COOKIE['lang']) ? $
 </section>
 
 <!-- 2.5 Kegiatan Amal -->
-<section class="section section-amal bg-light">
+<section id="amal" class="section section-amal bg-light" data-lazy-content>
     <div class="container">
         <div class="section-title" data-aos="fade-up">
             <span class="section-badge badge-heart"><i class="bi bi-heart-fill me-1"></i> <span
@@ -540,8 +564,10 @@ $currentLang = isset($currentLang) ? $currentLang : (isset($_COOKIE['lang']) ? $
                         <?php for ($i = 1; $i <= 5; $i++): ?>
                             <div class="charity-slide">
                                 <div class="gallery-card">
-                                    <img data-src="<?php echo Router::asset('images/amal/amal' . $i . '.jpeg'); ?>" src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7"
-                                        alt="Kegiatan Amal <?php echo $i; ?>" data-lang-alt="charity.gallery_alt" class="lazy-load">
+                                    <img data-src="<?php echo Router::asset('images/amal/amal' . $i . '.jpeg'); ?>" 
+                                         src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7"
+                                         alt="Kegiatan Amal <?php echo $i; ?>" width="400" height="300" 
+                                         data-lang-alt="charity.gallery_alt" class="lazy-load">
                                     <div class="gallery-overlay">
                                         <span class="gallery-zoom"><i class="bi bi-zoom-in"></i></span>
                                     </div>
@@ -570,7 +596,7 @@ $currentLang = isset($currentLang) ? $currentLang : (isset($_COOKIE['lang']) ? $
 ======================================== -->
 
 <!-- 3.1 Produk Overview -->
-<section id="produk" class="section section-produk">
+<section id="produk" class="section section-produk" data-lazy-content>
     <div class="container">
         <div class="section-title" data-aos="fade-up">
             <span class="section-badge"><i class="bi bi-box-seam me-1"></i> <span data-lang-key="products.badge">Produk
@@ -603,8 +629,9 @@ $currentLang = isset($currentLang) ? $currentLang : (isset($_COOKIE['lang']) ? $
                     <div class="col-6 col-md-4 col-lg-3">
                         <div class="product-card" data-product="bionadboost">
                             <div class="product-image">
-                                <img data-src="<?php echo Router::asset('images/produk/bionadboost.JPG'); ?>" src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7"
-                                    alt="Bio NAD+ Boost" class="lazy-load">
+                                <img data-src="<?php echo Router::asset('images/produk/bionadboost.JPG'); ?>" 
+                                     src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7"
+                                     alt="Bio NAD+ Boost" width="300" height="300" class="lazy-load">
                                 <div class="product-badge" data-lang-key="products.best_seller">Best Seller</div>
                                 <div class="product-overlay">
                                     <span class="view-detail"><i class="bi bi-eye"></i> <span
@@ -622,8 +649,9 @@ $currentLang = isset($currentLang) ? $currentLang : (isset($_COOKIE['lang']) ? $
                     <div class="col-6 col-md-4 col-lg-3">
                         <div class="product-card" data-product="applescplus">
                             <div class="product-image">
-                                <img data-src="<?php echo Router::asset('images/produk/applescplus.JPG'); ?>" src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7"
-                                    alt="AppleSC Plus" class="lazy-load">
+                                <img data-src="<?php echo Router::asset('images/produk/applescplus.JPG'); ?>" 
+                                     src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7"
+                                     alt="AppleSC Plus" width="300" height="300" class="lazy-load">
                                 <div class="product-badge badge-new" data-lang-key="products.new">New</div>
                                 <div class="product-overlay">
                                     <span class="view-detail"><i class="bi bi-eye"></i> <span
@@ -641,7 +669,9 @@ $currentLang = isset($currentLang) ? $currentLang : (isset($_COOKIE['lang']) ? $
                     <div class="col-6 col-md-4 col-lg-3">
                         <div class="product-card" data-product="applesc">
                             <div class="product-image">
-                                <img data-src="<?php echo Router::asset('images/produk/applesc.JPG'); ?>" src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" alt="AppleSC" class="lazy-load">
+                                <img data-src="<?php echo Router::asset('images/produk/applesc.JPG'); ?>" 
+                                     src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" 
+                                     alt="AppleSC" width="300" height="300" class="lazy-load">
                                 <div class="product-overlay">
                                     <span class="view-detail"><i class="bi bi-eye"></i> Lihat Detail</span>
                                 </div>
@@ -657,8 +687,9 @@ $currentLang = isset($currentLang) ? $currentLang : (isset($_COOKIE['lang']) ? $
                     <div class="col-6 col-md-4 col-lg-3">
                         <div class="product-card" data-product="bioscmild">
                             <div class="product-image">
-                                <img data-src="<?php echo Router::asset('images/produk/bioscmild.JPG'); ?>" src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7"
-                                    alt="Bio SC Mild" class="lazy-load">
+                                <img data-src="<?php echo Router::asset('images/produk/bioscmild.JPG'); ?>" 
+                                     src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7"
+                                     alt="Bio SC Mild" width="300" height="300" class="lazy-load">
                                 <div class="product-overlay">
                                     <span class="view-detail"><i class="bi bi-eye"></i> Lihat Detail</span>
                                 </div>
@@ -674,8 +705,9 @@ $currentLang = isset($currentLang) ? $currentLang : (isset($_COOKIE['lang']) ? $
                     <div class="col-6 col-md-4 col-lg-3">
                         <div class="product-card" data-product="biomildcapsule">
                             <div class="product-image">
-                                <img data-src="<?php echo Router::asset('images/produk/biomildcapsule.JPG'); ?>" src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7"
-                                    alt="Bio Mild Capsule" class="lazy-load">
+                                <img data-src="<?php echo Router::asset('images/produk/biomildcapsule.JPG'); ?>" 
+                                     src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7"
+                                     alt="Bio Mild Capsule" width="300" height="300" class="lazy-load">
                                 <div class="product-overlay">
                                     <span class="view-detail"><i class="bi bi-eye"></i> Lihat Detail</span>
                                 </div>
@@ -691,7 +723,9 @@ $currentLang = isset($currentLang) ? $currentLang : (isset($_COOKIE['lang']) ? $
                     <div class="col-6 col-md-4 col-lg-3">
                         <div class="product-card" data-product="bioscgold">
                             <div class="product-image">
-                                <img data-src="<?php echo Router::asset('images/produk/biogold.JPG'); ?>" src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" alt="Bio SC Gold" class="lazy-load">
+                                <img data-src="<?php echo Router::asset('images/produk/biogold.JPG'); ?>" 
+                                     src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" 
+                                     alt="Bio SC Gold" width="300" height="300" class="lazy-load">
                                 <div class="product-badge" data-lang-key="products.premium">Premium</div>
                                 <div class="product-overlay">
                                     <span class="view-detail"><i class="bi bi-eye"></i> <span
@@ -709,8 +743,9 @@ $currentLang = isset($currentLang) ? $currentLang : (isset($_COOKIE['lang']) ? $
                     <div class="col-6 col-md-4 col-lg-3">
                         <div class="product-card" data-product="bioinflavia">
                             <div class="product-image">
-                                <img data-src="<?php echo Router::asset('images/produk/bioinflavia.JPG'); ?>" src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7"
-                                    alt="Bio Inflavia" class="lazy-load">
+                                <img data-src="<?php echo Router::asset('images/produk/bioinflavia.JPG'); ?>" 
+                                     src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7"
+                                     alt="Bio Inflavia" width="300" height="300" class="lazy-load">
                                 <div class="product-overlay">
                                     <span class="view-detail"><i class="bi bi-eye"></i> Lihat Detail</span>
                                 </div>
@@ -730,8 +765,9 @@ $currentLang = isset($currentLang) ? $currentLang : (isset($_COOKIE['lang']) ? $
                     <div class="col-6 col-md-4 col-lg-3">
                         <div class="product-card" data-product="biorawgenic">
                             <div class="product-image">
-                                <img data-src="<?php echo Router::asset('images/produk/biorawgenic.JPG'); ?>" src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7"
-                                    alt="Bio Rawgenic" class="lazy-load">
+                                <img data-src="<?php echo Router::asset('images/produk/biorawgenic.JPG'); ?>" 
+                                     src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7"
+                                     alt="Bio Rawgenic" width="300" height="300" class="lazy-load">
                                 <div class="product-badge" data-lang-key="products.best_seller">Best Seller</div>
                                 <div class="product-overlay">
                                     <span class="view-detail"><i class="bi bi-eye"></i> <span
@@ -832,11 +868,13 @@ $currentLang = isset($currentLang) ? $currentLang : (isset($_COOKIE['lang']) ? $
 </section>
 
 <!-- 3.2 Apple Stemcell Feature -->
-<section class="section section-apple-stemcell">
+<section class="section section-apple-stemcell" data-lazy-content>
     <div class="applesc-bg">
         <picture>
             <source media="(max-width: 767px)" srcset="<?php echo Router::asset('images/background/portait.jpg'); ?>">
-            <img data-src="<?php echo Router::asset('images/background/landscape.jpeg'); ?>" src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" alt="" class="lazy-load">
+            <img data-src="<?php echo Router::asset('images/background/landscape.jpeg'); ?>" 
+                 src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" 
+                 alt="Background Apple SC" width="1920" height="1080" class="lazy-load">
         </picture>
     </div>
 
@@ -855,8 +893,9 @@ $currentLang = isset($currentLang) ? $currentLang : (isset($_COOKIE['lang']) ? $
                 <picture>
                     <source media="(max-width: 767px)"
                         srcset="<?php echo Router::asset('images/applesc/applesc-1-portrait.jpeg'); ?>">
-                    <img data-src="<?php echo Router::asset('images/applesc/applesc-1-lanscape.jpg'); ?>" src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7"
-                        alt="Apple Stemcell" class="lazy-load">
+                    <img data-src="<?php echo Router::asset('images/applesc/applesc-1-lanscape.jpg'); ?>" 
+                         src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7"
+                         alt="Apple Stemcell Banner" width="1200" height="600" class="lazy-load">
                 </picture>
             </div>
         </div>
@@ -879,15 +918,17 @@ $currentLang = isset($currentLang) ? $currentLang : (isset($_COOKIE['lang']) ? $
                 </div>
                 <div class="col-lg-6 order-lg-2 order-1">
                     <div class="applesc-image-wrap">
-                        <img data-src="<?php echo Router::asset('images/applesc/applesc.png'); ?>" src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7"
-                            alt="Apple Stemcell Uttwiler Spatläuber" class="lazy-load">
+                        <img data-src="<?php echo Router::asset('images/applesc/applesc.png'); ?>" 
+                             src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7"
+                             alt="Apple Stemcell Uttwiler Spatläuber" width="600" height="400" class="lazy-load">
                     </div>
                 </div>
                 <!-- Block 2: PhytoCellTec & Clinical Test -->
                 <div class="col-lg-6">
                     <div class="applesc-image-wrap applesc-image-clinical">
-                        <img data-src="<?php echo Router::asset('images/applesc/clinical-test.png'); ?>" src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7"
-                            alt="Clinical Test PhytoCellTec" class="lazy-load">
+                        <img data-src="<?php echo Router::asset('images/applesc/clinical-test.png'); ?>" 
+                             src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7"
+                             alt="Clinical Test PhytoCellTec" width="600" height="400" class="lazy-load">
                     </div>
                 </div>
                 <div class="col-lg-6">
@@ -907,12 +948,14 @@ $currentLang = isset($currentLang) ? $currentLang : (isset($_COOKIE['lang']) ? $
         </div>
 
         <!-- Patent: Paten Fungsi Perpaduan Ekslusif Bahan Aktif Applesc -->
-        <div class="applesc-patent" data-aos="fade-up">
+        <div class="applesc-patent" data-aos="fade-up" data-lazy-content>
             <div class="patent-bg">
                 <picture>
                     <source media="(max-width: 767px)"
                         srcset="<?php echo Router::asset('images/background/portait.jpg'); ?>">
-                    <img data-src="<?php echo Router::asset('images/background/landscape.jpeg'); ?>" src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" alt="" class="lazy-load">
+                    <img data-src="<?php echo Router::asset('images/background/landscape.jpeg'); ?>" 
+                         src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" 
+                         alt="Patent Background" width="1920" height="1080" class="lazy-load">
                 </picture>
                 <div class="patent-overlay"></div>
             </div>
@@ -933,12 +976,14 @@ $currentLang = isset($currentLang) ? $currentLang : (isset($_COOKIE['lang']) ? $
                             <div class="patent-card-body">
                                 <div class="patent-images-grid">
                                     <div class="patent-img-item">
-                                        <img data-src="<?php echo Router::asset('images/patent/clinical-4-swisskorea.png'); ?>" src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7"
-                                            alt="Clinical Swiss Korea" class="lazy-load">
+                                        <img data-src="<?php echo Router::asset('images/patent/clinical-4-swisskorea.png'); ?>" 
+                                             src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7"
+                                             alt="Clinical Swiss Korea" width="250" height="150" class="lazy-load">
                                     </div>
                                     <div class="patent-img-item">
-                                        <img data-src="<?php echo Router::asset('images/patent/clinical-4-eropeus.png'); ?>" src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7"
-                                            alt="Clinical Eropeus" class="lazy-load">
+                                        <img data-src="<?php echo Router::asset('images/patent/clinical-4-eropeus.png'); ?>" 
+                                             src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7"
+                                             alt="Clinical Eropeus" width="250" height="150" class="lazy-load">
                                     </div>
                                 </div>
                                 <ul class="patent-list">
@@ -958,8 +1003,9 @@ $currentLang = isset($currentLang) ? $currentLang : (isset($_COOKIE['lang']) ? $
                             <div class="patent-card-body">
                                 <div class="patent-images-grid">
                                     <div class="patent-img-item">
-                                        <img data-src="<?php echo Router::asset('images/patent/clinical-4-eropeus2.png'); ?>" src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7"
-                                            alt="Clinical Eropeus 2" class="lazy-load">
+                                        <img data-src="<?php echo Router::asset('images/patent/clinical-4-eropeus2.png'); ?>" 
+                                             src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7"
+                                             alt="Clinical Eropeus 2" width="250" height="150" class="lazy-load">
                                     </div>
                                 </div>
                                 <ul class="patent-list">
@@ -980,12 +1026,14 @@ $currentLang = isset($currentLang) ? $currentLang : (isset($_COOKIE['lang']) ? $
                                     <div class="col-lg-5">
                                         <div class="patent-images-grid">
                                             <div class="patent-img-item">
-                                                <img data-src="<?php echo Router::asset('images/patent/clinical-4-swisskorea.png'); ?>" src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7"
-                                                    alt="Clinical Swiss Korea" class="lazy-load">
+                                                <img data-src="<?php echo Router::asset('images/patent/clinical-4-swisskorea.png'); ?>" 
+                                                     src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7"
+                                                     alt="Clinical Swiss Korea" width="250" height="150" class="lazy-load">
                                             </div>
                                             <div class="patent-img-item">
-                                                <img data-src="<?php echo Router::asset('images/patent/clinical-4-ww.png'); ?>" src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7"
-                                                    alt="Clinical WW" class="lazy-load">
+                                                <img data-src="<?php echo Router::asset('images/patent/clinical-4-ww.png'); ?>" 
+                                                     src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7"
+                                                     alt="Clinical WW" width="250" height="150" class="lazy-load">
                                             </div>
                                         </div>
                                     </div>
@@ -1014,7 +1062,7 @@ $currentLang = isset($currentLang) ? $currentLang : (isset($_COOKIE['lang']) ? $
         </div>
 
         <!-- Celebrity: Pilihan Selebriti Dunia -->
-        <div class="applesc-celebrity" data-aos="fade-up">
+        <div class="applesc-celebrity" data-aos="fade-up" data-lazy-content>
             <div class="celebrity-bg section-parallax-bg">
                 <div class="celebrity-overlay"></div>
             </div>
@@ -1043,8 +1091,9 @@ $currentLang = isset($currentLang) ? $currentLang : (isset($_COOKIE['lang']) ? $
                     </div>
                     <div class="col-lg-6">
                         <div class="celebrity-image-wrap" data-aos="fade-left">
-                            <img data-src="<?php echo Router::asset('images/celebrity/clinical-celebrity-1.png'); ?>" src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7"
-                                alt="Celebrities using Apple Stemcell" class="lazy-load">
+                            <img data-src="<?php echo Router::asset('images/celebrity/clinical-celebrity-1.png'); ?>" 
+                                 src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7"
+                                 alt="Celebrities using Apple Stemcell" width="600" height="400" class="lazy-load">
                             <div class="image-glow"></div>
                         </div>
                     </div>
@@ -1055,7 +1104,7 @@ $currentLang = isset($currentLang) ? $currentLang : (isset($_COOKIE['lang']) ? $
 </section>
 
 <!-- 3.3 Keunggulan Produk -->
-<section class="section section-keunggulan-produk">
+<section id="keunggulan" class="section section-keunggulan-produk" data-lazy-content>
     <div class="container">
         <div class="section-title text-center" data-aos="fade-up">
             <span class="section-badge" data-lang-key="keunggulan.badge">Why Choose Us</span>
@@ -1088,8 +1137,10 @@ $currentLang = isset($currentLang) ? $currentLang : (isset($_COOKIE['lang']) ? $
                     </div>
                     <div class="col-lg-6 order-1 order-lg-2">
                         <div class="advantage-image">
-                            <img data-src="<?php echo Router::asset('images/keunggulan-1.jpeg'); ?>" src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" alt="Produk Keunggulan"
-                                class="img-fluid rounded-4 shadow-lg lazy-load">
+                            <img data-src="<?php echo Router::asset('images/keunggulan-1.jpeg'); ?>" 
+                                 src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" 
+                                 alt="Produk Keunggulan" width="600" height="400"
+                                 class="img-fluid rounded-4 shadow-lg lazy-load">
                         </div>
                     </div>
                 </div>
@@ -1100,8 +1151,10 @@ $currentLang = isset($currentLang) ? $currentLang : (isset($_COOKIE['lang']) ? $
                 <div class="row align-items-center">
                     <div class="col-lg-6">
                         <div class="advantage-image">
-                            <img data-src="<?php echo Router::asset('images/keunggulan-2.jpeg'); ?>" src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" alt="Promosi Keunggulan"
-                                class="img-fluid rounded-4 shadow-lg lazy-load">
+                            <img data-src="<?php echo Router::asset('images/keunggulan-2.jpeg'); ?>" 
+                                 src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" 
+                                 alt="Promosi Keunggulan" width="600" height="400"
+                                 class="img-fluid rounded-4 shadow-lg lazy-load">
                         </div>
                     </div>
                     <div class="col-lg-6">
@@ -1148,8 +1201,10 @@ $currentLang = isset($currentLang) ? $currentLang : (isset($_COOKIE['lang']) ? $
                     </div>
                     <div class="col-lg-6 order-1 order-lg-2">
                         <div class="advantage-image">
-                            <img data-src="<?php echo Router::asset('images/keunggulan-3.jpeg'); ?>" src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7"
-                                alt="Pengiriman Keunggulan" class="img-fluid rounded-4 shadow-lg lazy-load">
+                            <img data-src="<?php echo Router::asset('images/keunggulan-3.jpeg'); ?>" 
+                                 src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7"
+                                 alt="Pengiriman Keunggulan" width="600" height="400"
+                                 class="img-fluid rounded-4 shadow-lg lazy-load">
                         </div>
                     </div>
                 </div>
@@ -1163,7 +1218,7 @@ $currentLang = isset($currentLang) ? $currentLang : (isset($_COOKIE['lang']) ? $
 ======================================== -->
 
 <!-- 4.1 Marketing Plan -->
-<section id="bisnis" class="section section-marketing-plan">
+<section id="bisnis" class="section section-marketing-plan" data-lazy-content>
     <div class="container">
         <div class="section-header text-center mb-5" data-aos="fade-up">
             <span class="section-badge" data-lang-key="business.badge">Peluang Bisnis</span>
@@ -1177,7 +1232,7 @@ $currentLang = isset($currentLang) ? $currentLang : (isset($_COOKIE['lang']) ? $
                 <div class="video-card-modern">
                     <div class="video-card-body">
                         <div class="video-wrapper-modern">
-                            <video controls
+                            <video controls preload="none"
                                 poster="<?php echo Router::asset('images/video-poster-marplan-new.png'); ?>">
                                 <source src="<?php echo Router::asset('video/marketing-plan-2023-mob.mp4'); ?>"
                                     type="video/mp4">
@@ -1195,7 +1250,7 @@ $currentLang = isset($currentLang) ? $currentLang : (isset($_COOKIE['lang']) ? $
 </section>
 
 <!-- 4.2 Keuntungan Bergabung -->
-<section class="section section-keuntungan">
+<section id="keuntungan" class="section section-keuntungan" data-lazy-content>
     <div class="container">
         <div class="section-title text-center" data-aos="fade-up">
             <span class="section-badge" data-lang-key="benefits.badge">Benefits</span>
@@ -1229,8 +1284,10 @@ $currentLang = isset($currentLang) ? $currentLang : (isset($_COOKIE['lang']) ? $
                     </div>
                     <div class="col-lg-6 order-1 order-lg-2">
                         <div class="benefit-image">
-                            <img data-src="<?php echo Router::asset('images/keuntungan-1.jpeg'); ?>" src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" alt="Keuntungan Simpel"
-                                class="img-fluid rounded-4 shadow-lg lazy-load">
+                            <img data-src="<?php echo Router::asset('images/keuntungan-1.jpeg'); ?>" 
+                                 src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" 
+                                 alt="Keuntungan Simpel" width="600" height="400"
+                                 class="img-fluid rounded-4 shadow-lg lazy-load">
                         </div>
                     </div>
                 </div>
@@ -1241,8 +1298,10 @@ $currentLang = isset($currentLang) ? $currentLang : (isset($_COOKIE['lang']) ? $
                 <div class="row align-items-center">
                     <div class="col-lg-6">
                         <div class="benefit-image">
-                            <img data-src="<?php echo Router::asset('images/keuntungan-3.jpeg'); ?>" src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7"
-                                alt="Potensi Penghasilan" class="img-fluid rounded-4 shadow-lg lazy-load">
+                            <img data-src="<?php echo Router::asset('images/keuntungan-3.jpeg'); ?>" 
+                                 src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7"
+                                 alt="Potensi Penghasilan" width="600" height="400"
+                                 class="img-fluid rounded-4 shadow-lg lazy-load">
                         </div>
                     </div>
                     <div class="col-lg-6">
@@ -1293,8 +1352,10 @@ $currentLang = isset($currentLang) ? $currentLang : (isset($_COOKIE['lang']) ? $
                     </div>
                     <div class="col-lg-6 order-1 order-lg-2">
                         <div class="benefit-image">
-                            <img data-src="<?php echo Router::asset('images/keuntungan-4.jpeg'); ?>" src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" alt="Inovasi Produk"
-                                class="img-fluid rounded-4 shadow-lg lazy-load">
+                            <img data-src="<?php echo Router::asset('images/keuntungan-4.jpeg'); ?>" 
+                                 src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" 
+                                 alt="Inovasi Produk" width="600" height="400"
+                                 class="img-fluid rounded-4 shadow-lg lazy-load">
                         </div>
                     </div>
                 </div>
@@ -1304,14 +1365,15 @@ $currentLang = isset($currentLang) ? $currentLang : (isset($_COOKIE['lang']) ? $
 </section>
 
 <!-- 4.3 Partner/Sponsor -->
-<section class="section section-partner">
+<section id="partner" class="section section-partner" data-lazy-content>
     <div class="container">
         <div class="partner-card" data-aos="fade-up">
             <div class="row g-0 align-items-center">
                 <div class="col-lg-5">
                     <div class="partner-image-box">
-                        <img data-src="<?php echo Router::asset('images/mibelle-group.png'); ?>" src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7"
-                            alt="Mibelle Biochemistry Swiss" class="img-fluid lazy-load">
+                        <img data-src="<?php echo Router::asset('images/mibelle-group.png'); ?>" 
+                             src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7"
+                             alt="Mibelle Biochemistry Swiss" width="500" height="300" class="lazy-load">
                         <div class="partner-image-label">Switzerland Excellence</div>
                     </div>
                 </div>
@@ -1328,7 +1390,9 @@ $currentLang = isset($currentLang) ? $currentLang : (isset($_COOKIE['lang']) ? $
 
                         <div class="partner-subsidiary" data-aos="fade-up" data-aos-delay="100">
                             <div class="subsidiary-logo">
-                                <img data-src="<?php echo Router::asset('images/migos.png'); ?>" src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" alt="Migros Logo" class="lazy-load">
+                                <img data-src="<?php echo Router::asset('images/migos.png'); ?>" 
+                                     src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" 
+                                     alt="Migros Logo" width="120" height="50" class="lazy-load">
                             </div>
                             <div class="subsidiary-info">
                                 <p data-lang-key="partner.migros_desc">Mibelle Biochemistry merupakan salah satu
@@ -1356,7 +1420,7 @@ $currentLang = isset($currentLang) ? $currentLang : (isset($_COOKIE['lang']) ? $
 </section>
 
 <!-- 4.4 Cara Mulai Jualan -->
-<section id="cara-mulai" class="section section-mulai-jualan">
+<section id="cara-mulai" class="section section-mulai-jualan" data-lazy-content>
     <div class="container">
         <div class="section-header text-center mb-5" data-aos="fade-up">
             <h2 class="section-title" data-lang-key="start.title">CARA MULAI JUALAN</h2>
@@ -1427,7 +1491,7 @@ $currentLang = isset($currentLang) ? $currentLang : (isset($_COOKIE['lang']) ? $
 ======================================== -->
 
 <!-- 5.1 Event Tahunan -->
-<section id="media" class="section section-event-tahunan">
+<section id="media" class="section section-event-tahunan" data-lazy-content>
     <div class="container">
         <div class="section-header text-center mb-5" data-aos="fade-up">
             <h2 class="section-title" data-lang-key="events.title">EVENT TAHUNAN</h2>
@@ -1436,7 +1500,7 @@ $currentLang = isset($currentLang) ? $currentLang : (isset($_COOKIE['lang']) ? $
                 kebersamaan keluarga besar Biogreen Science</p>
         </div>
 
-        <div class="event-gallery-wrapper" data-aos="fade-up">
+        <div class="event-gallery-wrapper" data-aos="fade-up" data-lazy-content>
             <div id="eventCarousel" class="carousel slide carousel-fade" data-bs-ride="carousel">
                 <!-- Indicators -->
                 <div class="carousel-indicators">
@@ -1474,7 +1538,7 @@ $currentLang = isset($currentLang) ? $currentLang : (isset($_COOKIE['lang']) ? $
                         <div class="carousel-item <?php echo $index === 0 ? 'active' : ''; ?>" data-bs-interval="4000">
                             <div class="event-image-container">
                                 <img src="<?php echo Router::asset('images/event/' . $img); ?>" class="d-block w-100"
-                                    alt="Biogreen Event <?php echo $index + 1; ?>">
+                                    alt="Biogreen Event <?php echo $index + 1; ?>" width="1200" height="800" loading="lazy">
                                 <div class="carousel-caption d-none d-md-block">
                                     <h5 class="event-caption-title" data-lang-key="events.caption_title">Biogreen Annual
                                         Grand Day</h5>
@@ -1503,7 +1567,9 @@ $currentLang = isset($currentLang) ? $currentLang : (isset($_COOKIE['lang']) ? $
             <div class="event-thumbnails mt-4 d-none d-lg-flex justify-content-center gap-2">
                 <?php foreach (array_slice($eventImages, 0, 8) as $index => $img): ?>
                     <div class="thumb-item" data-bs-target="#eventCarousel" data-bs-slide-to="<?php echo $index; ?>">
-                        <img data-src="<?php echo Router::asset('images/event/' . $img); ?>" src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" alt="Thumb <?php echo $index; ?>" class="lazy-load">
+                        <img data-src="<?php echo Router::asset('images/event/' . $img); ?>" 
+                             src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" 
+                             alt="Thumb <?php echo $index; ?>" width="150" height="100" class="lazy-load">
                     </div>
                 <?php endforeach; ?>
             </div>
@@ -1512,7 +1578,7 @@ $currentLang = isset($currentLang) ? $currentLang : (isset($_COOKIE['lang']) ? $
 </section>
 
 <!-- 5.2 Testimoni -->
-<section class="section section-testimoni">
+<section id="testimoni" class="section section-testimoni" data-lazy-content>
     <div class="container">
         <div class="section-header text-center mb-5" data-aos="fade-up">
             <h2 class="section-title" data-lang-key="testimonials.title">TESTIMONI</h2>
@@ -1534,20 +1600,22 @@ $currentLang = isset($currentLang) ? $currentLang : (isset($_COOKIE['lang']) ? $
         ];
         ?>
 
-        <div class="testi-grid-wrapper" data-aos="fade-up">
+        <div class="testi-grid-wrapper" data-aos="fade-up" data-lazy-content>
             <div class="testi-slider-container">
                 <div class="testi-track">
                     <?php foreach ($testimonials as $testi): ?>
                         <div class="testi-slide">
                             <div class="testi-card-vertical">
                                 <div class="testi-profile-img">
-                                    <img data-src="<?php echo Router::asset('images/testimoni/' . $testi['img']); ?>" src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7"
-                                        alt="<?php echo $testi['name']; ?>" class="img-fluid lazy-load">
+                                    <img data-src="<?php echo Router::asset('images/testimoni/' . $testi['img']); ?>" 
+                                         src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7"
+                                         alt="<?php echo $testi['name']; ?>" width="300" height="400" class="img-fluid lazy-load">
                                     <div class="testi-badge" data-lang-key="testimonials.badge">Top Leader</div>
                                 </div>
                                 <div class="testi-story-content">
-                                    <img data-src="<?php echo Router::asset('images/testimoni/' . $testi['desc']); ?>" src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7"
-                                        alt="Story <?php echo $testi['name']; ?>" class="img-fluid lazy-load">
+                                    <img data-src="<?php echo Router::asset('images/testimoni/' . $testi['desc']); ?>" 
+                                         src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7"
+                                         alt="Story <?php echo $testi['name']; ?>" width="400" height="600" class="img-fluid lazy-load">
                                 </div>
                             </div>
                         </div>
@@ -1571,7 +1639,7 @@ $currentLang = isset($currentLang) ? $currentLang : (isset($_COOKIE['lang']) ? $
 <!-- ========================================
      6. REGISTRASI (CALL TO ACTION)
 ======================================== -->
-<section id="registrasi" class="section section-mulai-gabung">
+<section id="registrasi" class="section section-mulai-gabung" data-lazy-content>
     <!-- Decorative Elements -->
     <div class="gabung-decoration-1"></div>
     <div class="gabung-decoration-2"></div>
@@ -1592,32 +1660,40 @@ $currentLang = isset($currentLang) ? $currentLang : (isset($_COOKIE['lang']) ? $
                 <div class="col-6 col-md-3 col-lg-2" data-aos="fade-up" data-aos-delay="100">
                     <a href="https://www.biogreensciencelogin.com/publicJoinUs.meta?intrId=<?php echo AFFILIATE_NAME ?: 'happy'; ?>&memberPackageId=PACKAGE_SILVER"
                         target="_blank" class="package-btn">
-                        <img data-src="<?php echo Router::asset('images/silver.png'); ?>" src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" alt="Daftar Paket Silver"
-                            data-lang-alt="register.silver" class="img-fluid lazy-load">
+                        <img data-src="<?php echo Router::asset('images/silver.png'); ?>" 
+                             src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" 
+                             alt="Daftar Paket Silver" width="150" height="150"
+                             data-lang-alt="register.silver" class="img-fluid lazy-load">
                     </a>
                 </div>
                 <!-- Gold -->
                 <div class="col-6 col-md-3 col-lg-2" data-aos="fade-up" data-aos-delay="200">
                     <a href="https://www.biogreensciencelogin.com/publicJoinUs.meta?intrId=<?php echo AFFILIATE_NAME ?: 'happy'; ?>&memberPackageId=PACKAGE_GOLD"
                         target="_blank" class="package-btn">
-                        <img data-src="<?php echo Router::asset('images/gold.png'); ?>" src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" alt="Daftar Paket Gold"
-                            data-lang-alt="register.gold" class="img-fluid lazy-load">
+                        <img data-src="<?php echo Router::asset('images/gold.png'); ?>" 
+                             src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" 
+                             alt="Daftar Paket Gold" width="150" height="150"
+                             data-lang-alt="register.gold" class="img-fluid lazy-load">
                     </a>
                 </div>
                 <!-- Platinum -->
                 <div class="col-6 col-md-3 col-lg-2" data-aos="fade-up" data-aos-delay="300">
                     <a href="https://www.biogreensciencelogin.com/publicJoinUs.meta?intrId=<?php echo AFFILIATE_NAME ?: 'happy'; ?>&memberPackageId=PACKAGE_PLATINUM"
                         target="_blank" class="package-btn">
-                        <img data-src="<?php echo Router::asset('images/platinum.png'); ?>" src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" alt="Daftar Paket Platinum"
-                            data-lang-alt="register.platinum" class="img-fluid lazy-load">
+                        <img data-src="<?php echo Router::asset('images/platinum.png'); ?>" 
+                             src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" 
+                             alt="Daftar Paket Platinum" width="150" height="150"
+                             data-lang-alt="register.platinum" class="img-fluid lazy-load">
                     </a>
                 </div>
                 <!-- Star Diamond -->
                 <div class="col-6 col-md-3 col-lg-2" data-aos="fade-up" data-aos-delay="400">
                     <a href="https://www.biogreensciencelogin.com/publicJoinUs.meta?intrId=<?php echo AFFILIATE_NAME ?: 'happy'; ?>&memberPackageId=PACKAGE_STARDIAMOND"
                         target="_blank" class="package-btn">
-                        <img data-src="<?php echo Router::asset('images/stardiamond.png'); ?>" src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7"
-                            alt="Daftar Paket Star Diamond" data-lang-alt="register.stardiamond" class="img-fluid lazy-load">
+                        <img data-src="<?php echo Router::asset('images/stardiamond.png'); ?>" 
+                             src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7"
+                             alt="Daftar Paket Star Diamond" width="150" height="150"
+                             data-lang-alt="register.stardiamond" class="img-fluid lazy-load">
                     </a>
                 </div>
             </div>
@@ -1632,7 +1708,9 @@ $currentLang = isset($currentLang) ? $currentLang : (isset($_COOKIE['lang']) ? $
             <div class="modal-body p-0 text-center position-relative">
                 <button type="button" class="btn-close btn-close-white position-absolute top-0 end-0 m-3"
                     data-bs-dismiss="modal" aria-label="Close" style="z-index: 1060;"></button>
-                <img src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" id="previewImage" class="img-fluid rounded shadow-lg" style="max-height: 90vh;">
+                <img src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" 
+                     id="previewImage" alt="Preview Gambar" class="img-fluid rounded shadow-lg" 
+                     width="800" height="600" style="max-height: 90vh;">
             </div>
         </div>
     </div>

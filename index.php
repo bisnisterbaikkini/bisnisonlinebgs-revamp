@@ -44,7 +44,7 @@ $canonicalUrl = BASE_URL . '/' . ($currentPage === 'home' ? '' : $currentPage);
     <meta property="og:url" content="<?php echo $canonicalUrl; ?>">
     <meta property="og:title" content="<?php echo $router->getPageTitle(); ?> | BisnisonlineBGS">
     <meta property="og:description" content="<?php echo $router->getMetaDescription(); ?>">
-    <meta property="og:image" content="<?php echo Router::asset('images/og-image.jpg'); ?>">
+    <meta property="og:image" content="<?php echo Router::asset('images/banner/banner-landscape.jpg'); ?>">
     <meta property="og:image:width" content="1200">
     <meta property="og:image:height" content="630">
     <meta property="og:image:alt" content="BisnisonlineBGS - Bisnis Online Terpercaya">
@@ -56,23 +56,23 @@ $canonicalUrl = BASE_URL . '/' . ($currentPage === 'home' ? '' : $currentPage);
     <meta name="twitter:url" content="<?php echo $canonicalUrl; ?>">
     <meta name="twitter:title" content="<?php echo $router->getPageTitle(); ?> | BisnisonlineBGS">
     <meta name="twitter:description" content="<?php echo $router->getMetaDescription(); ?>">
-    <meta name="twitter:image" content="<?php echo Router::asset('images/og-image.jpg'); ?>">
+    <meta name="twitter:image" content="<?php echo Router::asset('images/banner/banner-landscape.jpg'); ?>">
     <meta name="twitter:creator" content="@bisnisonlinebgs">
     <meta name="twitter:site" content="@bisnisonlinebgs">
     
     <!-- Favicon & App Icons -->
-    <link rel="icon" type="image/x-icon" href="<?php echo Router::asset('images/favicon.ico'); ?>">
-    <link rel="icon" type="image/png" sizes="32x32" href="<?php echo Router::asset('images/favicon-32x32.png'); ?>">
-    <link rel="icon" type="image/png" sizes="16x16" href="<?php echo Router::asset('images/favicon-16x16.png'); ?>">
-    <link rel="apple-touch-icon" sizes="180x180" href="<?php echo Router::asset('images/apple-touch-icon.png'); ?>">
+    <link rel="icon" type="image/png" href="<?php echo Router::asset('images/logo-square.png'); ?>">
+    <link rel="apple-touch-icon" href="<?php echo Router::asset('images/logo-square.png'); ?>">
     <link rel="manifest" href="<?php echo Router::asset('images/site.webmanifest'); ?>">
     <meta name="msapplication-TileColor" content="#0d6efd">
     <meta name="theme-color" content="#0d6efd">
     
     <!-- Preload Critical Assets -->
-    <link rel="preload" href="<?php echo Router::asset('fonts/font_proxima/font.css'); ?>" as="style">
+    <link rel="preload" href="<?php echo Router::asset('fonts/proximanovalight.woff'); ?>" as="font" type="font/woff" crossorigin>
     <link rel="preload" href="<?php echo Router::asset('libs/bootstrap/css/bootstrap.min.css'); ?>" as="style">
     <link rel="preload" href="<?php echo Router::asset('css/style.css'); ?>" as="style">
+    <link rel="preload" href="<?php echo Router::asset('images/banner/banner-landscape.jpg'); ?>" as="image" fetchpriority="high">
+    <link rel="preload" href="<?php echo Router::asset('images/logo-full-text.png'); ?>" as="image">
     
     <!-- Bootstrap 5 CSS (Offline) -->
     <link rel="stylesheet" href="<?php echo Router::asset('libs/bootstrap/css/bootstrap.min.css'); ?>">
@@ -84,15 +84,15 @@ $canonicalUrl = BASE_URL . '/' . ($currentPage === 'home' ? '' : $currentPage);
     <link rel="stylesheet" href="<?php echo Router::asset('libs/aos/aos.css'); ?>">
     
     <!-- Custom Fonts -->
-    <link rel="stylesheet" href="<?php echo Router::asset('fonts/font_proxima/font.css'); ?>">
+    <link rel="stylesheet" href="<?php echo Router::asset('fonts/font.css'); ?>">
     
     <!-- Custom CSS -->
     <link rel="stylesheet" href="<?php echo Router::asset('css/style.css'); ?>">
     
     <!-- Responsive CSS berdasarkan Device -->
-    <link rel="stylesheet" href="<?php echo Router::asset('css/mobile.css'); ?>" media="screen and (max-width: 767px)">
-    <link rel="stylesheet" href="<?php echo Router::asset('css/tablet.css'); ?>" media="screen and (min-width: 768px) and (max-width: 1024px)">
-    <link rel="stylesheet" href="<?php echo Router::asset('css/desktop.css'); ?>" media="screen and (min-width: 1025px)">
+    <link rel="stylesheet" href="<?php echo Router::asset('css/mobile.css'); ?>" media="(max-width: 767px)">
+    <link rel="stylesheet" href="<?php echo Router::asset('css/tablet.css'); ?>" media="(min-width: 768px) and (max-width: 1024px)">
+    <link rel="stylesheet" href="<?php echo Router::asset('css/desktop.css'); ?>" media="(min-width: 1025px)">
     
     <!-- Structured Data / Schema.org -->
     <script type="application/ld+json">
@@ -163,6 +163,16 @@ $canonicalUrl = BASE_URL . '/' . ($currentPage === 'home' ? '' : $currentPage);
 </head>
 <body class="page-<?php echo $currentPage; ?>" data-page="<?php echo $currentPage; ?>" data-lang="<?php echo $currentLang; ?>">
     
+    <!-- Global Loading Bar -->
+    <div id="loading-bar" class="loading-bar"></div>
+
+    <!-- Page Loader -->
+    <div id="page-loader" class="page-loader">
+        <div class="loader-content">
+            <img src="<?php echo Router::asset('images/loading.gif'); ?>" alt="Loading..." width="80" height="80">
+        </div>
+    </div>
+    
     <!-- Skip to Content untuk Accessibility -->
     <a href="#main-content" class="skip-link visually-hidden-focusable">Langsung ke konten utama</a>
     
@@ -189,7 +199,8 @@ $canonicalUrl = BASE_URL . '/' . ($currentPage === 'home' ? '' : $currentPage);
        id="btn-whatsapp-floating" 
        class="btn-whatsapp-floating" 
        target="_blank" 
-       rel="noopener">
+       rel="noopener"
+       aria-label="Chat via WhatsApp">
         <i class="bi bi-whatsapp"></i>
     </a>
     
@@ -201,13 +212,13 @@ $canonicalUrl = BASE_URL . '/' . ($currentPage === 'home' ? '' : $currentPage);
     </div>
     
     <!-- jQuery (Offline) -->
-    <script src="<?php echo Router::asset('libs/jquery/jquery.min.js'); ?>"></script>
+    <script src="<?php echo Router::asset('libs/jquery/jquery.min.js'); ?>" defer></script>
     
     <!-- Bootstrap 5 JS Bundle (Offline) -->
-    <script src="<?php echo Router::asset('libs/bootstrap/js/bootstrap.bundle.min.js'); ?>"></script>
+    <script src="<?php echo Router::asset('libs/bootstrap/js/bootstrap.bundle.min.js'); ?>" defer></script>
     
     <!-- AOS - Animate On Scroll (Offline) -->
-    <script src="<?php echo Router::asset('libs/aos/aos.js'); ?>"></script>
+    <script src="<?php echo Router::asset('libs/aos/aos.js'); ?>" defer></script>
     
     <!-- App JS -->
     <script>
@@ -221,6 +232,6 @@ $canonicalUrl = BASE_URL . '/' . ($currentPage === 'home' ? '' : $currentPage);
             isProduction: <?php echo IS_PRODUCTION ? 'true' : 'false'; ?>
         };
     </script>
-    <script src="<?php echo Router::asset('js/app.js'); ?>"></script>
+    <script src="<?php echo Router::asset('js/app.js'); ?>" defer></script>
 </body>
 </html>

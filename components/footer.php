@@ -11,17 +11,18 @@
                 <!-- Brand & About -->
                 <div class="col-lg-4 col-md-6">
                     <div class="footer-widget brand-widget">
-                        <a href="<?php echo Router::url(); ?>" class="footer-logo">
-                            <img src="<?php echo Router::asset('images/logo-full-text.png'); ?>" alt="BisnisonlineBGS" class="img-fluid footer-logo-img">
+                        <a href="<?php echo Router::url(); ?>" class="footer-logo" aria-label="Beranda BisnisonlineBGS">
+                            <img src="<?php echo Router::asset('images/logo-full-text.png'); ?>" alt="BisnisonlineBGS" 
+                                 width="180" height="45" class="img-fluid footer-logo-img" loading="lazy">
                         </a>
                         <p class="footer-about" data-lang-key="footer.about">
                             Pionir dalam menghadirkan solusi kesehatan dan kecantikan berbasis teknologi Stem Cell Apel Swiss. Kami berkomitmen memberdayakan individu melalui produk premium dan peluang bisnis digital yang inovatif.
                         </p>
                         <div class="social-links-modern">
-                            <a href="#" class="social-link" aria-label="Facebook"><i class="bi bi-facebook"></i></a>
-                            <a href="#" class="social-link" aria-label="Instagram"><i class="bi bi-instagram"></i></a>
-                            <a href="#" class="social-link" aria-label="TikTok"><i class="bi bi-tiktok"></i></a>
-                            <a href="#" class="social-link" aria-label="YouTube"><i class="bi bi-youtube"></i></a>
+                            <a href="https://facebook.com" class="social-link" aria-label="Facebook" target="_blank" rel="noopener"><i class="bi bi-facebook"></i></a>
+                            <a href="https://instagram.com" class="social-link" aria-label="Instagram" target="_blank" rel="noopener"><i class="bi bi-instagram"></i></a>
+                            <a href="https://tiktok.com" class="social-link" aria-label="TikTok" target="_blank" rel="noopener"><i class="bi bi-tiktok"></i></a>
+                            <a href="https://youtube.com" class="social-link" aria-label="YouTube" target="_blank" rel="noopener"><i class="bi bi-youtube"></i></a>
                         </div>
                     </div>
                 </div>
@@ -97,9 +98,9 @@
                     &copy; <?php echo date('Y'); ?> <strong>BisnisonlineBGS</strong>. <span data-lang-key="footer.all_rights">All Rights Reserved.</span>
                 </div>
                 <div class="footer-legal">
-                    <a href="#" data-lang-key="footer.privacy">Privacy Policy</a>
+                    <a href="/privacy-policy" data-lang-key="footer.privacy">Privacy Policy</a>
                     <span class="dot"></span>
-                    <a href="#" data-lang-key="footer.terms">Terms of Service</a>
+                    <a href="/terms-of-service" data-lang-key="footer.terms">Terms of Service</a>
                 </div>
             </div>
         </div>

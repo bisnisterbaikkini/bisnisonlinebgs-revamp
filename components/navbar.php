@@ -8,9 +8,10 @@
 <nav class="site-navbar navbar navbar-expand-lg fixed-top">
     <div class="container">
         <!-- Brand/Logo -->
-        <a class="navbar-brand" href="<?php echo Router::url(); ?>">
+        <a class="navbar-brand" href="<?php echo Router::url(); ?>" aria-label="Beranda BisnisonlineBGS">
             <div class="brand-logo">
-                <img src="<?php echo Router::asset('images/logo-full-text.png'); ?>" alt="BisnisonlineBGS Logo" loading="eager">
+                <img src="<?php echo Router::asset('images/logo-full-text.png'); ?>" alt="BisnisonlineBGS Logo" 
+                     width="180" height="45" loading="eager" fetchpriority="high">
             </div>
         </a>
         
@@ -83,12 +84,14 @@
             <div class="navbar-actions">
                 <!-- Language Switcher -->
                 <div class="lang-switcher-modern">
-                    <button type="button" class="btn-lang <?php echo $currentLang === 'id' ? 'active' : ''; ?>" data-lang="id" title="Bahasa Indonesia">
-                        <img src="<?php echo Router::asset('images/flag_id.png'); ?>" alt="ID" class="lang-flag">
+                    <button type="button" class="btn-lang <?php echo $currentLang === 'id' ? 'active' : ''; ?>" 
+                            data-lang="id" title="Bahasa Indonesia" aria-label="Ganti ke Bahasa Indonesia">
+                        <img src="<?php echo Router::asset('images/flag_id.png'); ?>" alt="ID Flag" class="lang-flag" width="24" height="16">
                     </button>
                     <span class="lang-divider">|</span>
-                    <button type="button" class="btn-lang <?php echo $currentLang === 'en' ? 'active' : ''; ?>" data-lang="en" title="English">
-                        <img src="<?php echo Router::asset('images/flag_en.png'); ?>" alt="EN" class="lang-flag">
+                    <button type="button" class="btn-lang <?php echo $currentLang === 'en' ? 'active' : ''; ?>" 
+                            data-lang="en" title="English" aria-label="Switch to English">
+                        <img src="<?php echo Router::asset('images/flag_en.png'); ?>" alt="EN Flag" class="lang-flag" width="24" height="16">
                     </button>
                 </div>
             </div>
