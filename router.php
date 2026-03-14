@@ -8,6 +8,7 @@ class Router {
     private $routes = [];
     private $basePath = '';
     private $currentPage = '';
+    private $affiliateName = null;
     
     public function __construct() {
         $this->detectEnvironment();
@@ -78,8 +79,17 @@ class Router {
         
         if (array_key_exists($requestedPage, $this->routes)) {
             $this->currentPage = $this->routes[$requestedPage];
+        } else if (!empty($requestedPage) && preg_match('/^[a-zA-Z0-9_-]+$/', $requestedPage)) {
+            // Jika bukan route terdaftar, anggap sebagai affiliate dan arahkan ke home
+            $this->currentPage = 'home';
+            $this->affiliateName = $requestedPage;
         } else {
             $this->currentPage = '404';
+        }
+
+        // Simpan sebagai konstanta untuk akses global jika diperlukan
+        if (!defined('AFFILIATE_NAME')) {
+            define('AFFILIATE_NAME', $this->affiliateName);
         }
         
         return $this->currentPage;
@@ -105,6 +115,13 @@ class Router {
         return $this->currentPage;
     }
     
+    /**
+     * Get affiliate name jika ada
+     */
+    public function getAffiliateName() {
+        return $this->affiliateName;
+    }
+
     /**
      * Get base path
      */

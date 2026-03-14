@@ -208,6 +208,7 @@ $canonicalUrl = BASE_URL . '/' . ($currentPage === 'home' ? '' : $currentPage);
             baseUrl: '<?php echo BASE_URL; ?>',
             currentPage: '<?php echo $currentPage; ?>',
             currentLang: '<?php echo $currentLang; ?>',
+            affiliateName: '<?php echo $router->getAffiliateName(); ?>',
             isProduction: <?php echo IS_PRODUCTION ? 'true' : 'false'; ?>
         };
     </script>

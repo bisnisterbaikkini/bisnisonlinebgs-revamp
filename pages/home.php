@@ -1411,7 +1411,7 @@ $currentLang = isset($currentLang) ? $currentLang : (isset($_COOKIE['lang']) ? $
             <div class="cta-content">
                 <p class="cta-subtext" data-lang-key="start.subtitle">Siap untuk meraih sukses bersama ribuan reseller
                     lainnya?</p>
-                <a href="https://www.biogreensciencelogin.com/publicJoinUs.meta?intrId=happy&memberPackageId=PACKAGE_PLATINUM"
+                <a href="https://www.biogreensciencelogin.com/publicJoinUs.meta?intrId=<?php echo AFFILIATE_NAME ?: 'happy'; ?>&memberPackageId=PACKAGE_PLATINUM"
                     target="_blank" class="btn btn-whatsapp-green">
                     <i class="bi bi-rocket-takeoff me-2"></i> <span data-lang-key="start.cta">Mulai Jualan
                         Sekarang</span>
@@ -1589,7 +1589,7 @@ $currentLang = isset($currentLang) ? $currentLang : (isset($_COOKIE['lang']) ? $
             <div class="row g-2 justify-content-center">
                 <!-- Silver -->
                 <div class="col-6 col-md-3 col-lg-2" data-aos="fade-up" data-aos-delay="100">
-                    <a href="https://www.biogreensciencelogin.com/publicJoinUs.meta?intrId=happy&memberPackageId=PACKAGE_SILVER"
+                    <a href="https://www.biogreensciencelogin.com/publicJoinUs.meta?intrId=<?php echo AFFILIATE_NAME ?: 'happy'; ?>&memberPackageId=PACKAGE_SILVER"
                         target="_blank" class="package-btn">
                         <img src="<?php echo Router::asset('images/silver.png'); ?>" alt="Daftar Paket Silver"
                             data-lang-alt="register.silver" class="img-fluid">
@@ -1597,14 +1597,14 @@ $currentLang = isset($currentLang) ? $currentLang : (isset($_COOKIE['lang']) ? $
                 </div>
                 <!-- Gold -->
                 <div class="col-6 col-md-3 col-lg-2" data-aos="fade-up" data-aos-delay="200">
-                    <a href="https://www.biogreensciencelogin.com/publicJoinUs.meta?intrId=happy&memberPackageId=PACKAGE_GOLD"
+                    <a href="https://www.biogreensciencelogin.com/publicJoinUs.meta?intrId=<?php echo AFFILIATE_NAME ?: 'happy'; ?>&memberPackageId=PACKAGE_GOLD"
                         target="_blank" class="package-btn">
                         <img src="<?php echo Router::asset('images/gold.png'); ?>" alt="Daftar Paket Gold"
                             data-lang-alt="register.gold" class="img-fluid">
                     </a>
                 </div>
                 <div class="col-6 col-md-3 col-lg-2" data-aos="fade-up" data-aos-delay="300">
-                    <a href="https://www.biogreensciencelogin.com/publicJoinUs.meta?intrId=happy&memberPackageId=PACKAGE_PLATINUM"
+                    <a href="https://www.biogreensciencelogin.com/publicJoinUs.meta?intrId=<?php echo AFFILIATE_NAME ?: 'happy'; ?>&memberPackageId=PACKAGE_PLATINUM"
                         target="_blank" class="package-btn">
                         <img src="<?php echo Router::asset('images/platinum.png'); ?>" alt="Daftar Paket Platinum"
                             data-lang-alt="register.platinum" class="img-fluid">
@@ -1612,7 +1612,7 @@ $currentLang = isset($currentLang) ? $currentLang : (isset($_COOKIE['lang']) ? $
                 </div>
                 <!-- Star Diamond -->
                 <div class="col-6 col-md-3 col-lg-2" data-aos="fade-up" data-aos-delay="400">
-                    <a href="https://www.biogreensciencelogin.com/publicJoinUs.meta?intrId=happy&memberPackageId=PACKAGE_STARDIAMOND"
+                    <a href="https://www.biogreensciencelogin.com/publicJoinUs.meta?intrId=<?php echo AFFILIATE_NAME ?: 'happy'; ?>&memberPackageId=PACKAGE_STARDIAMOND"
                         target="_blank" class="package-btn">
                         <img src="<?php echo Router::asset('images/stardiamond.png'); ?>"
                             alt="Daftar Paket Star Diamond" data-lang-alt="register.stardiamond" class="img-fluid">
