@@ -17,9 +17,14 @@
         <!-- Mobile Toggle Button -->
         <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#mainNavbar" 
                 aria-controls="mainNavbar" aria-expanded="false" aria-label="Toggle navigation">
-            <span class="toggler-line"></span>
-            <span class="toggler-line"></span>
-            <span class="toggler-line"></span>
+            <div class="toggler-icon-wrapper">
+                <div class="toggler-lines">
+                    <span class="toggler-line"></span>
+                    <span class="toggler-line"></span>
+                    <span class="toggler-line"></span>
+                </div>
+                <i class="bi bi-chevron-right toggler-chevron"></i>
+            </div>
         </button>
         
         <!-- Navigation Menu -->

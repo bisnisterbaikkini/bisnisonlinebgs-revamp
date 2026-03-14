@@ -105,6 +105,7 @@
     /* Header Height */
     --header-height: 80px;
     --navbar-height: 60px;
+    --z-navbar: 1060;
 }
 
 /* ========================================
@@ -140,6 +141,45 @@ html {
     overflow-x: clip;
     width: 100%;
     position: relative;
+}
+
+/* ========================================
+   LAZY LOADING & PLACEHOLDERS
+   ======================================== */
+.lazy-load {
+    opacity: 1;
+    background: #ffffff url('../images/loading.gif') no-repeat center center !important;
+    background-size: 50px 50px !important;
+    min-height: 150px;
+    width: 100%;
+    display: inline-block;
+    vertical-align: middle;
+    transition: background 0.3s ease;
+}
+
+.lazy-load.loaded {
+    background: transparent !important;
+    min-height: 0;
+}
+
+/* Content Loading Placeholder */
+.content-loader, [data-lazy-content] {
+    min-height: 150px;
+    background: var(--white) url('../images/loading.gif') no-repeat center center;
+    background-size: 50px 50px;
+    transition: all 0.8s cubic-bezier(0.165, 0.84, 0.44, 1);
+}
+
+[data-lazy-content]:not(.animate-in) {
+    opacity: 1; /* Show background */
+    transform: translateY(30px);
+    overflow: hidden;
+}
+
+[data-lazy-content].animate-in {
+    opacity: 1;
+    transform: translateY(0);
+    background-image: none !important;
 }
 
 /* ========================================
@@ -308,7 +348,7 @@ a:hover {
     top: 0;
     left: 0;
     right: 0;
-    z-index: var(--z-fixed);
+    z-index: var(--z-navbar);
     background: var(--white);
     box-shadow: 0 2px 20px rgba(0, 0, 0, 0.08);
     transition: all 0.3s ease;
@@ -358,6 +398,8 @@ a:hover {
     background: transparent;
     border-radius: var(--border-radius);
     transition: var(--transition-base);
+    z-index: 1100;
+    position: relative;
 }
 
 .navbar-toggler:hover {
@@ -369,6 +411,22 @@ a:hover {
     outline: none;
 }
 
+.toggler-icon-wrapper {
+    position: relative;
+    width: 24px;
+    height: 24px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.toggler-lines {
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+    transition: all 0.3s ease;
+}
+
 .toggler-line {
     display: block;
     width: 22px;
@@ -378,16 +436,30 @@ a:hover {
     transition: all 0.3s ease;
 }
 
-.navbar-toggler[aria-expanded="true"] .toggler-line:nth-child(1) {
-    transform: rotate(45deg) translate(5px, 5px);
-}
-
-.navbar-toggler[aria-expanded="true"] .toggler-line:nth-child(2) {
+.toggler-chevron {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%) scale(0) rotate(180deg);
+    font-size: 1.5rem;
+    color: var(--gray-600);
+    transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
     opacity: 0;
+    line-height: 1;
 }
 
-.navbar-toggler[aria-expanded="true"] .toggler-line:nth-child(3) {
-    transform: rotate(-45deg) translate(5px, -5px);
+.navbar-toggler[aria-expanded="true"] .toggler-lines {
+    opacity: 0;
+    transform: scale(0.5) rotate(90deg);
+}
+
+.navbar-toggler[aria-expanded="true"] .toggler-chevron {
+    opacity: 1;
+    transform: translate(-50%, -50%) scale(1) rotate(0);
+}
+
+body.mobile-nav-open {
+    overflow: hidden;
 }
 
 /* Navigation Links */
@@ -5111,6 +5183,57 @@ a:hover {
 @media (max-width: 991px) {
     .testi-profile-img {
         height: 240px;
+    }
+}
+
+/* ========================================
+   FLOATING WHATSAPP BUTTON
+======================================== */
+.btn-whatsapp-floating {
+    position: fixed;
+    bottom: 30px;
+    right: 30px;
+    width: 60px;
+    height: 60px;
+    background: #25d366;
+    color: var(--white);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 30px;
+    box-shadow: 0 4px 15px rgba(37, 211, 102, 0.4);
+    z-index: 1040;
+    transition: all 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+    text-decoration: none;
+}
+
+.btn-whatsapp-floating:hover {
+    background: #20ba5a;
+    color: var(--white);
+    transform: scale(1.1) translateY(-5px);
+    box-shadow: 0 8px 25px rgba(37, 211, 102, 0.5);
+}
+
+.btn-whatsapp-floating i {
+    line-height: 1;
+}
+
+.btn-back-to-top.show {
+    bottom: 100px; /* Move up when WA button is present */
+}
+
+@media (max-width: 767px) {
+    .btn-whatsapp-floating {
+        bottom: 20px;
+        right: 20px;
+        width: 50px;
+        height: 50px;
+        font-size: 24px;
+    }
+    
+    .btn-back-to-top.show {
+        bottom: 85px;
     }
 }
 

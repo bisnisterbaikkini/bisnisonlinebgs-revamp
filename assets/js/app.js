@@ -1380,6 +1380,123 @@
     };
 
     // ========================================
+    // WHATSAPP MANAGER
+    // ========================================
+    const WhatsAppManager = {
+        init: function() {
+            this.fetchWhatsAppNumber();
+        },
+
+        fetchWhatsAppNumber: function() {
+            const self = this;
+            const affiliate = App.config.affiliateName || 'happy';
+            const apiUrl = 'https://api.bisnisonlinebgs.com/api/content/member/getMemberById/' + affiliate;
+
+            $.ajax({
+                url: apiUrl,
+                method: 'GET',
+                success: function(response) {
+                    if (response && response.status === 'success' && response.data && response.data.noTelp) {
+                        self.updateWhatsAppLink(response.data.noTelp);
+                    } else if (response && response.noTelp) {
+                        // Backup check if data is flat
+                        self.updateWhatsAppLink(response.noTelp);
+                    }
+                },
+                error: function() {
+                    console.warn('Failed to fetch WhatsApp number for affiliate:', affiliate);
+                }
+            });
+        },
+
+        updateWhatsAppLink: function(phone) {
+            // Clean phone number (remove +, spaces, etc)
+            let cleanPhone = phone.replace(/\D/g, '');
+            
+            // Ensure ID prefix for Indonesian numbers if starts with 0
+            if (cleanPhone.startsWith('0')) {
+                cleanPhone = '62' + cleanPhone.substring(1);
+            }
+            
+            const waUrl = 'https://wa.me/' + cleanPhone + '?text=Halo! Saya tertarik untuk menjadi reseller di Bisnis Online BGS';
+            $('#btn-whatsapp-floating').attr('href', waUrl);
+        }
+    };
+
+    // ========================================
+    // LAZY LOADER
+    // ========================================
+    const LazyLoader = {
+        init: function() {
+            console.log('LazyLoader Initialized');
+            this.observeImages();
+            this.observeContent();
+        },
+
+        observeImages: function() {
+            const self = this;
+            const images = document.querySelectorAll('img[data-src], video[data-src]');
+            
+            if ('IntersectionObserver' in window) {
+                const imageObserver = new IntersectionObserver((entries, observer) => {
+                    entries.forEach(entry => {
+                        if (entry.isIntersecting) {
+                            self.loadImage(entry.target);
+                            observer.unobserve(entry.target);
+                        }
+                    });
+                }, {
+                    rootMargin: '50px 0px',
+                    threshold: 0.01
+                });
+
+                images.forEach(img => {
+                    img.classList.add('lazy-load');
+                    imageObserver.observe(img);
+                });
+            } else {
+                // Fallback for older browsers
+                images.forEach(img => self.loadImage(img));
+            }
+        },
+
+        loadImage: function(el) {
+            const src = el.getAttribute('data-src');
+            if (!src) return;
+
+            if (el.tagName.toLowerCase() === 'video') {
+                el.poster = src;
+                el.classList.add('loaded');
+            } else {
+                el.src = src;
+                el.onload = () => {
+                    el.classList.add('loaded');
+                    el.removeAttribute('data-src');
+                };
+            }
+        },
+
+        observeContent: function() {
+            const contents = document.querySelectorAll('[data-lazy-content]');
+            
+            if ('IntersectionObserver' in window) {
+                const contentObserver = new IntersectionObserver((entries, observer) => {
+                    entries.forEach(entry => {
+                        if (entry.isIntersecting) {
+                            entry.target.classList.add('animate-in');
+                            observer.unobserve(entry.target);
+                        }
+                    });
+                }, {
+                    threshold: 0.1
+                });
+
+                contents.forEach(content => contentObserver.observe(content));
+            }
+        }
+    };
+
+    // ========================================
     // INITIALIZATION
     // ========================================
     $(document).ready(function() {
@@ -1395,6 +1512,8 @@
         ProductShowcase.init();
         ImagePreview.init();
         VideoHandler.init();
+        WhatsAppManager.init();
+        LazyLoader.init();
         
         // Trigger initial scroll to update nav state
         $(window).trigger('scroll');
@@ -1418,6 +1537,8 @@
         ProductShowcase: ProductShowcase,
         ImagePreview: ImagePreview,
         VideoHandler: VideoHandler,
+        WhatsAppManager: WhatsAppManager,
+        LazyLoader: LazyLoader,
         Utils: Utils,
         t: function(key, replacements) {
             return LangManager.t(key, replacements);

@@ -184,6 +184,15 @@ $canonicalUrl = BASE_URL . '/' . ($currentPage === 'home' ? '' : $currentPage);
         <i class="bi bi-arrow-up"></i>
     </button>
     
+    <!-- Floating WhatsApp Button -->
+    <a href="https://wa.me/628123456789?text=Halo!%20Saya%20tertarik%20untuk%20menjadi%20reseller%20di%20Bisnis%20Online%20BGS" 
+       id="btn-whatsapp-floating" 
+       class="btn-whatsapp-floating" 
+       target="_blank" 
+       rel="noopener">
+        <i class="bi bi-whatsapp"></i>
+    </a>
+    
     <!-- Loading Overlay untuk SPA -->
     <div id="loading-overlay" class="loading-overlay" style="display: none;">
         <div class="spinner-border text-primary" role="status">
