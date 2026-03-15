@@ -16,7 +16,8 @@
 
 @font-face {
     font-family: 'Proxima';
-    src: url('../fonts/proximanovalight.ttf') format('truetype'); /* Fallback if bold specific file missing, or use bold if exists */
+    src: url('../fonts/proximanovalight.ttf') format('truetype');
+    /* Fallback if bold specific file missing, or use bold if exists */
     font-weight: bold;
     font-style: normal;
     font-display: swap;
@@ -160,8 +161,13 @@ html {
 }
 
 @keyframes loadingBarGradient {
-    0% { background-position: 100% 50%; }
-    100% { background-position: 0% 50%; }
+    0% {
+        background-position: 100% 50%;
+    }
+
+    100% {
+        background-position: 0% 50%;
+    }
 }
 
 .loading-bar.active {
@@ -170,8 +176,13 @@ html {
 
 /* Shimmer Animation */
 @keyframes shimmerEffect {
-    0% { background-position: -600px 0; }
-    100% { background-position: 600px 0; }
+    0% {
+        background-position: -600px 0;
+    }
+
+    100% {
+        background-position: 600px 0;
+    }
 }
 
 .shimmer-placeholder {
@@ -222,7 +233,8 @@ html {
     max-width: 100%;
     object-fit: cover;
     background-color: #f8f9fa !important;
-    border: 1px solid #eee; /* Visible boundary during load */
+    border: 1px solid #eee;
+    /* Visible boundary during load */
 }
 
 .lazy-load.loaded {
@@ -230,6 +242,7 @@ html {
     transform: scale(1);
     background: transparent !important;
     min-height: 0;
+    border: none !important;
 }
 
 /* Fix for specific image types to prevent "messy" stretching */
@@ -255,6 +268,10 @@ img.lazy-load {
 /* Hero Banner special case */
 .section-banner.lazy-load:not(.loaded) {
     min-height: 100vh;
+}
+
+.cursor-zoom {
+    cursor: zoom-in;
 }
 
 /* Container Loading State */
@@ -302,7 +319,7 @@ img.lazy-load {
     background: transparent url('../images/loading.gif') no-repeat center center;
     background-size: contain;
     z-index: 100;
-    filter: drop-shadow(0 0 10px rgba(255,255,255,0.8));
+    filter: drop-shadow(0 0 10px rgba(255, 255, 255, 0.8));
 }
 
 [data-lazy-content].animate-in::before,
@@ -709,7 +726,8 @@ body.mobile-nav-open {
 }
 
 .lang-divider {
-    display: none; /* Removed for a cleaner look when using pill shapes */
+    display: none;
+    /* Removed for a cleaner look when using pill shapes */
 }
 
 
@@ -849,7 +867,7 @@ body.mobile-nav-open {
     margin: 0;
     padding: 0;
     overflow: hidden;
-    background-image: url('../images/banner/banner-landscape.jpg');
+    background-image: url('../images/banner/banner-landscape.webp');
     background-size: cover;
     background-position: center top;
     background-repeat: no-repeat;
@@ -858,7 +876,7 @@ body.mobile-nav-open {
 
 @media (max-width: 767px) {
     .section-banner {
-        background-image: url('../images/banner/banner-potrait.jpeg');
+        background-image: url('../images/banner/banner-potrait.webp');
         height: 80vh;
         /* Adjust for mobile view */
         min-height: 400px;
@@ -4307,7 +4325,7 @@ body.mobile-nav-open {
     height: 120%;
     /* Extra height for parallax movement */
     z-index: 0;
-    background-image: url('../images/background/landscape.jpeg');
+    background-image: url('../images/background/landscape.webp');
     background-size: cover;
     background-position: center;
     background-repeat: no-repeat;
@@ -4315,7 +4333,7 @@ body.mobile-nav-open {
 
 @media (max-width: 767px) {
     .celebrity-bg {
-        background-image: url('../images/background/portait.jpg');
+        background-image: url('../images/background/portait.webp');
     }
 }
 
@@ -5348,7 +5366,8 @@ body.mobile-nav-open {
 }
 
 .btn-back-to-top.show {
-    bottom: 100px; /* Move up when WA button is present */
+    bottom: 100px;
+    /* Move up when WA button is present */
 }
 
 @media (max-width: 767px) {
@@ -5359,7 +5378,7 @@ body.mobile-nav-open {
         height: 50px;
         font-size: 24px;
     }
-    
+
     .btn-back-to-top.show {
         bottom: 85px;
     }

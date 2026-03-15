@@ -3,7 +3,7 @@
  * SPA Logic, Multilanguage Support & Parallax Navigation
  */
 
-(function($) {
+(function ($) {
     'use strict';
 
     // ========================================
@@ -29,23 +29,23 @@
         translations: {},
         supportedLangs: ['id', 'en'],
 
-        init: function() {
+        init: function () {
             this.currentLang = App.config.currentLang || this.getCookie('lang') || 'id';
             this.loadLanguage(this.currentLang);
             this.bindEvents();
         },
 
-        bindEvents: function() {
-            $(document).on('click', '.btn-lang', function(e) {
+        bindEvents: function () {
+            $(document).on('click', '.btn-lang', function (e) {
                 e.preventDefault();
                 const lang = $(this).data('lang');
                 LangManager.switchLanguage(lang);
             });
         },
 
-        loadLanguage: function(lang, callback) {
+        loadLanguage: function (lang, callback) {
             const self = this;
-            
+
             if (this.translations[lang]) {
                 this.applyTranslations(lang);
                 if (callback) callback();
@@ -55,12 +55,12 @@
             $.ajax({
                 url: App.config.baseUrl + '/assets/lang/lang_' + lang + '.json',
                 dataType: 'json',
-                success: function(data) {
+                success: function (data) {
                     self.translations[lang] = data;
                     self.applyTranslations(lang);
                     if (callback) callback();
                 },
-                error: function() {
+                error: function () {
                     console.error('Failed to load language: ' + lang);
                     if (lang !== 'id') {
                         self.loadLanguage('id', callback);
@@ -69,7 +69,7 @@
             });
         },
 
-        switchLanguage: function(lang) {
+        switchLanguage: function (lang) {
             if (!this.supportedLangs.includes(lang)) {
                 console.error('Unsupported language: ' + lang);
                 return;
@@ -77,24 +77,24 @@
 
             this.currentLang = lang;
             this.setCookie('lang', lang, 365);
-            
+
             $('.btn-lang').removeClass('active');
             $('.btn-lang[data-lang="' + lang + '"]').addClass('active');
-            
+
             $('html').attr('lang', lang === 'id' ? 'id' : 'en');
-            
+
             this.loadLanguage(lang);
-            
+
             $(document).trigger('languageChanged', [lang]);
         },
 
-        applyTranslations: function(lang) {
+        applyTranslations: function (lang) {
             const translations = this.translations[lang];
             if (!translations) return;
 
             App.lang = translations;
 
-            $('[data-lang-key]').each(function() {
+            $('[data-lang-key]').each(function () {
                 const key = $(this).data('lang-key');
                 const text = LangManager.getTranslation(key);
                 if (text) {
@@ -102,7 +102,7 @@
                 }
             });
 
-            $('[data-lang-placeholder]').each(function() {
+            $('[data-lang-placeholder]').each(function () {
                 const key = $(this).data('lang-placeholder');
                 const text = LangManager.getTranslation(key);
                 if (text) {
@@ -110,7 +110,7 @@
                 }
             });
 
-            $('[data-lang-title]').each(function() {
+            $('[data-lang-title]').each(function () {
                 const key = $(this).data('lang-title');
                 const text = LangManager.getTranslation(key);
                 if (text) {
@@ -118,7 +118,7 @@
                 }
             });
 
-            $('[data-lang-aria]').each(function() {
+            $('[data-lang-aria]').each(function () {
                 const key = $(this).data('lang-aria');
                 const text = LangManager.getTranslation(key);
                 if (text) {
@@ -126,7 +126,7 @@
                 }
             });
 
-            $('[data-lang-alt]').each(function() {
+            $('[data-lang-alt]').each(function () {
                 const key = $(this).data('lang-alt');
                 const text = LangManager.getTranslation(key);
                 if (text) {
@@ -135,10 +135,10 @@
             });
         },
 
-        getTranslation: function(key) {
+        getTranslation: function (key) {
             const keys = key.split('.');
             let value = this.translations[this.currentLang];
-            
+
             for (let i = 0; i < keys.length; i++) {
                 if (value && value[keys[i]]) {
                     value = value[keys[i]];
@@ -146,23 +146,23 @@
                     return null;
                 }
             }
-            
+
             return value;
         },
 
-        t: function(key, replacements) {
+        t: function (key, replacements) {
             let text = this.getTranslation(key) || key;
-            
+
             if (replacements) {
                 for (let placeholder in replacements) {
                     text = text.replace(new RegExp('{{' + placeholder + '}}', 'g'), replacements[placeholder]);
                 }
             }
-            
+
             return text;
         },
 
-        setCookie: function(name, value, days) {
+        setCookie: function (name, value, days) {
             let expires = '';
             if (days) {
                 const date = new Date();
@@ -172,7 +172,7 @@
             document.cookie = name + '=' + (value || '') + expires + '; path=/; SameSite=Lax';
         },
 
-        getCookie: function(name) {
+        getCookie: function (name) {
             const nameEQ = name + '=';
             const ca = document.cookie.split(';');
             for (let i = 0; i < ca.length; i++) {
@@ -192,15 +192,15 @@
         navHeight: 70,
         scrollOffset: 80,
 
-        init: function() {
+        init: function () {
             this.cacheSections();
             this.bindEvents();
             this.updateActiveNav();
         },
 
-        cacheSections: function() {
+        cacheSections: function () {
             this.sections = [];
-            $('section[id]').each(function() {
+            $('section[id]').each(function () {
                 ParallaxNav.sections.push({
                     id: $(this).attr('id'),
                     offset: $(this).offset().top
@@ -208,11 +208,11 @@
             });
         },
 
-        bindEvents: function() {
+        bindEvents: function () {
             const self = this;
 
             // Smooth scroll untuk link dengan class .scroll-link
-            $(document).on('click', '.scroll-link, a[href^="#"]', function(e) {
+            $(document).on('click', '.scroll-link, a[href^="#"]', function (e) {
                 const href = $(this).attr('href');
                 if (href && href.startsWith('#') && href.length > 1) {
                     e.preventDefault();
@@ -224,22 +224,22 @@
             });
 
             // Update active nav on scroll
-            $(window).on('scroll', Utils.throttle(function() {
+            $(window).on('scroll', Utils.throttle(function () {
                 self.updateActiveNav();
                 self.updateScrollProgress();
             }, 100));
 
             // Recalculate section positions on resize
-            $(window).on('resize', Utils.debounce(function() {
+            $(window).on('resize', Utils.debounce(function () {
                 self.cacheSections();
             }, 200));
         },
 
-        scrollToSection: function(target) {
+        scrollToSection: function (target) {
             const $target = $(target);
             if ($target.length) {
                 const offsetTop = $target.offset().top - this.scrollOffset;
-                
+
                 // Show loading bar for visual feedback during nav
                 if (window.BisnisonlineBGS && window.BisnisonlineBGS.LazyLoader) {
                     $('#loading-bar').addClass('active').css('width', '30%');
@@ -275,29 +275,29 @@
             }
         },
 
-        updateActiveNav: function() {
+        updateActiveNav: function () {
             const scrollPos = $(window).scrollTop() + this.scrollOffset + 50;
-            
+
             let currentSection = '';
-            
+
             for (let i = this.sections.length - 1; i >= 0; i--) {
                 if (scrollPos >= this.sections[i].offset) {
                     currentSection = this.sections[i].id;
                     break;
                 }
             }
-            
+
             if (currentSection) {
                 $('.navbar-nav .nav-link').removeClass('active');
                 $('.navbar-nav .nav-link[href="#' + currentSection + '"]').addClass('active');
             }
         },
 
-        updateScrollProgress: function() {
+        updateScrollProgress: function () {
             const winScroll = document.body.scrollTop || document.documentElement.scrollTop;
             const height = document.documentElement.scrollHeight - document.documentElement.clientHeight;
             const scrolled = (winScroll / height) * 100;
-            
+
             $('#scrollProgress').css('width', scrolled + '%');
         }
     };
@@ -306,7 +306,7 @@
     // UI MANAGER
     // ========================================
     const UIManager = {
-        init: function() {
+        init: function () {
             this.initComponents();
             this.initScrollEffects();
             this.initBackToTop();
@@ -315,27 +315,27 @@
             this.initParallaxBackground();
         },
 
-        initParallaxBackground: function() {
+        initParallaxBackground: function () {
             const self = this;
             const $parallaxSections = $('.section-parallax-bg');
-            
+
             if (!$parallaxSections.length) return;
 
             const updateParallax = () => {
                 const scrolled = window.scrollY;
                 const winHeight = window.innerHeight;
 
-                $parallaxSections.each(function() {
+                $parallaxSections.each(function () {
                     const $el = $(this);
                     const offsetTop = $el.offset().top;
                     const height = $el.outerHeight();
 
                     if (scrolled + winHeight > offsetTop && scrolled < offsetTop + height) {
                         const relativeScroll = scrolled - offsetTop;
-                        
+
                         // Default background parallax
                         const yPos = -(relativeScroll * 0.2);
-                        
+
                         // Hero specific zoom parallax
                         if ($el.hasClass('section-banner')) {
                             const scale = 1 + (relativeScroll / winHeight) * 0.1;
@@ -348,33 +348,33 @@
                         }
                     }
                 });
-                
+
                 requestAnimationFrame(updateParallax);
             };
 
             requestAnimationFrame(updateParallax);
         },
 
-        initComponents: function() {
+        initComponents: function () {
             this.initTooltips();
             this.initPopovers();
         },
 
-        initTooltips: function() {
+        initTooltips: function () {
             const tooltipTriggerList = [].slice.call(document.querySelectorAll('[data-bs-toggle="tooltip"]'));
-            tooltipTriggerList.map(function(tooltipTriggerEl) {
+            tooltipTriggerList.map(function (tooltipTriggerEl) {
                 return new bootstrap.Tooltip(tooltipTriggerEl);
             });
         },
 
-        initPopovers: function() {
+        initPopovers: function () {
             const popoverTriggerList = [].slice.call(document.querySelectorAll('[data-bs-toggle="popover"]'));
-            popoverTriggerList.map(function(popoverTriggerEl) {
+            popoverTriggerList.map(function (popoverTriggerEl) {
                 return new bootstrap.Popover(popoverTriggerEl);
             });
         },
 
-        initAOS: function() {
+        initAOS: function () {
             if (typeof AOS !== 'undefined') {
                 AOS.init({
                     duration: 1200, // Longer for elegance
@@ -386,7 +386,7 @@
             }
         },
 
-        initSmoothWheelScroll: function() {
+        initSmoothWheelScroll: function () {
             // Only for desktop with mice
             if (Utils.isMobile() || Utils.isTablet()) return;
 
@@ -408,18 +408,18 @@
                 }
                 requestAnimationFrame(smoothScroll);
             };
-            
+
             // Commenting out the active implementation to avoid potential conflicts with browser native smooth scroll
             // Only enable if explicitly requested for 'inertial' scrolling
             // smoothScroll(); 
         },
 
-        initScrollEffects: function() {
+        initScrollEffects: function () {
             const navbar = $('.site-navbar');
-            
-            $(window).on('scroll', function() {
+
+            $(window).on('scroll', function () {
                 const scrollTop = $(this).scrollTop();
-                
+
                 // Navbar shadow on scroll
                 if (scrollTop > 50) {
                     navbar.addClass('navbar-scrolled');
@@ -429,18 +429,18 @@
             });
         },
 
-        initBackToTop: function() {
+        initBackToTop: function () {
             const $btn = $('#btn-back-to-top');
-            
-            $(window).on('scroll', function() {
+
+            $(window).on('scroll', function () {
                 if ($(this).scrollTop() > 300) {
                     $btn.addClass('show');
                 } else {
                     $btn.removeClass('show');
                 }
             });
-            
-            $btn.on('click', function(e) {
+
+            $btn.on('click', function (e) {
                 e.preventDefault();
                 window.scrollTo({
                     top: 0,
@@ -449,21 +449,21 @@
             });
         },
 
-        initNavbar: function() {
-            $('.navbar-toggler').on('click', function() {
+        initNavbar: function () {
+            $('.navbar-toggler').on('click', function () {
                 $('body').toggleClass('mobile-nav-open');
             });
-            
+
             // Close menu when clicking outside
-            $(document).on('click', function(e) {
+            $(document).on('click', function (e) {
                 if (!$(e.target).closest('.navbar').length && $('body').hasClass('mobile-nav-open')) {
                     $('.navbar-collapse').collapse('hide');
                     $('body').removeClass('mobile-nav-open');
                 }
             });
-            
+
             // Close menu when clicking nav link on mobile
-            $('.navbar-nav .nav-link').on('click', function() {
+            $('.navbar-nav .nav-link').on('click', function () {
                 if ($(window).width() < 992) {
                     $('.navbar-collapse').collapse('hide');
                     $('body').removeClass('mobile-nav-open');
@@ -476,30 +476,30 @@
     // FORM HANDLER
     // ========================================
     const FormHandler = {
-        init: function() {
+        init: function () {
             this.bindEvents();
         },
 
-        bindEvents: function() {
-            $(document).on('submit', 'form[data-ajax-form]', function(e) {
+        bindEvents: function () {
+            $(document).on('submit', 'form[data-ajax-form]', function (e) {
                 e.preventDefault();
                 FormHandler.handleSubmit($(this));
             });
 
             // Real-time validation
-            $(document).on('blur', '.form-control[required]', function() {
+            $(document).on('blur', '.form-control[required]', function () {
                 FormHandler.validateField($(this));
             });
         },
 
-        handleSubmit: function($form) {
+        handleSubmit: function ($form) {
             const self = this;
             const $submitBtn = $form.find('[type="submit"]');
             const originalText = $submitBtn.html();
-            
+
             // Validate all fields
             let isValid = true;
-            $form.find('.form-control[required]').each(function() {
+            $form.find('.form-control[required]').each(function () {
                 if (!self.validateField($(this))) {
                     isValid = false;
                 }
@@ -509,48 +509,48 @@
                 self.showMessage($form, 'error', LangManager.t('common.error'));
                 return;
             }
-            
+
             $submitBtn.prop('disabled', true).html('<i class="bi bi-hourglass-split me-2"></i>' + LangManager.t('common.sending'));
-            
+
             const formData = new FormData($form[0]);
-            
+
             // Simulate form submission (replace with actual AJAX call)
-            setTimeout(function() {
+            setTimeout(function () {
                 self.showMessage($form, 'success', LangManager.t('register.success') || 'Pendaftaran berhasil! Tim kami akan segera menghubungi Anda.');
                 $form[0].reset();
                 $submitBtn.prop('disabled', false).html(originalText);
             }, 2000);
         },
 
-        showMessage: function($form, type, message) {
+        showMessage: function ($form, type, message) {
             const alertClass = type === 'success' ? 'alert-success' : 'alert-danger';
             const icon = type === 'success' ? 'bi-check-circle-fill' : 'bi-exclamation-circle-fill';
             const $alert = $('<div class="alert ' + alertClass + ' alert-dismissible fade show" role="alert">' +
                 '<i class="bi ' + icon + ' me-2"></i>' + message +
                 '<button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>' +
                 '</div>');
-            
+
             $form.find('.form-messages').html($alert);
-            
+
             // Scroll to message
             $('html, body').animate({
                 scrollTop: $form.offset().top - 100
             }, 500);
-            
-            setTimeout(function() {
+
+            setTimeout(function () {
                 $alert.alert('close');
             }, 5000);
         },
 
-        validateField: function($field) {
+        validateField: function ($field) {
             const value = $field.val().trim();
             const type = $field.attr('type');
             const required = $field.prop('required');
             let isValid = true;
-            
+
             // Remove previous validation state
             $field.removeClass('is-valid is-invalid');
-            
+
             if (required && !value) {
                 isValid = false;
             } else if (type === 'email' && value) {
@@ -560,7 +560,7 @@
                 const phoneRegex = /^[\d\s\-+()]{10,15}$/;
                 isValid = phoneRegex.test(value);
             }
-            
+
             $field.addClass(isValid ? 'is-valid' : 'is-invalid');
             return isValid;
         }
@@ -570,12 +570,12 @@
     // UTILITY FUNCTIONS
     // ========================================
     const Utils = {
-        debounce: function(func, wait) {
+        debounce: function (func, wait) {
             let timeout;
             return function executedFunction() {
                 const context = this;
                 const args = arguments;
-                const later = function() {
+                const later = function () {
                     timeout = null;
                     func.apply(context, args);
                 };
@@ -584,10 +584,10 @@
             };
         },
 
-        throttle: function(func, limit) {
+        throttle: function (func, limit) {
             let lastFunc;
             let lastRan;
-            return function() {
+            return function () {
                 const context = this;
                 const args = arguments;
                 if (!lastRan) {
@@ -595,7 +595,7 @@
                     lastRan = Date.now();
                 } else {
                     clearTimeout(lastFunc);
-                    lastFunc = setTimeout(function() {
+                    lastFunc = setTimeout(function () {
                         if ((Date.now() - lastRan) >= limit) {
                             func.apply(context, args);
                             lastRan = Date.now();
@@ -605,29 +605,29 @@
             };
         },
 
-        isMobile: function() {
+        isMobile: function () {
             return window.innerWidth < 768;
         },
 
-        isTablet: function() {
+        isTablet: function () {
             return window.innerWidth >= 768 && window.innerWidth <= 1024;
         },
 
-        isDesktop: function() {
+        isDesktop: function () {
             return window.innerWidth > 1024;
         },
 
-        getDeviceType: function() {
+        getDeviceType: function () {
             if (this.isMobile()) return 'mobile';
             if (this.isTablet()) return 'tablet';
             return 'desktop';
         },
 
-        formatNumber: function(num) {
+        formatNumber: function (num) {
             return new Intl.NumberFormat(LangManager.currentLang === 'id' ? 'id-ID' : 'en-US').format(num);
         },
 
-        formatCurrency: function(num, currency) {
+        formatCurrency: function (num, currency) {
             currency = currency || 'IDR';
             return new Intl.NumberFormat(LangManager.currentLang === 'id' ? 'id-ID' : 'en-US', {
                 style: 'currency',
@@ -641,14 +641,14 @@
     // COUNTER ANIMATION
     // ========================================
     const CounterAnimation = {
-        init: function() {
+        init: function () {
             this.observeCounters();
         },
 
-        observeCounters: function() {
+        observeCounters: function () {
             const self = this;
-            const observer = new IntersectionObserver(function(entries) {
-                entries.forEach(function(entry) {
+            const observer = new IntersectionObserver(function (entries) {
+                entries.forEach(function (entry) {
                     if (entry.isIntersecting && !entry.target.classList.contains('counted')) {
                         self.animateCounter(entry.target);
                         entry.target.classList.add('counted');
@@ -656,12 +656,12 @@
                 });
             }, { threshold: 0.5 });
 
-            document.querySelectorAll('[data-counter]').forEach(function(el) {
+            document.querySelectorAll('[data-counter]').forEach(function (el) {
                 observer.observe(el);
             });
         },
 
-        animateCounter: function(element) {
+        animateCounter: function (element) {
             const target = parseInt(element.getAttribute('data-counter'));
             const duration = parseInt(element.getAttribute('data-duration')) || 2000;
             const suffix = element.getAttribute('data-suffix') || '';
@@ -669,14 +669,14 @@
             const start = 0;
             const startTime = performance.now();
 
-            const updateCounter = function(currentTime) {
+            const updateCounter = function (currentTime) {
                 const elapsed = currentTime - startTime;
                 const progress = Math.min(elapsed / duration, 1);
                 const easeOutQuart = 1 - Math.pow(1 - progress, 4);
                 const current = Math.floor(start + (target - start) * easeOutQuart);
-                
+
                 element.textContent = prefix + Utils.formatNumber(current) + suffix;
-                
+
                 if (progress < 1) {
                     requestAnimationFrame(updateCounter);
                 } else {
@@ -692,18 +692,18 @@
     // VIDEO MODAL HANDLER
     // ========================================
     const VideoModal = {
-        init: function() {
+        init: function () {
             this.bindEvents();
         },
 
-        bindEvents: function() {
+        bindEvents: function () {
             // Stop video when modal is closed
-            $('#videoModal').on('hidden.bs.modal', function() {
+            $('#videoModal').on('hidden.bs.modal', function () {
                 $('#videoFrame').attr('src', '');
             });
 
             // Play video when modal is opened
-            $('.play-button[data-bs-target="#videoModal"]').on('click', function() {
+            $('.play-button[data-bs-target="#videoModal"]').on('click', function () {
                 const videoUrl = $(this).data('video') || 'https://www.youtube.com/embed/dQw4w9WgXcQ';
                 $('#videoFrame').attr('src', videoUrl + '?autoplay=1');
             });
@@ -714,15 +714,19 @@
     // IMAGE PREVIEW HANDLER
     // ========================================
     const ImagePreview = {
-        init: function() {
+        init: function () {
             this.bindEvents();
         },
 
-        bindEvents: function() {
-            $(document).on('click', '.legal-card-modern, .award-card-modern, .award-slide-image', function() {
-                const imgSrc = $(this).find('img').attr('src');
-                $('#previewImage').attr('src', imgSrc);
-                $('#imagePreviewModal').modal('show');
+        bindEvents: function () {
+            $(document).on('click', '.gallery-preview-trigger, .gallery-card, .legal-card-modern, .award-card-modern, .award-slide-image', function () {
+                const $target = $(this).is('img') ? $(this) : $(this).find('img');
+                const fullSrc = $target.data('full-src') || $target.attr('src');
+
+                if (fullSrc) {
+                    $('#previewImage').attr('src', fullSrc);
+                    $('#imagePreviewModal').modal('show');
+                }
             });
         }
     };
@@ -742,7 +746,7 @@
         touchStartX: 0,
         touchEndX: 0,
 
-        init: function() {
+        init: function () {
             this.track = document.querySelector('.charity-track');
             if (!this.track) return;
 
@@ -759,7 +763,7 @@
             this.startAutoplay();
         },
 
-        updateSlidesPerView: function() {
+        updateSlidesPerView: function () {
             const width = window.innerWidth;
             if (width < 768) {
                 this.slidesPerView = 1;
@@ -770,7 +774,7 @@
             }
         },
 
-        cloneSlides: function() {
+        cloneSlides: function () {
             const existingClones = this.track.querySelectorAll('.charity-slide.clone');
             existingClones.forEach(clone => clone.remove());
 
@@ -785,7 +789,7 @@
             }
         },
 
-        createDots: function() {
+        createDots: function () {
             const dotsContainer = document.getElementById('charityDots');
             if (!dotsContainer) return;
 
@@ -801,7 +805,7 @@
             }
         },
 
-        updateDots: function() {
+        updateDots: function () {
             const dots = document.querySelectorAll('#charityDots .dot');
             const activeDotIndex = Math.floor(this.currentIndex / this.slidesPerView) % Math.ceil(this.totalSlides / this.slidesPerView);
 
@@ -810,7 +814,7 @@
             });
         },
 
-        bindEvents: function() {
+        bindEvents: function () {
             const self = this;
 
             const prevBtn = document.getElementById('charityPrev');
@@ -823,7 +827,7 @@
                 nextBtn.addEventListener('click', () => self.next());
             }
 
-            window.addEventListener('resize', Utils.debounce(function() {
+            window.addEventListener('resize', Utils.debounce(function () {
                 self.updateSlidesPerView();
                 self.cloneSlides();
                 self.createDots();
@@ -848,7 +852,7 @@
             }
         },
 
-        handleSwipe: function() {
+        handleSwipe: function () {
             const diff = this.touchStartX - this.touchEndX;
             const threshold = 50;
 
@@ -859,11 +863,11 @@
             }
         },
 
-        getSlideWidth: function() {
+        getSlideWidth: function () {
             return 100 / this.slidesPerView;
         },
 
-        updateSliderPosition: function(animate = true) {
+        updateSliderPosition: function (animate = true) {
             const slideWidth = this.getSlideWidth();
             const offset = (this.currentIndex + this.slidesPerView) * slideWidth;
 
@@ -873,7 +877,7 @@
             this.updateDots();
         },
 
-        next: function() {
+        next: function () {
             this.currentIndex++;
             this.updateSliderPosition();
 
@@ -885,7 +889,7 @@
             }
         },
 
-        prev: function() {
+        prev: function () {
             this.currentIndex--;
             this.updateSliderPosition();
 
@@ -897,12 +901,12 @@
             }
         },
 
-        goToSlide: function(index) {
+        goToSlide: function (index) {
             this.currentIndex = index;
             this.updateSliderPosition();
         },
 
-        startAutoplay: function() {
+        startAutoplay: function () {
             const self = this;
             if (this.autoplayInterval) return;
 
@@ -914,7 +918,7 @@
             }, this.autoplayDelay);
         },
 
-        pauseAutoplay: function() {
+        pauseAutoplay: function () {
             this.isPlaying = false;
             if (this.autoplayInterval) {
                 clearInterval(this.autoplayInterval);
@@ -932,7 +936,7 @@
             bionadboost: {
                 title: 'product_names.nad_boost',
                 category: 'products.cat_health',
-                image: 'images/produk/bionadboost.JPG',
+                image: 'images/produk/bionadboost.webp',
                 desc: 'product_details.bionadboost.desc',
                 benefits: [
                     { icon: 'bi-activity', text: 'product_details.bionadboost.b1', value: 95 },
@@ -943,7 +947,7 @@
             applescplus: {
                 title: 'product_names.applesc_plus',
                 category: 'products.cat_health',
-                image: 'images/produk/applescplus.JPG',
+                image: 'images/produk/applescplus.webp',
                 desc: 'product_details.applescplus.desc',
                 benefits: [
                     { icon: 'bi-arrow-repeat', text: 'product_details.applescplus.b1', value: 98 },
@@ -959,7 +963,7 @@
             applesc: {
                 title: 'product_names.applesc',
                 category: 'products.cat_health',
-                image: 'images/produk/applesc.JPG',
+                image: 'images/produk/applesc.webp',
                 desc: 'product_details.applesc.desc',
                 benefits: [
                     { icon: 'bi-arrow-repeat', text: 'product_details.applesc.b1', value: 95 },
@@ -973,7 +977,7 @@
             bioscmild: {
                 title: 'product_names.sc_mild',
                 category: 'products.cat_health',
-                image: 'images/produk/bioscmild.JPG',
+                image: 'images/produk/bioscmild.webp',
                 desc: 'product_details.bioscmild.desc',
                 benefits: [
                     { icon: 'bi-heart-pulse', text: 'product_details.bioscmild.b1', value: 95 },
@@ -986,7 +990,7 @@
             biomildcapsule: {
                 title: 'product_names.sc_mild_capsule',
                 category: 'products.cat_health',
-                image: 'images/produk/biomildcapsule.JPG',
+                image: 'images/produk/biomildcapsule.webp',
                 desc: 'product_details.biomildcapsule.desc',
                 benefits: [
                     { icon: 'bi-emoji-smile', text: 'product_details.biomildcapsule.b1', value: 96 },
@@ -1000,7 +1004,7 @@
             bioscgold: {
                 title: 'product_names.sc_gold',
                 category: 'products.cat_health',
-                image: 'images/produk/biogold.JPG',
+                image: 'images/produk/biogold.webp',
                 desc: 'product_details.bioscgold.desc',
                 benefits: [
                     { icon: 'bi-heart-pulse', text: 'product_details.bioscgold.b1', value: 96 },
@@ -1013,7 +1017,7 @@
             bioinflavia: {
                 title: 'product_names.inflavia',
                 category: 'products.cat_health',
-                image: 'images/produk/bioinflavia.JPG',
+                image: 'images/produk/bioinflavia.webp',
                 desc: 'product_details.bioinflavia.desc',
                 benefits: [
                     { icon: 'bi-shield-check', text: 'product_details.bioinflavia.b1', value: 94 },
@@ -1026,7 +1030,7 @@
             biorawgenic: {
                 title: 'product_names.rawgenic',
                 category: 'products.cat_weight',
-                image: 'images/produk/biorawgenic.JPG',
+                image: 'images/produk/biorawgenic.webp',
                 desc: 'product_details.biorawgenic.desc',
                 benefits: [
                     { icon: 'bi-fire', text: 'product_details.biorawgenic.b1', value: 98 },
@@ -1041,7 +1045,7 @@
             beauty2: {
                 title: 'product_names.collagen',
                 category: 'products.cat_beauty',
-                image: 'images/produk/bionadboost.JPG',
+                image: 'images/produk/bionadboost.webp',
                 desc: 'product_details.beauty2.desc',
                 benefits: [
                     { icon: 'bi-heart', text: 'product_details.beauty2.b1', value: 95 },
@@ -1053,7 +1057,7 @@
             nutrition1: {
                 title: 'product_names.fiber',
                 category: 'products.cat_nutrition',
-                image: 'images/produk/bionadboost.JPG',
+                image: 'images/produk/bionadboost.webp',
                 desc: 'product_details.nutrition1.desc',
                 benefits: [
                     { icon: 'bi-arrow-down-up', text: 'product_details.nutrition1.b1', value: 93 },
@@ -1064,7 +1068,7 @@
             nutrition2: {
                 title: 'product_names.protein',
                 category: 'products.cat_nutrition',
-                image: 'images/produk/bionadboost.JPG',
+                image: 'images/produk/bionadboost.webp',
                 desc: 'product_details.nutrition2.desc',
                 benefits: [
                     { icon: 'bi-person-arms-up', text: 'product_details.nutrition2.b1', value: 94 },
@@ -1074,21 +1078,21 @@
             }
         },
 
-        init: function() {
+        init: function () {
             this.bindEvents();
         },
 
-        bindEvents: function() {
+        bindEvents: function () {
             const self = this;
 
             // Category Tab Click
-            $(document).on('click', '.category-tab', function() {
+            $(document).on('click', '.category-tab', function () {
                 const category = $(this).data('category');
                 self.switchCategory(category);
             });
 
             // Product Card Click
-            $(document).on('click', '.product-card', function() {
+            $(document).on('click', '.product-card', function () {
                 const productId = $(this).data('product');
                 if (productId) {
                     self.showProductDetail(productId);
@@ -1096,26 +1100,26 @@
             });
 
             // Close Panel
-            $(document).on('click', '#closePanelBtn, #closePanelBtn2', function() {
+            $(document).on('click', '#closePanelBtn, #closePanelBtn2', function () {
                 self.closeProductDetail();
             });
 
             // Close on overlay click
-            $(document).on('click', '.product-detail-panel', function(e) {
+            $(document).on('click', '.product-detail-panel', function (e) {
                 if ($(e.target).hasClass('product-detail-panel')) {
                     self.closeProductDetail();
                 }
             });
 
             // Close on ESC key
-            $(document).on('keydown', function(e) {
+            $(document).on('keydown', function (e) {
                 if (e.key === 'Escape') {
                     self.closeProductDetail();
                 }
             });
         },
 
-        switchCategory: function(category) {
+        switchCategory: function (category) {
             // Update tabs
             $('.category-tab').removeClass('active');
             $('.category-tab[data-category="' + category + '"]').addClass('active');
@@ -1125,7 +1129,7 @@
             $('.product-category-content[data-category="' + category + '"]').addClass('active');
         },
 
-        showProductDetail: function(productId) {
+        showProductDetail: function (productId) {
             const product = this.products[productId];
             if (!product) return;
 
@@ -1142,7 +1146,7 @@
             const benefitsContainer = panel.find('.detail-benefits');
             let benefitsHtml = '<h5><i class="bi bi-check-circle-fill me-2"></i>' + LangManager.t('products.main_benefits') + '</h5>';
 
-            product.benefits.forEach(function(benefit, index) {
+            product.benefits.forEach(function (benefit, index) {
                 benefitsHtml += `
                     <div class="benefit-item" style="animation-delay: ${index * 0.1}s">
                         <div class="benefit-header">
@@ -1164,15 +1168,15 @@
             $('body').css('overflow', 'hidden');
 
             // Animate progress bars after a short delay
-            setTimeout(function() {
-                panel.find('.progress-bar').each(function() {
+            setTimeout(function () {
+                panel.find('.progress-bar').each(function () {
                     const progress = $(this).data('progress');
                     $(this).css('--progress-width', progress + '%').addClass('animated');
                 });
             }, 300);
         },
 
-        closeProductDetail: function() {
+        closeProductDetail: function () {
             const panel = $('#productDetailPanel');
             panel.removeClass('active');
             $('body').css('overflow', '');
@@ -1197,7 +1201,7 @@
         touchStartX: 0,
         touchEndX: 0,
 
-        init: function() {
+        init: function () {
             this.track = document.querySelector('.testi-track');
             if (!this.track) return;
 
@@ -1214,7 +1218,7 @@
             this.startAutoplay();
         },
 
-        updateSlidesPerView: function() {
+        updateSlidesPerView: function () {
             const width = window.innerWidth;
             if (width < 768) {
                 this.slidesPerView = 1;
@@ -1225,7 +1229,7 @@
             }
         },
 
-        cloneSlides: function() {
+        cloneSlides: function () {
             const existingClones = this.track.querySelectorAll('.testi-slide.clone');
             existingClones.forEach(clone => clone.remove());
 
@@ -1241,7 +1245,7 @@
             }
         },
 
-        createDots: function() {
+        createDots: function () {
             const dotsContainer = document.getElementById('testiDots');
             if (!dotsContainer) return;
 
@@ -1259,7 +1263,7 @@
             }
         },
 
-        updateDots: function() {
+        updateDots: function () {
             const dots = document.querySelectorAll('#testiDots .dot');
             if (!dots.length) return;
             const activeDotIndex = Math.floor(this.currentIndex / this.slidesPerView) % dots.length;
@@ -1269,7 +1273,7 @@
             });
         },
 
-        bindEvents: function() {
+        bindEvents: function () {
             const self = this;
             const prevBtn = document.getElementById('testiPrev');
             const nextBtn = document.getElementById('testiNext');
@@ -1277,7 +1281,7 @@
             if (prevBtn) prevBtn.addEventListener('click', () => self.prev());
             if (nextBtn) nextBtn.addEventListener('click', () => self.next());
 
-            window.addEventListener('resize', Utils.debounce(function() {
+            window.addEventListener('resize', Utils.debounce(function () {
                 self.updateSlidesPerView();
                 self.cloneSlides();
                 self.createDots();
@@ -1302,25 +1306,25 @@
             }
         },
 
-        handleSwipe: function() {
+        handleSwipe: function () {
             const diff = this.touchStartX - this.touchEndX;
             const threshold = 50;
             if (diff > threshold) this.next();
             else if (diff < -threshold) this.prev();
         },
 
-        getSlideWidth: function() {
+        getSlideWidth: function () {
             return 100 / this.slidesPerView;
         },
 
-        updateSliderPosition: function(animate = true) {
+        updateSliderPosition: function (animate = true) {
             const slideWidth = this.getSlideWidth();
             const offset = (this.currentIndex + this.slidesPerView) * slideWidth;
             this.track.style.transition = animate ? 'transform 0.6s cubic-bezier(0.23, 1, 0.32, 1)' : 'none';
             this.track.style.transform = `translateX(-${offset}%)`;
         },
 
-        next: function() {
+        next: function () {
             this.currentIndex++;
             this.updateSliderPosition();
             this.updateDots();
@@ -1334,7 +1338,7 @@
             }
         },
 
-        prev: function() {
+        prev: function () {
             this.currentIndex--;
             this.updateSliderPosition();
             this.updateDots();
@@ -1348,18 +1352,18 @@
             }
         },
 
-        goToSlide: function(index) {
+        goToSlide: function (index) {
             this.currentIndex = index;
             this.updateSliderPosition();
             this.updateDots();
         },
 
-        startAutoplay: function() {
+        startAutoplay: function () {
             if (this.autoplayInterval) clearInterval(this.autoplayInterval);
             this.autoplayInterval = setInterval(() => this.next(), this.autoplayDelay);
         },
 
-        pauseAutoplay: function() {
+        pauseAutoplay: function () {
             clearInterval(this.autoplayInterval);
         }
     };
@@ -1368,19 +1372,19 @@
     // VIDEO HANDLER
     // ========================================
     const VideoHandler = {
-        init: function() {
+        init: function () {
             this.bindEvents();
         },
 
-        bindEvents: function() {
-            $('.video-wrapper-modern video').on('play', function() {
+        bindEvents: function () {
+            $('.video-wrapper-modern video').on('play', function () {
                 $(this).closest('.video-wrapper-modern').addClass('is-playing');
-            }).on('pause ended', function() {
+            }).on('pause ended', function () {
                 $(this).closest('.video-wrapper-modern').removeClass('is-playing');
             });
 
             // Make the entire wrapper clickable to play/pause
-            $('.video-wrapper-modern').on('click', function() {
+            $('.video-wrapper-modern').on('click', function () {
                 const video = $(this).find('video')[0];
                 if (video) {
                     if (video.paused) {
@@ -1397,11 +1401,11 @@
     // WHATSAPP MANAGER
     // ========================================
     const WhatsAppManager = {
-        init: function() {
+        init: function () {
             this.fetchWhatsAppNumber();
         },
 
-        fetchWhatsAppNumber: function() {
+        fetchWhatsAppNumber: function () {
             const self = this;
             const affiliate = App.config.affiliateName || 'happy';
             const apiUrl = 'https://api.bisnisonlinebgs.com/api/content/member/getMemberById/' + affiliate;
@@ -1409,7 +1413,7 @@
             $.ajax({
                 url: apiUrl,
                 method: 'GET',
-                success: function(response) {
+                success: function (response) {
                     if (response && response.status === 'success' && response.data && response.data.noTelp) {
                         self.updateWhatsAppLink(response.data.noTelp);
                     } else if (response && response.noTelp) {
@@ -1417,21 +1421,21 @@
                         self.updateWhatsAppLink(response.noTelp);
                     }
                 },
-                error: function() {
+                error: function () {
                     console.warn('Failed to fetch WhatsApp number for affiliate:', affiliate);
                 }
             });
         },
 
-        updateWhatsAppLink: function(phone) {
+        updateWhatsAppLink: function (phone) {
             // Clean phone number (remove +, spaces, etc)
             let cleanPhone = phone.replace(/\D/g, '');
-            
+
             // Ensure ID prefix for Indonesian numbers if starts with 0
             if (cleanPhone.startsWith('0')) {
                 cleanPhone = '62' + cleanPhone.substring(1);
             }
-            
+
             const waUrl = 'https://wa.me/' + cleanPhone + '?text=Halo! Saya tertarik untuk menjadi reseller di Bisnis Online BGS';
             $('#btn-whatsapp-floating').attr('href', waUrl);
         }
@@ -1445,19 +1449,19 @@
         loadedImages: 0,
         $bar: null,
 
-        init: function() {
+        init: function () {
             this.$bar = $('#loading-bar');
             this.observeImages();
             this.observeContent();
         },
 
-        updateProgress: function() {
+        updateProgress: function () {
             if (this.totalImages === 0) return;
             const progress = (this.loadedImages / this.totalImages) * 100;
-            
+
             if (this.$bar.length) {
                 this.$bar.addClass('active').css('width', progress + '%');
-                
+
                 if (progress >= 100) {
                     setTimeout(() => {
                         this.$bar.fadeOut((() => {
@@ -1470,10 +1474,10 @@
             }
         },
 
-        observeImages: function() {
+        observeImages: function () {
             const self = this;
             const images = document.querySelectorAll('img[data-src], video[data-src]');
-            
+
             this.totalImages = images.length;
             this.loadedImages = 0;
 
@@ -1499,7 +1503,7 @@
             }
         },
 
-        loadImage: function(el) {
+        loadImage: function (el) {
             const self = this;
             const src = el.getAttribute('data-src');
             if (!src) return;
@@ -1512,7 +1516,7 @@
             } else {
                 // Ensure the background loading gif is visible
                 el.src = "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7";
-                
+
                 const img = new Image();
                 img.src = src;
                 img.onload = () => {
@@ -1530,19 +1534,19 @@
             }
         },
 
-        observeContent: function() {
+        observeContent: function () {
             const contents = document.querySelectorAll('[data-lazy-content]');
-            
+
             if ('IntersectionObserver' in window) {
                 const contentObserver = new IntersectionObserver((entries, observer) => {
                     entries.forEach(entry => {
                         if (entry.isIntersecting) {
                             const section = entry.target;
                             section.classList.add('active-loading');
-                            
+
                             // Get all lazy images/videos in this specific section
                             const sectionMedia = section.querySelectorAll('img.lazy-load, video.lazy-load');
-                            
+
                             const checkAndReveal = () => {
                                 // Logic: Wait until at least some images are loaded OR timeout
                                 // This ensures the loading animation loops naturally while waiting
@@ -1572,14 +1576,14 @@
                             }, 5000); // Max 5 seconds loading per section
 
                             // Start the checking loop
-                            setTimeout(checkAndReveal, 600); 
+                            setTimeout(checkAndReveal, 600);
 
                             observer.unobserve(section);
                         }
                     });
                 }, {
-                    rootMargin: '0px 0px -5% 0px', 
-                    threshold: 0.01 
+                    rootMargin: '0px 0px -5% 0px',
+                    threshold: 0.01
                 });
 
                 contents.forEach(content => contentObserver.observe(content));
@@ -1590,7 +1594,7 @@
     // ========================================
     // INITIALIZATION
     // ========================================
-    $(document).ready(function() {
+    $(document).ready(function () {
         // Initialize all modules
         LangManager.init();
         ParallaxNav.init();
@@ -1605,18 +1609,18 @@
         VideoHandler.init();
         WhatsAppManager.init();
         LazyLoader.init();
-        
+
         // Hide Page Loader
-        setTimeout(function() {
+        setTimeout(function () {
             $('#page-loader').addClass('fade-out');
-            setTimeout(function() {
+            setTimeout(function () {
                 $('#page-loader').remove();
             }, 500);
         }, 300);
 
         // Trigger initial scroll to update nav state
         $(window).trigger('scroll');
-        
+
         console.log('BisnisonlineBGS App Initialized');
     });
 
@@ -1637,7 +1641,7 @@
         WhatsAppManager: WhatsAppManager,
         LazyLoader: LazyLoader,
         Utils: Utils,
-        t: function(key, replacements) {
+        t: function (key, replacements) {
             return LangManager.t(key, replacements);
         }
     };

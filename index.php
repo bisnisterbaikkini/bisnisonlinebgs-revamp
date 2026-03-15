@@ -16,12 +16,13 @@ $canonicalUrl = BASE_URL . '/' . ($currentPage === 'home' ? '' : $currentPage);
 ?>
 <!DOCTYPE html>
 <html lang="<?php echo $currentLang === 'id' ? 'id' : 'en'; ?>">
+
 <head>
     <!-- Primary Meta Tags -->
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    
+
     <!-- SEO Meta Tags -->
     <title><?php echo $router->getPageTitle(); ?> | BisnisonlineBGS - Bisnis Online Terpercaya</title>
     <meta name="description" content="<?php echo $router->getMetaDescription(); ?>">
@@ -30,70 +31,73 @@ $canonicalUrl = BASE_URL . '/' . ($currentPage === 'home' ? '' : $currentPage);
     <meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1">
     <meta name="googlebot" content="index, follow">
     <meta name="bingbot" content="index, follow">
-    
+
     <!-- Canonical URL -->
     <link rel="canonical" href="<?php echo $canonicalUrl; ?>">
-    
+
     <!-- Alternate Language -->
     <link rel="alternate" hreflang="id" href="<?php echo $canonicalUrl; ?>?lang=id">
     <link rel="alternate" hreflang="en" href="<?php echo $canonicalUrl; ?>?lang=en">
     <link rel="alternate" hreflang="x-default" href="<?php echo $canonicalUrl; ?>">
-    
+
     <!-- Open Graph / Facebook -->
     <meta property="og:type" content="website">
     <meta property="og:url" content="<?php echo $canonicalUrl; ?>">
     <meta property="og:title" content="<?php echo $router->getPageTitle(); ?> | BisnisonlineBGS">
     <meta property="og:description" content="<?php echo $router->getMetaDescription(); ?>">
-    <meta property="og:image" content="<?php echo Router::asset('images/banner/banner-landscape.jpg'); ?>">
+    <meta property="og:image" content="<?php echo Router::asset('images/banner/banner-landscape.webp'); ?>">
     <meta property="og:image:width" content="1200">
     <meta property="og:image:height" content="630">
     <meta property="og:image:alt" content="BisnisonlineBGS - Bisnis Online Terpercaya">
     <meta property="og:site_name" content="BisnisonlineBGS">
     <meta property="og:locale" content="<?php echo $currentLang === 'id' ? 'id_ID' : 'en_US'; ?>">
-    
+
     <!-- Twitter Card -->
     <meta name="twitter:card" content="summary_large_image">
     <meta name="twitter:url" content="<?php echo $canonicalUrl; ?>">
     <meta name="twitter:title" content="<?php echo $router->getPageTitle(); ?> | BisnisonlineBGS">
     <meta name="twitter:description" content="<?php echo $router->getMetaDescription(); ?>">
-    <meta name="twitter:image" content="<?php echo Router::asset('images/banner/banner-landscape.jpg'); ?>">
+    <meta name="twitter:image" content="<?php echo Router::asset('images/banner/banner-landscape.webp'); ?>">
     <meta name="twitter:creator" content="@bisnisonlinebgs">
     <meta name="twitter:site" content="@bisnisonlinebgs">
-    
+
     <!-- Favicon & App Icons -->
     <link rel="icon" type="image/png" href="<?php echo Router::asset('images/logo-square.png'); ?>">
     <link rel="apple-touch-icon" href="<?php echo Router::asset('images/logo-square.png'); ?>">
     <link rel="manifest" href="<?php echo Router::asset('images/site.webmanifest'); ?>">
     <meta name="msapplication-TileColor" content="#0d6efd">
     <meta name="theme-color" content="#0d6efd">
-    
+
     <!-- Preload Critical Assets -->
-    <link rel="preload" href="<?php echo Router::asset('fonts/proximanovalight.woff'); ?>" as="font" type="font/woff" crossorigin>
+    <link rel="preload" href="<?php echo Router::asset('fonts/proximanovalight.woff'); ?>" as="font" type="font/woff"
+        crossorigin>
     <link rel="preload" href="<?php echo Router::asset('libs/bootstrap/css/bootstrap.min.css'); ?>" as="style">
     <link rel="preload" href="<?php echo Router::asset('css/style.css'); ?>" as="style">
-    <link rel="preload" href="<?php echo Router::asset('images/banner/banner-landscape.jpg'); ?>" as="image" fetchpriority="high">
+    <link rel="preload" href="<?php echo Router::asset('images/banner/banner-landscape.webp'); ?>" as="image"
+        fetchpriority="high">
     <link rel="preload" href="<?php echo Router::asset('images/logo-full-text.png'); ?>" as="image">
-    
+
     <!-- Bootstrap 5 CSS (Offline) -->
     <link rel="stylesheet" href="<?php echo Router::asset('libs/bootstrap/css/bootstrap.min.css'); ?>">
-    
+
     <!-- Bootstrap Icons (Offline) -->
     <link rel="stylesheet" href="<?php echo Router::asset('libs/bootstrap-icons/font/bootstrap-icons.min.css'); ?>">
-    
+
     <!-- AOS - Animate On Scroll (Offline) -->
     <link rel="stylesheet" href="<?php echo Router::asset('libs/aos/aos.css'); ?>">
-    
+
     <!-- Custom Fonts -->
     <link rel="stylesheet" href="<?php echo Router::asset('fonts/font.css'); ?>">
-    
+
     <!-- Custom CSS -->
     <link rel="stylesheet" href="<?php echo Router::asset('css/style.css'); ?>">
-    
+
     <!-- Responsive CSS berdasarkan Device -->
     <link rel="stylesheet" href="<?php echo Router::asset('css/mobile.css'); ?>" media="(max-width: 767px)">
-    <link rel="stylesheet" href="<?php echo Router::asset('css/tablet.css'); ?>" media="(min-width: 768px) and (max-width: 1024px)">
+    <link rel="stylesheet" href="<?php echo Router::asset('css/tablet.css'); ?>"
+        media="(min-width: 768px) and (max-width: 1024px)">
     <link rel="stylesheet" href="<?php echo Router::asset('css/desktop.css'); ?>" media="(min-width: 1025px)">
-    
+
     <!-- Structured Data / Schema.org -->
     <script type="application/ld+json">
     {
@@ -124,7 +128,7 @@ $canonicalUrl = BASE_URL . '/' . ($currentPage === 'home' ? '' : $currentPage);
         ]
     }
     </script>
-    
+
     <!-- Product Schema -->
     <script type="application/ld+json">
     {
@@ -145,7 +149,7 @@ $canonicalUrl = BASE_URL . '/' . ($currentPage === 'home' ? '' : $currentPage);
         }
     }
     </script>
-    
+
     <!-- WebSite Schema untuk Search -->
     <script type="application/ld+json">
     {
@@ -161,8 +165,10 @@ $canonicalUrl = BASE_URL . '/' . ($currentPage === 'home' ? '' : $currentPage);
     }
     </script>
 </head>
-<body class="page-<?php echo $currentPage; ?>" data-page="<?php echo $currentPage; ?>" data-lang="<?php echo $currentLang; ?>">
-    
+
+<body class="page-<?php echo $currentPage; ?>" data-page="<?php echo $currentPage; ?>"
+    data-lang="<?php echo $currentLang; ?>">
+
     <!-- Global Loading Bar -->
     <div id="loading-bar" class="loading-bar"></div>
 
@@ -172,54 +178,51 @@ $canonicalUrl = BASE_URL . '/' . ($currentPage === 'home' ? '' : $currentPage);
             <img src="<?php echo Router::asset('images/loading.gif'); ?>" alt="Loading..." width="80" height="80">
         </div>
     </div>
-    
+
     <!-- Skip to Content untuk Accessibility -->
     <a href="#main-content" class="skip-link visually-hidden-focusable">Langsung ke konten utama</a>
-    
+
     <!-- Navbar (Fixed Top for Parallax) -->
     <?php include __DIR__ . '/components/navbar.php'; ?>
-    
+
     <!-- Main Content -->
     <main id="main-content" class="main-content">
         <div id="spa-container" class="spa-container">
             <?php $router->loadPage(); ?>
         </div>
     </main>
-    
+
     <!-- Footer -->
     <?php include __DIR__ . '/components/footer.php'; ?>
-    
+
     <!-- Back to Top Button -->
     <button type="button" id="btn-back-to-top" class="btn btn-primary btn-back-to-top" aria-label="Kembali ke atas">
         <i class="bi bi-arrow-up"></i>
     </button>
-    
+
     <!-- Floating WhatsApp Button -->
-    <a href="https://wa.me/628123456789?text=Halo!%20Saya%20tertarik%20untuk%20menjadi%20reseller%20di%20Bisnis%20Online%20BGS" 
-       id="btn-whatsapp-floating" 
-       class="btn-whatsapp-floating" 
-       target="_blank" 
-       rel="noopener"
-       aria-label="Chat via WhatsApp">
+    <a href="https://wa.me/628123456789?text=Halo!%20Saya%20tertarik%20untuk%20menjadi%20reseller%20di%20Bisnis%20Online%20BGS"
+        id="btn-whatsapp-floating" class="btn-whatsapp-floating" target="_blank" rel="noopener"
+        aria-label="Chat via WhatsApp">
         <i class="bi bi-whatsapp"></i>
     </a>
-    
+
     <!-- Loading Overlay untuk SPA -->
     <div id="loading-overlay" class="loading-overlay" style="display: none;">
         <div class="spinner-border text-primary" role="status">
             <span class="visually-hidden">Memuat...</span>
         </div>
     </div>
-    
+
     <!-- jQuery (Offline) -->
     <script src="<?php echo Router::asset('libs/jquery/jquery.min.js'); ?>" defer></script>
-    
+
     <!-- Bootstrap 5 JS Bundle (Offline) -->
     <script src="<?php echo Router::asset('libs/bootstrap/js/bootstrap.bundle.min.js'); ?>" defer></script>
-    
+
     <!-- AOS - Animate On Scroll (Offline) -->
     <script src="<?php echo Router::asset('libs/aos/aos.js'); ?>" defer></script>
-    
+
     <!-- App JS -->
     <script>
         // Global Configuration
@@ -234,4 +237,5 @@ $canonicalUrl = BASE_URL . '/' . ($currentPage === 'home' ? '' : $currentPage);
     </script>
     <script src="<?php echo Router::asset('js/app.js'); ?>" defer></script>
 </body>
+
 </html>
