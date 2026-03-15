@@ -1258,6 +1258,116 @@
     };
 
     // ========================================
+    // HOLIDAY SLIDER - Benefit Section
+    // ========================================
+    const HolidaySlider = {
+        track: null,
+        slides: [],
+        currentIndex: 0,
+        totalSlides: 0,
+        autoplayInterval: null,
+        autoplayDelay: 5000,
+
+        init: function () {
+            this.track = document.querySelector('.holiday-track');
+            if (!this.track) return;
+
+            this.slides = Array.from(this.track.querySelectorAll('.holiday-slide'));
+            this.totalSlides = this.slides.length;
+
+            if (this.totalSlides === 0) return;
+
+            this.createDots();
+            this.bindEvents();
+            this.cloneSlides();
+            this.updateSliderPosition(false);
+            this.startAutoplay();
+        },
+
+        cloneSlides: function () {
+            const cloneFirst = this.slides[0].cloneNode(true);
+            const cloneLast = this.slides[this.totalSlides - 1].cloneNode(true);
+            cloneFirst.classList.add('clone');
+            cloneLast.classList.add('clone');
+            this.track.appendChild(cloneFirst);
+            this.track.insertBefore(cloneLast, this.track.firstChild);
+        },
+
+        createDots: function () {
+            const dotsContainer = document.getElementById('holidayDots');
+            if (!dotsContainer) return;
+
+            dotsContainer.innerHTML = '';
+            for (let i = 0; i < this.totalSlides; i++) {
+                const dot = document.createElement('button');
+                dot.classList.add('dot');
+                if (i === 0) dot.classList.add('active');
+                dot.addEventListener('click', () => this.goToSlide(i));
+                dotsContainer.appendChild(dot);
+            }
+        },
+
+        updateSliderPosition: function (animate = true) {
+            const offset = (this.currentIndex + 1) * 100;
+            this.track.style.transition = animate ? 'transform 0.5s cubic-bezier(0.25, 0.46, 0.45, 0.94)' : 'none';
+            this.track.style.transform = `translateX(-${offset}%)`;
+
+            const dots = document.querySelectorAll('#holidayDots .dot');
+            dots.forEach((dot, i) => dot.classList.toggle('active', i === this.currentIndex));
+        },
+
+        next: function () {
+            this.currentIndex++;
+            this.updateSliderPosition();
+
+            if (this.currentIndex >= this.totalSlides) {
+                setTimeout(() => {
+                    this.currentIndex = 0;
+                    this.updateSliderPosition(false);
+                }, 500);
+            }
+        },
+
+        prev: function () {
+            this.currentIndex--;
+            this.updateSliderPosition();
+
+            if (this.currentIndex < 0) {
+                setTimeout(() => {
+                    this.currentIndex = this.totalSlides - 1;
+                    this.updateSliderPosition(false);
+                }, 500);
+            }
+        },
+
+        goToSlide: function (index) {
+            this.currentIndex = index;
+            this.updateSliderPosition();
+        },
+
+        bindEvents: function () {
+            const self = this;
+            $('#holidayNext').on('click', () => {
+                self.next();
+                self.resetAutoplay();
+            });
+            $('#holidayPrev').on('click', () => {
+                self.prev();
+                self.resetAutoplay();
+            });
+        },
+
+        startAutoplay: function () {
+            this.autoplayInterval = setInterval(() => this.next(), this.autoplayDelay);
+        },
+
+        resetAutoplay: function () {
+            clearInterval(this.autoplayInterval);
+            this.startAutoplay();
+        }
+    };
+
+    // ========================================
     // TESTIMONIAL SLIDER - Infinite Item-by-Item
     // ========================================
     const TestiSlider = {
@@ -1747,6 +1857,7 @@
         FormHandler.init();
         CounterAnimation.init();
         VideoModal.init();
+        HolidaySlider.init();
         CharitySlider.init();
         TestiSlider.init();
         ProductShowcase.init();
@@ -1804,6 +1915,7 @@
         ParallaxNav: ParallaxNav,
         UIManager: UIManager,
         FormHandler: FormHandler,
+        HolidaySlider: HolidaySlider,
         CharitySlider: CharitySlider,
         TestiSlider: TestiSlider,
         ProductShowcase: ProductShowcase,

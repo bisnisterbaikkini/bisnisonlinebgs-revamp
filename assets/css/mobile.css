@@ -742,7 +742,9 @@ a, button, .btn {
    OFFICE SECTION - MOBILE
 ======================================== */
 .office-slide img {
-    height: 350px;
+    height: auto;
+    aspect-ratio: 4/5;
+    object-fit: cover;
 }
 
 .slide-counter {
@@ -976,11 +978,15 @@ a, button, .btn {
 
 .detail-panel-inner {
     border-radius: var(--border-radius-lg);
-    max-height: 95vh;
+    max-height: 90vh;
+    height: auto;
+    overflow-y: auto;
+    overflow-x: hidden;
 }
 
 .detail-content {
-    padding: var(--spacing-md);
+    padding: var(--spacing-lg) var(--spacing-md);
+    height: auto;
 }
 
 .panel-close {

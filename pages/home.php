@@ -448,6 +448,50 @@ $currentLang = isset($currentLang) ? $currentLang : (isset($_COOKIE['lang']) ? $
                         </div>
                     </div>
                 </div>
+
+                <!-- 2017 Award -->
+                <div class="col-lg-4 offset-lg-2" data-aos="fade-up" data-aos-delay="100">
+                    <div class="award-card-modern">
+                        <div class="award-trophy">
+                            <i class="bi bi-patch-check-fill"></i>
+                        </div>
+                        <div class="award-image-frame">
+                            <img data-src="<?php echo Router::asset('images/penghargaan/The Best Choise Product Exellent & Custommer Satisfaction of The Year 2017.png'); ?>"
+                                src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7"
+                                alt="The Best Choice Product Excellent & Customer Satisfaction of The Year 2017" width="300"
+                                height="450" class="lazy-load">
+                            <div class="award-year-badge">2017</div>
+                        </div>
+                        <div class="award-details">
+                            <h5 data-lang-key="awards.award4_title">Best Choice Product & Customer Satisfaction</h5>
+                            <p class="award-category" data-lang-key="awards.award4_cat">Trusted Selection Award</p>
+                            <div class="award-divider"></div>
+                            <span class="award-org"><i class="bi bi-award me-1"></i>Indonesia Award Center</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- 2016 Award -->
+                <div class="col-lg-4" data-aos="fade-up" data-aos-delay="200">
+                    <div class="award-card-modern">
+                        <div class="award-trophy">
+                            <i class="bi bi-medal-fill"></i>
+                        </div>
+                        <div class="award-image-frame">
+                            <img data-src="<?php echo Router::asset('images/penghargaan/Best Quality Product & Service Exellent of The Year 2016.png'); ?>"
+                                src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7"
+                                alt="Best Quality Product & Service Excellent of The Year 2016" width="300"
+                                height="450" class="lazy-load">
+                            <div class="award-year-badge">2016</div>
+                        </div>
+                        <div class="award-details">
+                            <h5 data-lang-key="awards.award5_title">Best Quality Product & Service Excellent</h5>
+                            <p class="award-category" data-lang-key="awards.award5_cat">Service Excellence Award</p>
+                            <div class="award-divider"></div>
+                            <span class="award-org"><i class="bi bi-hand-thumbs-up me-1"></i>Indonesia Achievement Center</span>
+                        </div>
+                    </div>
+                </div>
             </div>
         </div>
 
@@ -494,6 +538,32 @@ $currentLang = isset($currentLang) ? $currentLang : (isset($_COOKIE['lang']) ? $
                             </div>
                         </div>
                     </div>
+                    <div class="carousel-item">
+                        <div class="award-slide">
+                            <div class="award-slide-image">
+                                <img src="<?php echo Router::asset('images/penghargaan/The Best Choise Product Exellent & Custommer Satisfaction of The Year 2017.png'); ?>"
+                                    alt="Best Choice 2017" width="280" height="400">
+                            </div>
+                            <div class="award-slide-info">
+                                <div class="award-slide-year">2017</div>
+                                <h5 data-lang-key="awards.award4_title">Best Choice Product</h5>
+                                <p data-lang-key="awards.award4_cat">The Best Choice Product Excellent & Customer Satisfaction of The Year</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="carousel-item">
+                        <div class="award-slide">
+                            <div class="award-slide-image">
+                                <img src="<?php echo Router::asset('images/penghargaan/Best Quality Product & Service Exellent of The Year 2016.png'); ?>"
+                                    alt="Service Excellence 2016" width="280" height="400">
+                            </div>
+                            <div class="award-slide-info">
+                                <div class="award-slide-year">2016</div>
+                                <h5 data-lang-key="awards.award5_title">Best Quality Product & Service Excellent</h5>
+                                <p data-lang-key="awards.award5_cat">Best Quality Product & Service Excellent of The Year</p>
+                            </div>
+                        </div>
+                    </div>
                 </div>
                 <div class="carousel-nav-wrapper">
                     <button class="carousel-nav-btn" type="button" data-bs-target="#awardsCarousel"
@@ -505,6 +575,8 @@ $currentLang = isset($currentLang) ? $currentLang : (isset($_COOKIE['lang']) ? $
                             class="active"></button>
                         <button type="button" data-bs-target="#awardsCarousel" data-bs-slide-to="1"></button>
                         <button type="button" data-bs-target="#awardsCarousel" data-bs-slide-to="2"></button>
+                        <button type="button" data-bs-target="#awardsCarousel" data-bs-slide-to="3"></button>
+                        <button type="button" data-bs-target="#awardsCarousel" data-bs-slide-to="4"></button>
                     </div>
                     <button class="carousel-nav-btn" type="button" data-bs-target="#awardsCarousel"
                         data-bs-slide="next">
@@ -1347,7 +1419,7 @@ $currentLang = isset($currentLang) ? $currentLang : (isset($_COOKIE['lang']) ? $
                                     <span data-lang-key="benefits.item3_feat1">Produk Selalu Up-to-date</span>
                                 </div>
                                 <div class="benefit-point">
-                                    <i class="bi bi-microscope"></i>
+                                    <i class="bi bi-gear"></i>
                                     <span data-lang-key="benefits.item3_feat2">Free Research & Development</span>
                                 </div>
                             </div>
@@ -1359,6 +1431,87 @@ $currentLang = isset($currentLang) ? $currentLang : (isset($_COOKIE['lang']) ? $
                                 src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7"
                                 alt="Inovasi Produk" width="600" height="400"
                                 class="img-fluid rounded-4 shadow-lg lazy-load">
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Benefit 4: Produk Aman -->
+            <div class="benefit-row" data-aos="fade-up">
+                <div class="row align-items-center">
+                    <div class="col-lg-6">
+                        <div class="benefit-image">
+                            <img data-src="<?php echo Router::asset('images/keuntungan-2.webp'); ?>"
+                                src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7"
+                                alt="Produk Aman" width="600" height="400"
+                                class="img-fluid rounded-4 shadow-lg lazy-load">
+                        </div>
+                    </div>
+                    <div class="col-lg-6">
+                        <div class="benefit-content ps-lg-5">
+                            <div class="benefit-tag" data-lang-key="benefits.item4_tag">Safety & Quality</div>
+                            <h3 class="benefit-title" data-lang-key="benefits.item4_title">PRODUK AMAN</h3>
+                            <p class="benefit-desc" data-lang-key="benefits.item4_desc">Semua produk sudah teruji klinis, memiliki sertifikasi Halal dari Majelis Ulama Indonesia (MUI) dan Badan Pengawas Obat dan Makanan (BPOM).</p>
+                            <div class="benefit-points">
+                                <div class="benefit-point">
+                                    <i class="bi bi-shield-check"></i>
+                                    <span data-lang-key="benefits.item4_feat1">Teruji Klinis</span>
+                                </div>
+                                <div class="benefit-point">
+                                    <i class="bi bi-check-circle-fill"></i>
+                                    <span data-lang-key="benefits.item4_feat2">Sertifikasi Halal & BPOM</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Benefit 5: Liburan Gratis -->
+            <div class="benefit-row" data-aos="fade-up">
+                <div class="row align-items-center">
+                    <div class="col-lg-6 order-2 order-lg-1">
+                        <div class="benefit-content pe-lg-5">
+                            <div class="benefit-tag" data-lang-key="benefits.item5_tag">Premium Rewards</div>
+                            <h3 class="benefit-title" data-lang-key="benefits.item5_title">LIBURAN GRATIS</h3>
+                            <p class="benefit-desc" data-lang-key="benefits.item5_desc">Liburan gratis ke luar negeri 2 kali dalam 1 tahun bagi para reseller yang berprestasi dengan fasilitas premium.</p>
+                            <div class="benefit-points">
+                                <div class="benefit-point">
+                                    <i class="bi bi-airplane-engines"></i>
+                                    <span data-lang-key="benefits.item5_feat1">2x Setahun</span>
+                                </div>
+                                <div class="benefit-point">
+                                    <i class="bi bi-star-fill"></i>
+                                    <span data-lang-key="benefits.item5_feat2">Fasilitas Premium</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-lg-6 order-1 order-lg-2">
+                        <!-- Holiday Carousel Slider -->
+                        <div class="holiday-slider-container">
+                            <div class="holiday-slider">
+                                <div class="holiday-track">
+                                    <?php for($i=1; $i<=6; $i++): ?>
+                                    <div class="holiday-slide">
+                                        <div class="gallery-card holiday-card" data-full-src="<?php echo Router::asset('images/liburan/'.$i.'.webp'); ?>">
+                                            <img data-src="<?php echo Router::asset('images/liburan/thumbnail/'.$i.'.webp'); ?>"
+                                                src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7"
+                                                alt="Liburan Gratis <?php echo $i; ?>" class="lazy-load">
+                                            <div class="gallery-overlay">
+                                                <div class="gallery-zoom"><i class="bi bi-zoom-in"></i></div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <?php endfor; ?>
+                                </div>
+                            </div>
+                            <!-- Slider Nav -->
+                            <div class="holiday-slider-nav">
+                                <button class="holiday-nav-btn prev" id="holidayPrev"><i class="bi bi-chevron-left"></i></button>
+                                <div class="holiday-dots" id="holidayDots"></div>
+                                <button class="holiday-nav-btn next" id="holidayNext"><i class="bi bi-chevron-right"></i></button>
+                            </div>
                         </div>
                     </div>
                 </div>

@@ -94,7 +94,11 @@
         "award2_title": "Best Nourishing Health Supplement",
         "award2_cat": "Asia Halal Brand Award",
         "award3_title": "Best Quality Product & Customer Satisfaction",
-        "award3_cat": "Trusted Of Quality Award"
+        "award3_cat": "Trusted Of Quality Award",
+        "award4_title": "Best Choice Product & Customer Satisfaction",
+        "award4_cat": "The Best Choice Product Excellent & Customer Satisfaction of The Year 2017",
+        "award5_title": "Best Quality Product & Service Excellent",
+        "award5_cat": "Best Quality Product & Service Excellent of The Year 2016"
     },
     "charity": {
         "badge": "CSR",
@@ -188,7 +192,17 @@
         "item3_title": "PRODUCT INNOVATION",
         "item3_desc": "The online business world continues to evolve. Here, resellers don't need to worry about huge Research & Development (R&D) costs because we regularly provide new unique and innovative products.",
         "item3_feat1": "Always Up-to-date Products",
-        "item3_feat2": "Free Research & Development"
+        "item3_feat2": "Free Research & Development",
+        "item4_tag": "Safety & Quality",
+        "item4_title": "SAFE PRODUCTS",
+        "item4_desc": "All products are clinically tested, have Halal certification from the Indonesian Ulema Council (MUI) and the Food and Drug Supervisory Agency (BPOM).",
+        "item4_feat1": "Clinically Tested",
+        "item4_feat2": "Halal & BPOM Certified",
+        "item5_tag": "Premium Rewards",
+        "item5_title": "FREE VACATION",
+        "item5_desc": "Free trips abroad twice a year for high-achieving resellers with premium facilities.",
+        "item5_feat1": "2x a Year",
+        "item5_feat2": "Premium Facilities"
     },
     "partner": {
         "badge": "Our Partners",
@@ -238,7 +252,7 @@
         "products_title": "Featured Products",
         "contact_title": "Contact Us",
         "office": "Head Office:",
-        "address": "Biogreen Science Building, South Jakarta, Indonesia",
+        "address": "MENARA IMPERIUM LG NO. 09, JL. HR. RASUNA SAID KAV 1, Desa/Kelurahan Guntur, Kec. Setiabudi, Kota Adm. Jakarta Selatan, Provinsi DKI Jakarta",
         "wa_support": "WhatsApp Support:",
         "email_official": "Official Email:",
         "all_rights": "All rights reserved",

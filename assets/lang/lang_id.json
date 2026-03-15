@@ -94,7 +94,11 @@
         "award2_title": "Best Nourishing Health Supplement",
         "award2_cat": "Asia Halal Brand Award",
         "award3_title": "Best Quality Product & Customer Satisfaction",
-        "award3_cat": "Trusted Of Quality Award"
+        "award3_cat": "Trusted Of Quality Award",
+        "award4_title": "Best Choice Product & Customer Satisfaction",
+        "award4_cat": "The Best Choice Product Excellent & Customer Satisfaction of The Year 2017",
+        "award5_title": "Best Quality Product & Service Excellent",
+        "award5_cat": "Best Quality Product & Service Excellent of The Year 2016"
     },
     "charity": {
         "badge": "CSR",
@@ -188,7 +192,17 @@
         "item3_title": "INOVASI PRODUK",
         "item3_desc": "Dunia bisnis online terus berkembang. Di sini reseller tidak perlu memikirkan biaya Research & Development (R&D) yang sangat besar karena produk baru yang unik dan inovatif kami yang sediakan secara rutin.",
         "item3_feat1": "Produk Selalu Up-to-date",
-        "item3_feat2": "Free Research & Development"
+        "item3_feat2": "Free Research & Development",
+        "item4_tag": "Safety & Quality",
+        "item4_title": "PRODUK AMAN",
+        "item4_desc": "Semua produk sudah teruji klinis, memiliki sertifikasi Halal dari Majelis Ulama Indonesia (MUI) dan Badan Pengawas Obat dan Makanan (BPOM).",
+        "item4_feat1": "Teruji Klinis",
+        "item4_feat2": "Sertifikasi Halal & BPOM",
+        "item5_tag": "Premium Rewards",
+        "item5_title": "LIBURAN GRATIS",
+        "item5_desc": "Liburan gratis ke luar negeri 2 kali dalam 1 tahun bagi para reseller yang berprestasi dengan fasilitas premium.",
+        "item5_feat1": "2x Setahun",
+        "item5_feat2": "Fasilitas Premium"
     },
     "partner": {
         "badge": "Mitra Kami",
@@ -238,7 +252,7 @@
         "products_title": "Produk Unggulan",
         "contact_title": "Hubungi Kami",
         "office": "Kantor Pusat:",
-        "address": "Gedung Biogreen Science, Jakarta Selatan, Indonesia",
+        "address": "MENARA IMPERIUM LG NO. 09, JL. HR. RASUNA SAID KAV 1, Desa/Kelurahan Guntur, Kec. Setiabudi, Kota Adm. Jakarta Selatan, Provinsi DKI Jakarta",
         "wa_support": "WhatsApp Support:",
         "email_official": "Email Official:",
         "all_rights": "Semua hak dilindungi",
