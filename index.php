@@ -226,7 +226,8 @@ $canonicalUrl = BASE_URL . '/' . ($currentPage === 'home' ? '' : $currentPage);
             currentPage: '<?php echo $currentPage; ?>',
             currentLang: '<?php echo $currentLang; ?>',
             affiliateName: '<?php echo $router->getAffiliateName(); ?>',
-            isProduction: <?php echo IS_PRODUCTION ? 'true' : 'false'; ?>
+            isProduction: <?php echo IS_PRODUCTION ? 'true' : 'false'; ?>,
+            version: '<?php echo APP_VERSION; ?>'
         };
     </script>
     <script src="<?php echo Router::asset('js/app.js'); ?>" defer></script>

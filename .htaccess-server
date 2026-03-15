@@ -114,6 +114,13 @@ RewriteRule ^(.*)$ index.php?page=$1 [QSA,L]
     # JSON & XML
     ExpiresByType application/json "access plus 1 day"
     ExpiresByType application/xml "access plus 1 day"
+
+    # Service Worker (No cache)
+    <Files "sw.js">
+        Header set Cache-Control "max-age=0, no-cache, no-store, must-revalidate"
+        Header set Pragma "no-cache"
+        Header set Expires "0"
+    </Files>
 </IfModule>
 
 # Cache Control Headers

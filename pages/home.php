@@ -11,7 +11,10 @@ $currentLang = isset($currentLang) ? $currentLang : (isset($_COOKIE['lang']) ? $
 <!-- ========================================
      1. BERANDA (HOME) - Banner Section
 ======================================== -->
-<section id="beranda" class="section-banner section-parallax-bg">
+<section id="beranda" 
+    class="section-banner section-parallax-bg"
+    data-bg-desktop="<?php echo Router::asset('images/banner/banner-landscape.webp'); ?>"
+    data-bg-mobile="<?php echo Router::asset('images/banner/banner-potrait.webp'); ?>">
     <div class="container h-100 d-flex align-items-center">
         <div class="banner-content" data-aos="fade-right">
             <h1 class="visually-hidden">BisnisonlineBGS - Bisnis Online Terpercaya & Produk Apple Stemcell</h1>
@@ -1061,7 +1064,9 @@ $currentLang = isset($currentLang) ? $currentLang : (isset($_COOKIE['lang']) ? $
 
         <!-- Celebrity: Pilihan Selebriti Dunia -->
         <div class="applesc-celebrity" data-aos="fade-up" data-lazy-content>
-            <div class="celebrity-bg section-parallax-bg">
+            <div class="celebrity-bg section-parallax-bg"
+                data-bg-desktop="<?php echo Router::asset('images/background/landscape.webp'); ?>"
+                data-bg-mobile="<?php echo Router::asset('images/background/portait.webp'); ?>">
                 <div class="celebrity-overlay"></div>
             </div>
             <div class="celebrity-content">

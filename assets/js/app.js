@@ -200,12 +200,23 @@
 
         cacheSections: function () {
             this.sections = [];
+            const self = this;
             $('section[id]').each(function () {
-                ParallaxNav.sections.push({
-                    id: $(this).attr('id'),
-                    offset: $(this).offset().top
-                });
+                const $section = $(this);
+                if ($section.is(':visible')) {
+                    self.sections.push({
+                        id: $section.attr('id'),
+                        offset: $section.offset().top
+                    });
+                }
             });
+            // Sort by offset to ensure proper active state detection
+            this.sections.sort((a, b) => a.offset - b.offset);
+        },
+
+        refresh: function() {
+            this.cacheSections();
+            this.updateActiveNav();
         },
 
         bindEvents: function () {
@@ -315,20 +326,22 @@
             this.initParallaxBackground();
         },
 
+        parallaxData: [],
+
         initParallaxBackground: function () {
             const self = this;
-            const $parallaxSections = $('.section-parallax-bg');
-
-            if (!$parallaxSections.length) return;
+            this.refreshParallaxOffsets();
 
             const updateParallax = () => {
+                if (!this.parallaxData.length) {
+                    requestAnimationFrame(updateParallax);
+                    return;
+                }
                 const scrolled = window.scrollY;
                 const winHeight = window.innerHeight;
 
-                $parallaxSections.each(function () {
-                    const $el = $(this);
-                    const offsetTop = $el.offset().top;
-                    const height = $el.outerHeight();
+                this.parallaxData.forEach(item => {
+                    const { $el, offsetTop, height, isHero } = item;
 
                     if (scrolled + winHeight > offsetTop && scrolled < offsetTop + height) {
                         const relativeScroll = scrolled - offsetTop;
@@ -337,7 +350,7 @@
                         const yPos = -(relativeScroll * 0.2);
 
                         // Hero specific zoom parallax
-                        if ($el.hasClass('section-banner')) {
+                        if (isHero) {
                             const scale = 1 + (relativeScroll / winHeight) * 0.1;
                             $el.css({
                                 'background-position': `center ${yPos}px`,
@@ -353,6 +366,29 @@
             };
 
             requestAnimationFrame(updateParallax);
+
+            // Refresh on resize
+            $(window).on('resize', Utils.debounce(() => {
+                self.refreshParallaxOffsets();
+            }, 250));
+        },
+
+        refreshParallaxOffsets: function() {
+            const self = this;
+            const $parallaxSections = $('.section-parallax-bg');
+            this.parallaxData = [];
+
+            $parallaxSections.each(function () {
+                const $el = $(this);
+                if ($el.is(':visible')) {
+                    self.parallaxData.push({
+                        $el: $el,
+                        offsetTop: $el.offset().top,
+                        height: $el.outerHeight(),
+                        isHero: $el.hasClass('section-banner')
+                    });
+                }
+            });
         },
 
         initComponents: function () {
@@ -1509,8 +1545,23 @@
         init: function () {
             this.$bar = $('#loading-bar');
             this.observeImages();
+            this.observeBackgrounds();
             this.observeContent();
         },
+
+        refreshLayout: Utils.debounce(function() {
+            // Use local scope objects first, then fallback to global for robustness
+            const pNav = typeof ParallaxNav !== 'undefined' ? ParallaxNav : (window.BisnisonlineBGS ? window.BisnisonlineBGS.ParallaxNav : null);
+            const uiMan = typeof UIManager !== 'undefined' ? UIManager : (window.BisnisonlineBGS ? window.BisnisonlineBGS.UIManager : null);
+            
+            if (pNav && typeof pNav.refresh === 'function') pNav.refresh();
+            if (uiMan && typeof uiMan.refreshParallaxOffsets === 'function') uiMan.refreshParallaxOffsets();
+            
+            // Refresh AOS specifically as it depends heavily on element positions
+            if (window.AOS && typeof window.AOS.refresh === 'function') {
+                window.AOS.refresh();
+            }
+        }, 400),
 
         updateProgress: function () {
             if (this.totalImages === 0) return;
@@ -1535,8 +1586,7 @@
             const self = this;
             const images = document.querySelectorAll('img[data-src], video[data-src]');
 
-            this.totalImages = images.length;
-            this.loadedImages = 0;
+            this.totalImages += images.length;
 
             if ('IntersectionObserver' in window) {
                 const imageObserver = new IntersectionObserver((entries, observer) => {
@@ -1547,12 +1597,14 @@
                         }
                     });
                 }, {
-                    rootMargin: '100px 0px',
+                    rootMargin: '200px 0px', // Increased margin for better prep
                     threshold: 0.01
                 });
 
                 images.forEach(img => {
-                    img.classList.add('lazy-load');
+                    if (!img.classList.contains('lazy-load')) {
+                        img.classList.add('lazy-load');
+                    }
                     imageObserver.observe(img);
                 });
             } else {
@@ -1560,20 +1612,43 @@
             }
         },
 
+        observeBackgrounds: function() {
+            const self = this;
+            const bgElements = document.querySelectorAll('[data-bg-desktop]');
+            
+            this.totalImages += bgElements.length;
+
+            if ('IntersectionObserver' in window) {
+                const bgObserver = new IntersectionObserver((entries, observer) => {
+                    entries.forEach(entry => {
+                        if (entry.isIntersecting) {
+                            self.loadBackground(entry.target);
+                            observer.unobserve(entry.target);
+                        }
+                    });
+                }, {
+                    rootMargin: '300px 0px',
+                    threshold: 0.01
+                });
+
+                bgElements.forEach(el => bgObserver.observe(el));
+            } else {
+                bgElements.forEach(el => self.loadBackground(el));
+            }
+        },
+
         loadImage: function (el) {
             const self = this;
             const src = el.getAttribute('data-src');
-            if (!src) return;
+            if (!src || el.classList.contains('loaded')) return;
 
             if (el.tagName.toLowerCase() === 'video') {
                 el.poster = src;
                 el.classList.add('loaded');
                 self.loadedImages++;
                 self.updateProgress();
+                self.refreshLayout();
             } else {
-                // Ensure the background loading gif is visible
-                el.src = "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7";
-
                 const img = new Image();
                 img.src = src;
                 img.onload = () => {
@@ -1582,6 +1657,7 @@
                     el.removeAttribute('data-src');
                     self.loadedImages++;
                     self.updateProgress();
+                    self.refreshLayout();
                 };
                 img.onerror = () => {
                     el.classList.add('loaded', 'error');
@@ -1589,6 +1665,31 @@
                     self.updateProgress();
                 };
             }
+        },
+
+        loadBackground: function(el) {
+            const self = this;
+            const isMobile = window.innerWidth < 768;
+            const desktopSrc = el.getAttribute('data-bg-desktop');
+            const mobileSrc = el.getAttribute('data-bg-mobile') || desktopSrc;
+            const src = isMobile ? mobileSrc : desktopSrc;
+
+            if (!src) return;
+
+            const img = new Image();
+            img.src = src;
+            img.onload = () => {
+                el.style.backgroundImage = `url('${src}')`;
+                el.classList.add('loaded-bg');
+                self.loadedImages++;
+                self.updateProgress();
+                self.refreshLayout();
+            };
+            img.onerror = () => {
+                el.classList.add('loaded-bg', 'error-bg');
+                self.loadedImages++;
+                self.updateProgress();
+            };
         },
 
         observeContent: function () {
@@ -1664,6 +1765,32 @@
 
         // Trigger initial scroll to update nav state
         $(window).trigger('scroll');
+
+        // Service Worker Registration
+        if ('serviceWorker' in navigator) {
+            window.addEventListener('load', () => {
+                const swPath = window.APP_CONFIG ? `${window.APP_CONFIG.basePath}sw.js` : '/sw.js';
+                navigator.serviceWorker.register(swPath)
+                    .then(registration => {
+                        console.log('SW: Registered successfully with scope:', registration.scope);
+                        
+                        // Check for updates
+                        registration.addEventListener('updatefound', () => {
+                            const newWorker = registration.installing;
+                            newWorker.addEventListener('statechange', () => {
+                                if (newWorker.state === 'installed' && navigator.serviceWorker.controller) {
+                                    console.log('SW: New content is available; please refresh.');
+                                    // Optional: Notify user about update
+                                    // Utils.showToast('New update available. Please refresh for the latest content.');
+                                }
+                            });
+                        });
+                    })
+                    .catch(error => {
+                        console.error('SW: Registration failed:', error);
+                    });
+            });
+        }
 
         console.log('BisnisonlineBGS App Initialized');
     });

@@ -244,6 +244,27 @@ html {
     border: none !important;
 }
 
+/* Lazy Background Styles */
+.section-parallax-bg {
+    background-image: none; /* Will be set by JS */
+    background-color: #f8f9fa;
+    transition: background-color 0.6s ease;
+}
+
+.section-parallax-bg.loaded-bg {
+    background-color: transparent;
+}
+
+.celebrity-bg {
+    background-image: none; /* Will be set by JS */
+    transition: opacity 0.8s ease;
+    opacity: 0;
+}
+
+.celebrity-bg.loaded-bg {
+    opacity: 1;
+}
+
 /* Fix for specific image types to prevent "messy" stretching */
 img.lazy-load {
     max-height: 100%;
@@ -866,7 +887,7 @@ body.mobile-nav-open {
     margin: 0;
     padding: 0;
     overflow: hidden;
-    background-image: url('../images/banner/banner-landscape.webp');
+    /* background-image removed for lazy loading */
     background-size: cover;
     background-position: center top;
     background-repeat: no-repeat;
@@ -875,7 +896,7 @@ body.mobile-nav-open {
 
 @media (max-width: 767px) {
     .section-banner {
-        background-image: url('../images/banner/banner-potrait.webp');
+        /* background-image removed for lazy loading */
         height: 80vh;
         /* Adjust for mobile view */
         min-height: 400px;
@@ -4347,16 +4368,14 @@ body.mobile-nav-open {
     height: 120%;
     /* Extra height for parallax movement */
     z-index: 0;
-    background-image: url('../images/background/landscape.webp');
+    /* background-image removed for lazy loading */
     background-size: cover;
     background-position: center;
     background-repeat: no-repeat;
 }
 
 @media (max-width: 767px) {
-    .celebrity-bg {
-        background-image: url('../images/background/portait.webp');
-    }
+    /* celebrity-bg background-image is set via data-bg in JS */
 }
 
 .section-parallax-bg {

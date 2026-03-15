@@ -31,6 +31,9 @@ class Router {
             define('BASE_URL', 'http://localhost/bisnisonlinebgs-revamp');
         }
         
+        // Asset Versioning (Cache Busting)
+        // Increment this whenever you update CSS/JS/Manifest
+        define('APP_VERSION', '1.0.5');
         define('BASE_PATH', $this->basePath);
     }
     
@@ -140,7 +143,12 @@ class Router {
      * Generate asset URL
      */
     public static function asset($path) {
-        return BASE_URL . '/assets/' . ltrim($path, '/');
+        $url = BASE_URL . '/assets/' . ltrim($path, '/');
+        // Add version to CSS and JS files for cache busting
+        if (APP_VERSION && (str_ends_with($path, '.css') || str_ends_with($path, '.js') || str_ends_with($path, '.webmanifest'))) {
+            $url .= '?v=' . APP_VERSION;
+        }
+        return $url;
     }
     
     /**
