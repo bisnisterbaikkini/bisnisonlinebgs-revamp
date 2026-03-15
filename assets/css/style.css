@@ -8,7 +8,8 @@
 ======================================== */
 @font-face {
     font-family: 'Proxima';
-    src: url('../fonts/proximanovalight.ttf') format('truetype');
+    src: url('../fonts/proximanovalight.woff') format('woff'),
+         url('../fonts/proximanovalight.ttf') format('truetype');
     font-weight: normal;
     font-style: normal;
     font-display: swap;
@@ -16,7 +17,8 @@
 
 @font-face {
     font-family: 'Proxima';
-    src: url('../fonts/proximanovalight.ttf') format('truetype');
+    src: url('../fonts/proximanovalight.woff') format('woff'),
+         url('../fonts/proximanovalight.ttf') format('truetype');
     /* Fallback if bold specific file missing, or use bold if exists */
     font-weight: bold;
     font-style: normal;
@@ -223,10 +225,9 @@ html {
 .lazy-load {
     background: #ffffff url('../images/loading.gif') no-repeat center center !important;
     background-size: 40px 40px !important;
-    transition: opacity 0.6s ease, filter 0.6s ease, transform 0.6s ease;
+    transition: opacity 0.6s ease, filter 0.6s ease;
     opacity: 1;
     filter: blur(8px);
-    transform: scale(0.97);
     min-height: 150px;
     display: block;
     width: 100%;
@@ -234,12 +235,10 @@ html {
     object-fit: cover;
     background-color: #f8f9fa !important;
     border: 1px solid #eee;
-    /* Visible boundary during load */
 }
 
 .lazy-load.loaded {
     filter: blur(0);
-    transform: scale(1);
     background: transparent !important;
     min-height: 0;
     border: none !important;
@@ -2272,7 +2271,7 @@ body.mobile-nav-open {
 .btn-back-to-top {
     position: fixed;
     bottom: 30px;
-    right: 30px;
+    right: 20px;
     width: 50px;
     height: 50px;
     border-radius: 50%;
@@ -3662,50 +3661,73 @@ body.mobile-nav-open {
     border-radius: 2px;
 }
 
-/* Product Detail Panel */
+/* Product Detail Panel (Expandable) */
 .product-detail-panel {
-    position: fixed;
-    top: 0;
-    left: 0;
-    right: 0;
-    bottom: 0;
-    background: rgba(0, 0, 0, 0.8);
-    backdrop-filter: blur(10px);
-    -webkit-backdrop-filter: blur(10px);
-    z-index: 9999;
-    display: none;
-    align-items: center;
-    justify-content: center;
-    padding: var(--spacing-lg);
+    position: relative;
+    z-index: 10;
+    overflow: hidden;
+    padding: 0;
     opacity: 0;
-    transition: opacity 0.3s ease;
+    max-height: 0;
+    visibility: hidden;
+    transition: max-height 0.8s cubic-bezier(0.23, 1, 0.32, 1), 
+                opacity 0.5s ease, 
+                visibility 0.5s ease,
+                margin 0.5s ease;
+    margin-top: 0;
+    flex: 0 0 100%;
 }
 
 .product-detail-panel.active {
-    display: flex;
     opacity: 1;
+    max-height: 2500px;
+    visibility: visible;
+    margin-top: var(--spacing-lg);
+    margin-bottom: var(--spacing-lg);
+    padding-bottom: var(--spacing-md);
 }
 
 .detail-panel-inner {
     background: var(--white);
     border-radius: var(--border-radius-xl);
-    max-width: 1000px;
+    max-width: 1200px;
+    margin: 0 auto;
     width: 100%;
-    max-height: 90vh;
-    overflow-y: auto;
     position: relative;
-    animation: panelSlideIn 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+    box-shadow: 0 15px 40px rgba(0, 0, 0, 0.08);
+    border: 1px solid var(--gray-200);
+    opacity: 0;
+    transform: translateY(-40px); /* More pronounced top-down start */
+    transition: all 1s cubic-bezier(0.23, 1, 0.32, 1); /* Slower and smoother */
+    transition-delay: 0.2s;
 }
 
-@keyframes panelSlideIn {
+.product-detail-panel.active .detail-panel-inner {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+/* Internal staggered animations */
+.product-detail-panel.active .detail-image {
+    animation: contentReveal 1.2s cubic-bezier(0.23, 1, 0.32, 1) forwards;
+    animation-delay: 0.4s;
+    opacity: 0;
+}
+
+.product-detail-panel.active .detail-info {
+    animation: contentReveal 1.2s cubic-bezier(0.23, 1, 0.32, 1) forwards;
+    animation-delay: 0.6s;
+    opacity: 0;
+}
+
+@keyframes contentReveal {
     from {
         opacity: 0;
-        transform: scale(0.9) translateY(30px);
+        transform: translateY(-30px); /* Slower drift from top */
     }
-
     to {
         opacity: 1;
-        transform: scale(1) translateY(0);
+        transform: translateY(0);
     }
 }
 
@@ -5337,21 +5359,34 @@ body.mobile-nav-open {
 ======================================== */
 .btn-whatsapp-floating {
     position: fixed;
-    bottom: 30px;
-    right: 30px;
-    width: 60px;
-    height: 60px;
+    bottom: 20px;
+    right: 20px;
+    width: 50px;
+    height: 50px;
     background: #25d366;
     color: var(--white);
     border-radius: 50%;
     display: flex;
     align-items: center;
     justify-content: center;
-    font-size: 30px;
+    font-size: 24px;
     box-shadow: 0 4px 15px rgba(37, 211, 102, 0.4);
     z-index: 1040;
     transition: all 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
     text-decoration: none;
+    animation: waPulse 2s infinite;
+}
+
+@keyframes waPulse {
+    0% {
+        box-shadow: 0 0 0 0 rgba(37, 211, 102, 0.7);
+    }
+    70% {
+        box-shadow: 0 0 0 15px rgba(37, 211, 102, 0);
+    }
+    100% {
+        box-shadow: 0 0 0 0 rgba(37, 211, 102, 0);
+    }
 }
 
 .btn-whatsapp-floating:hover {
@@ -5365,9 +5400,10 @@ body.mobile-nav-open {
     line-height: 1;
 }
 
+/* Stacked vertically: Back to Top above WhatsApp */
 .btn-back-to-top.show {
-    bottom: 100px;
-    /* Move up when WA button is present */
+    display: flex;
+    bottom: 85px; /* Positioned exactly above the WhatsApp button (20px bottom + 50px height + 15px gap) */
 }
 
 @media (max-width: 767px) {
@@ -5379,8 +5415,14 @@ body.mobile-nav-open {
         font-size: 24px;
     }
 
+    .btn-back-to-top {
+        bottom: 20px;
+        right: 20px;
+    }
+
     .btn-back-to-top.show {
-        bottom: 85px;
+        display: flex;
+        bottom: 80px;
     }
 }
 

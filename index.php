@@ -69,33 +69,27 @@ $canonicalUrl = BASE_URL . '/' . ($currentPage === 'home' ? '' : $currentPage);
     <meta name="theme-color" content="#0d6efd">
 
     <!-- Preload Critical Assets -->
-    <link rel="preload" href="<?php echo Router::asset('fonts/proximanovalight.woff'); ?>" as="font" type="font/woff"
-        crossorigin>
+    <link rel="preload" href="<?php echo Router::asset('fonts/proximanovalight.woff'); ?>" as="font" type="font/woff" crossorigin>
+    
+    <!-- Responsive Banner Preload (LCP Optimization) -->
+    <link rel="preload" href="<?php echo Router::asset('images/banner/banner-potrait.webp'); ?>" as="image" media="(max-width: 767px)" fetchpriority="high">
+    <link rel="preload" href="<?php echo Router::asset('images/banner/banner-landscape.webp'); ?>" as="image" media="(min-width: 768px)" fetchpriority="high">
+    
     <link rel="preload" href="<?php echo Router::asset('libs/bootstrap/css/bootstrap.min.css'); ?>" as="style">
     <link rel="preload" href="<?php echo Router::asset('css/style.css'); ?>" as="style">
-    <link rel="preload" href="<?php echo Router::asset('images/banner/banner-landscape.webp'); ?>" as="image"
-        fetchpriority="high">
-    <link rel="preload" href="<?php echo Router::asset('images/logo-full-text.png'); ?>" as="image">
 
-    <!-- Bootstrap 5 CSS (Offline) -->
+    <!-- Core CSS -->
     <link rel="stylesheet" href="<?php echo Router::asset('libs/bootstrap/css/bootstrap.min.css'); ?>">
-
-    <!-- Bootstrap Icons (Offline) -->
-    <link rel="stylesheet" href="<?php echo Router::asset('libs/bootstrap-icons/font/bootstrap-icons.min.css'); ?>">
-
-    <!-- AOS - Animate On Scroll (Offline) -->
-    <link rel="stylesheet" href="<?php echo Router::asset('libs/aos/aos.css'); ?>">
-
-    <!-- Custom Fonts -->
-    <link rel="stylesheet" href="<?php echo Router::asset('fonts/font.css'); ?>">
-
-    <!-- Custom CSS -->
     <link rel="stylesheet" href="<?php echo Router::asset('css/style.css'); ?>">
 
-    <!-- Responsive CSS berdasarkan Device -->
+    <!-- Defer Non-Critical CSS -->
+    <link rel="stylesheet" href="<?php echo Router::asset('libs/bootstrap-icons/font/bootstrap-icons.min.css'); ?>" media="print" onload="this.media='all'">
+    <link rel="stylesheet" href="<?php echo Router::asset('libs/aos/aos.css'); ?>" media="print" onload="this.media='all'">
+    <link rel="stylesheet" href="<?php echo Router::asset('fonts/font.css'); ?>" media="print" onload="this.media='all'">
+
+    <!-- Responsive CSS -->
     <link rel="stylesheet" href="<?php echo Router::asset('css/mobile.css'); ?>" media="(max-width: 767px)">
-    <link rel="stylesheet" href="<?php echo Router::asset('css/tablet.css'); ?>"
-        media="(min-width: 768px) and (max-width: 1024px)">
+    <link rel="stylesheet" href="<?php echo Router::asset('css/tablet.css'); ?>" media="(min-width: 768px) and (max-width: 1024px)">
     <link rel="stylesheet" href="<?php echo Router::asset('css/desktop.css'); ?>" media="(min-width: 1025px)">
 
     <!-- Structured Data / Schema.org -->

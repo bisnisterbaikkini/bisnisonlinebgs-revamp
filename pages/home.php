@@ -11,7 +11,7 @@ $currentLang = isset($currentLang) ? $currentLang : (isset($_COOKIE['lang']) ? $
 <!-- ========================================
      1. BERANDA (HOME) - Banner Section
 ======================================== -->
-<section id="beranda" class="section-banner section-parallax-bg" data-lazy-content>
+<section id="beranda" class="section-banner section-parallax-bg">
     <div class="container h-100 d-flex align-items-center">
         <div class="banner-content" data-aos="fade-right">
             <h1 class="visually-hidden">BisnisonlineBGS - Bisnis Online Terpercaya & Produk Apple Stemcell</h1>
@@ -640,7 +640,7 @@ $currentLang = isset($currentLang) ? $currentLang : (isset($_COOKIE['lang']) ? $
                                     alt="Bio NAD+ Boost" width="300" height="300" class="lazy-load">
                                 <div class="product-badge" data-lang-key="products.best_seller">Best Seller</div>
                                 <div class="product-overlay">
-                                    <span class="view-detail"><i class="bi bi-eye"></i> <span
+                                    <span class="view-detail"><i class="bi bi-chevron-down"></i> <span
                                             data-lang-key="products.view_detail">Lihat Detail</span></span>
                                 </div>
                             </div>
@@ -660,7 +660,7 @@ $currentLang = isset($currentLang) ? $currentLang : (isset($_COOKIE['lang']) ? $
                                     alt="AppleSC Plus" width="300" height="300" class="lazy-load">
                                 <div class="product-badge badge-new" data-lang-key="products.new">New</div>
                                 <div class="product-overlay">
-                                    <span class="view-detail"><i class="bi bi-eye"></i> <span
+                                    <span class="view-detail"><i class="bi bi-chevron-down"></i> <span
                                             data-lang-key="products.view_detail">Lihat Detail</span></span>
                                 </div>
                             </div>
@@ -679,7 +679,7 @@ $currentLang = isset($currentLang) ? $currentLang : (isset($_COOKIE['lang']) ? $
                                     src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7"
                                     alt="AppleSC" width="300" height="300" class="lazy-load">
                                 <div class="product-overlay">
-                                    <span class="view-detail"><i class="bi bi-eye"></i> Lihat Detail</span>
+                                    <span class="view-detail"><i class="bi bi-chevron-down"></i> Lihat Detail</span>
                                 </div>
                             </div>
                             <div class="product-info">
@@ -697,7 +697,7 @@ $currentLang = isset($currentLang) ? $currentLang : (isset($_COOKIE['lang']) ? $
                                     src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7"
                                     alt="Bio SC Mild" width="300" height="300" class="lazy-load">
                                 <div class="product-overlay">
-                                    <span class="view-detail"><i class="bi bi-eye"></i> Lihat Detail</span>
+                                    <span class="view-detail"><i class="bi bi-chevron-down"></i> Lihat Detail</span>
                                 </div>
                             </div>
                             <div class="product-info">
@@ -715,7 +715,7 @@ $currentLang = isset($currentLang) ? $currentLang : (isset($_COOKIE['lang']) ? $
                                     src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7"
                                     alt="Bio Mild Capsule" width="300" height="300" class="lazy-load">
                                 <div class="product-overlay">
-                                    <span class="view-detail"><i class="bi bi-eye"></i> Lihat Detail</span>
+                                    <span class="view-detail"><i class="bi bi-chevron-down"></i> Lihat Detail</span>
                                 </div>
                             </div>
                             <div class="product-info">
@@ -734,7 +734,7 @@ $currentLang = isset($currentLang) ? $currentLang : (isset($_COOKIE['lang']) ? $
                                     alt="Bio SC Gold" width="300" height="300" class="lazy-load">
                                 <div class="product-badge" data-lang-key="products.premium">Premium</div>
                                 <div class="product-overlay">
-                                    <span class="view-detail"><i class="bi bi-eye"></i> <span
+                                    <span class="view-detail"><i class="bi bi-chevron-down"></i> <span
                                             data-lang-key="products.view_detail">Lihat Detail</span></span>
                                 </div>
                             </div>
@@ -753,7 +753,7 @@ $currentLang = isset($currentLang) ? $currentLang : (isset($_COOKIE['lang']) ? $
                                     src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7"
                                     alt="Bio Inflavia" width="300" height="300" class="lazy-load">
                                 <div class="product-overlay">
-                                    <span class="view-detail"><i class="bi bi-eye"></i> Lihat Detail</span>
+                                    <span class="view-detail"><i class="bi bi-chevron-down"></i> Lihat Detail</span>
                                 </div>
                             </div>
                             <div class="product-info">
@@ -776,7 +776,7 @@ $currentLang = isset($currentLang) ? $currentLang : (isset($_COOKIE['lang']) ? $
                                     alt="Bio Rawgenic" width="300" height="300" class="lazy-load">
                                 <div class="product-badge" data-lang-key="products.best_seller">Best Seller</div>
                                 <div class="product-overlay">
-                                    <span class="view-detail"><i class="bi bi-eye"></i> <span
+                                    <span class="view-detail"><i class="bi bi-chevron-down"></i> <span
                                             data-lang-key="products.view_detail">Lihat Detail</span></span>
                                 </div>
                             </div>
@@ -855,16 +855,6 @@ $currentLang = isset($currentLang) ? $currentLang : (isset($_COOKIE['lang']) ? $
                                     </div>
                                 </div>
 
-                                <div class="detail-actions">
-                                    <a href="#registrasi" class="btn btn-primary btn-lg scroll-link">
-                                        <i class="bi bi-cart-plus me-2"></i><span
-                                            data-lang-key="products.order_now">Pesan Sekarang</span>
-                                    </a>
-                                    <button class="btn btn-outline-secondary btn-lg" id="closePanelBtn2">
-                                        <i class="bi bi-arrow-left me-2"></i><span
-                                            data-lang-key="products.back">Kembali</span>
-                                    </button>
-                                </div>
                             </div>
                         </div>
                     </div>

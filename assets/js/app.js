@@ -1094,6 +1094,14 @@
             // Product Card Click
             $(document).on('click', '.product-card', function () {
                 const productId = $(this).data('product');
+                const panel = $('#productDetailPanel');
+                
+                // If clicking the same product and panel is active, close it
+                if (panel.hasClass('active') && panel.attr('data-current-product') === productId) {
+                    self.closeProductDetail();
+                    return;
+                }
+
                 if (productId) {
                     self.showProductDetail(productId);
                 }
@@ -1127,6 +1135,9 @@
             // Update content
             $('.product-category-content').removeClass('active');
             $('.product-category-content[data-category="' + category + '"]').addClass('active');
+
+            // Close detail panel when switching category
+            this.closeProductDetail();
         },
 
         showProductDetail: function (productId) {
@@ -1135,6 +1146,27 @@
 
             const panel = $('#productDetailPanel');
             const baseUrl = App.config.baseUrl || '';
+
+            // Move panel under the clicked card's row to keep siblings on the same line
+            const $clickedCard = $(`.product-card[data-product="${productId}"]`);
+            const $cardColumn = $clickedCard.closest('[class*="col-"]');
+            const $container = $cardColumn.parent();
+            const $allCols = $container.children().not('#productDetailPanel');
+            
+            // Determine items per row based on Bootstrap classes and window width
+            let itemsPerRow = 2; // Default for mobile (col-6)
+            const winWidth = $(window).width();
+            if (winWidth >= 992) itemsPerRow = 4; // col-lg-3
+            else if (winWidth >= 768) itemsPerRow = 3; // col-md-4
+
+            const cardIndex = $allCols.index($cardColumn);
+            const rowIndex = Math.floor(cardIndex / itemsPerRow);
+            const lastIndexInRow = Math.min(((rowIndex + 1) * itemsPerRow) - 1, $allCols.length - 1);
+            const $lastColInRow = $allCols.eq(lastIndexInRow);
+            
+            // Move panel in DOM after the last column of its logical row
+            panel.insertAfter($lastColInRow);
+            panel.attr('data-current-product', productId);
 
             // Update panel content
             $('#detailImage').attr('src', baseUrl + '/assets/' + product.image).attr('alt', LangManager.t(product.title));
@@ -1165,7 +1197,11 @@
 
             // Show panel
             panel.addClass('active');
-            $('body').css('overflow', 'hidden');
+            
+            // Scroll to panel
+            $('html, body').animate({
+                scrollTop: panel.offset().top - 120
+            }, 600);
 
             // Animate progress bars after a short delay
             setTimeout(function () {
@@ -1173,13 +1209,12 @@
                     const progress = $(this).data('progress');
                     $(this).css('--progress-width', progress + '%').addClass('animated');
                 });
-            }, 300);
+            }, 500);
         },
 
         closeProductDetail: function () {
             const panel = $('#productDetailPanel');
-            panel.removeClass('active');
-            $('body').css('overflow', '');
+            panel.removeClass('active').removeAttr('data-current-product');
 
             // Reset progress bars
             panel.find('.progress-bar').removeClass('animated').css('--progress-width', '0%');
@@ -1407,22 +1442,44 @@
 
         fetchWhatsAppNumber: function () {
             const self = this;
-            const affiliate = App.config.affiliateName || 'happy';
+            const defaultPhone = '62811959901';
+            const affiliate = App.config.affiliateName;
+
+            // Use default if affiliate name is missing
+            if (!affiliate || affiliate === '') {
+                self.updateWhatsAppLink(defaultPhone);
+                return;
+            }
+
             const apiUrl = 'https://api.bisnisonlinebgs.com/api/content/member/getMemberById/' + affiliate;
 
             $.ajax({
                 url: apiUrl,
                 method: 'GET',
                 success: function (response) {
-                    if (response && response.status === 'success' && response.data && response.data.noTelp) {
-                        self.updateWhatsAppLink(response.data.noTelp);
-                    } else if (response && response.noTelp) {
-                        // Backup check if data is flat
-                        self.updateWhatsAppLink(response.noTelp);
+                    let foundMobile = null;
+
+                    // Check for mobile_no in various likely response locations
+                    if (response) {
+                        if (response.data && Array.isArray(response.data) && response.data.length > 0 && response.data[0].mobile_no) {
+                            foundMobile = response.data[0].mobile_no;
+                        } else if (response.data && response.data.mobile_no) {
+                            foundMobile = response.data.mobile_no;
+                        } else if (response.mobile_no) {
+                            foundMobile = response.mobile_no;
+                        }
+                    }
+
+                    if (foundMobile) {
+                        self.updateWhatsAppLink(foundMobile);
+                    } else {
+                        // Member not found or mobile_no missing, use default
+                        self.updateWhatsAppLink(defaultPhone);
                     }
                 },
                 error: function () {
-                    console.warn('Failed to fetch WhatsApp number for affiliate:', affiliate);
+                    // API request failed, use default
+                    self.updateWhatsAppLink(defaultPhone);
                 }
             });
         },
@@ -1536,57 +1593,44 @@
 
         observeContent: function () {
             const contents = document.querySelectorAll('[data-lazy-content]');
+            const self = this;
 
             if ('IntersectionObserver' in window) {
                 const contentObserver = new IntersectionObserver((entries, observer) => {
                     entries.forEach(entry => {
                         if (entry.isIntersecting) {
                             const section = entry.target;
-                            section.classList.add('active-loading');
-
-                            // Get all lazy images/videos in this specific section
-                            const sectionMedia = section.querySelectorAll('img.lazy-load, video.lazy-load');
-
-                            const checkAndReveal = () => {
-                                // Logic: Wait until at least some images are loaded OR timeout
-                                // This ensures the loading animation loops naturally while waiting
-                                let allLoaded = true;
-                                sectionMedia.forEach(media => {
-                                    if (!media.classList.contains('loaded')) {
-                                        allLoaded = false;
-                                    }
-                                });
-
-                                if (allLoaded) {
-                                    setTimeout(() => {
-                                        section.classList.add('animate-in');
-                                        section.classList.remove('active-loading');
-                                    }, 400); // Small grace period for AOS
-                                } else {
-                                    // Not all loaded yet, keep checking every 200ms
-                                    // This creates the dynamic looping feel the user wants
-                                    setTimeout(checkAndReveal, 200);
+                            
+                            // Immediately start loading images in this section
+                            const sectionMedia = section.querySelectorAll('img[data-src], video[data-src]');
+                            sectionMedia.forEach(media => {
+                                if (typeof self.loadImage === 'function') {
+                                    self.loadImage(media);
                                 }
-                            };
+                            });
 
-                            // Fallback timeout to prevent infinite loading state (e.g., if an image fails)
-                            const fallbackTimeout = setTimeout(() => {
+                            // Add active-loading briefly then transition to animate-in
+                            // This replaces the expensive polling loop with a more performant sequence
+                            section.classList.add('active-loading');
+                            
+                            setTimeout(() => {
                                 section.classList.add('animate-in');
                                 section.classList.remove('active-loading');
-                            }, 5000); // Max 5 seconds loading per section
-
-                            // Start the checking loop
-                            setTimeout(checkAndReveal, 600);
+                            }, 800); // Sufficient time for initial assets to start appearing
 
                             observer.unobserve(section);
                         }
                     });
                 }, {
-                    rootMargin: '0px 0px -5% 0px',
+                    rootMargin: '50px 0px',
                     threshold: 0.01
                 });
 
                 contents.forEach(content => contentObserver.observe(content));
+            } else {
+                contents.forEach(content => {
+                    content.classList.add('animate-in');
+                });
             }
         }
     };
