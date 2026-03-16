@@ -54,8 +54,8 @@ RewriteRule ^(.*)$ index.php?page=$1 [QSA,L]
     # HSTS (HTTP Strict Transport Security)
     Header set Strict-Transport-Security "max-age=31536000; includeSubDomains; preload"
     
-    # Content Security Policy (CSP) - Offline Libraries
-    Header set Content-Security-Policy "default-src 'self'; script-src 'self' 'unsafe-inline' 'unsafe-eval'; style-src 'self' 'unsafe-inline'; img-src 'self' data: https:; font-src 'self' data:; connect-src 'self'; frame-src 'self' https://www.youtube.com https://www.google.com; media-src 'self';"
+    # Content Security Policy (CSP) - Allow same-origin assets (font, style, script, media, manifest)
+    Header set Content-Security-Policy "default-src 'self'; manifest-src 'self'; script-src 'self' 'unsafe-inline' 'unsafe-eval'; script-src-elem 'self' 'unsafe-inline' 'unsafe-eval'; style-src 'self' 'unsafe-inline'; style-src-elem 'self' 'unsafe-inline'; img-src 'self' data: https:; font-src 'self' data: https://www.bisnisonlinebgs.com; connect-src 'self'; frame-src 'self' https://www.youtube.com https://www.google.com; media-src 'self' https://www.bisnisonlinebgs.com;"
     
     # Permissions Policy
     Header set Permissions-Policy "geolocation=(), microphone=(), camera=()"
