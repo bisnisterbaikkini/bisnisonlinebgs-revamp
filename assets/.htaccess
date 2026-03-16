@@ -1,0 +1,6 @@
+# CORS - agar font/CSS/JS/manifest bisa dimuat dari halaman https://bisnisonlinebgs.com (non-www)
+# Jangan pakai %{HTTP:Origin} di Header - akan jadi literal invalid.
+<IfModule mod_headers.c>
+    Header set Access-Control-Allow-Origin "https://bisnisonlinebgs.com"
+    Header set Vary "Origin"
+</IfModule>

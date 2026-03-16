@@ -8,6 +8,19 @@
 // Include Router
 require_once __DIR__ . '/router.php';
 
+// CSP via PHP agar pasti dipakai (termasuk Cloudflare Insights untuk SW)
+$csp = "default-src 'self' https://www.bisnisonlinebgs.com https://bisnisonlinebgs.com; " .
+    "script-src 'self' 'unsafe-inline' 'unsafe-eval' https://www.bisnisonlinebgs.com https://bisnisonlinebgs.com https://static.cloudflareinsights.com; " .
+    "script-src-elem 'self' 'unsafe-inline' 'unsafe-eval' https://www.bisnisonlinebgs.com https://bisnisonlinebgs.com https://static.cloudflareinsights.com; " .
+    "style-src 'self' 'unsafe-inline' https://www.bisnisonlinebgs.com https://bisnisonlinebgs.com; " .
+    "style-src-elem 'self' 'unsafe-inline' https://www.bisnisonlinebgs.com https://bisnisonlinebgs.com; " .
+    "img-src 'self' data: https:; font-src 'self' data: https://www.bisnisonlinebgs.com https://bisnisonlinebgs.com; " .
+    "connect-src 'self' https://www.bisnisonlinebgs.com https://bisnisonlinebgs.com https://api.bisnisonlinebgs.com https://cloudflareinsights.com https://static.cloudflareinsights.com; " .
+    "manifest-src 'self' https://www.bisnisonlinebgs.com https://bisnisonlinebgs.com; " .
+    "frame-src 'self' https://www.youtube.com https://www.google.com; " .
+    "media-src 'self' https://www.bisnisonlinebgs.com https://bisnisonlinebgs.com;";
+header("Content-Security-Policy: " . $csp);
+
 // Get current language from cookie or default to Indonesian
 $currentLang = isset($_COOKIE['lang']) ? $_COOKIE['lang'] : 'id';
 

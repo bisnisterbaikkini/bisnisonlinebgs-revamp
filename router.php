@@ -25,7 +25,9 @@ class Router {
         if (strpos($host, 'bisnisonlinebgs.com') !== false) {
             $this->basePath = '/';
             define('IS_PRODUCTION', true);
-            define('BASE_URL', 'https://www.bisnisonlinebgs.com');
+            // Ikuti host yang dikunjungi agar asset same-origin (hindari CORS)
+            $scheme = (!empty($_SERVER['HTTPS']) && $_SERVER['HTTPS'] !== 'off') || (!empty($_SERVER['HTTP_X_FORWARDED_PROTO']) && $_SERVER['HTTP_X_FORWARDED_PROTO'] === 'https') ? 'https' : 'https';
+            define('BASE_URL', $scheme . '://' . $host);
         } else {
             $this->basePath = '/bisnisonlinebgs-revamp/';
             define('IS_PRODUCTION', false);
