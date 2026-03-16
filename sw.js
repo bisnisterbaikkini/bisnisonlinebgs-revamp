@@ -1,11 +1,9 @@
-const VERSION = '1.0.5';
+const VERSION = '1.2.0';
 const CACHE_NAME = `bisnisonlinebgs-v${VERSION}`;
 
 const ASSETS_TO_CACHE = [
     './',
     './index.php',
-    `./assets/css/style.css?v=${VERSION}`,
-    `./assets/js/app.js?v=${VERSION}`,
     './assets/libs/bootstrap/css/bootstrap.min.css',
     './assets/libs/jquery/jquery.min.js',
     './assets/libs/bootstrap/js/bootstrap.bundle.min.js',
@@ -16,69 +14,68 @@ const ASSETS_TO_CACHE = [
     './assets/images/loading.gif'
 ];
 
-// Install Event - caching assets
+// Install - cache core assets, skip waiting agar langsung aktif
 self.addEventListener('install', event => {
     event.waitUntil(
         caches.open(CACHE_NAME)
-            .then(cache => {
-                console.log('SW: Pre-caching assets');
-                return cache.addAll(ASSETS_TO_CACHE);
-            })
+            .then(cache => cache.addAll(ASSETS_TO_CACHE))
             .then(() => self.skipWaiting())
     );
 });
 
-// Activate Event - cleanup old caches
+// Activate - hapus cache lama, ambil alih semua tab/client langsung (clients.claim)
 self.addEventListener('activate', event => {
     event.waitUntil(
-        caches.keys().then(cacheNames => {
-            return Promise.all(
-                cacheNames.map(cache => {
-                    if (cache !== CACHE_NAME) {
-                        console.log('SW: Clearing old cache', cache);
-                        return caches.delete(cache);
-                    }
-                })
-            );
-        })
+        caches.keys()
+            .then(cacheNames => Promise.all(
+                cacheNames
+                    .filter(name => name !== CACHE_NAME)
+                    .map(name => caches.delete(name))
+            ))
+            .then(() => self.clients.claim())
     );
 });
 
-// Fetch Event - network first for HTML, cache first for others
+// Fetch - HANYA tangani request ke same-origin
+// Request ke origin lain (api.bisnisonlinebgs.com, cloudflareinsights.com, dll)
+// dibiarkan lewat langsung ke jaringan tanpa diproses SW
 self.addEventListener('fetch', event => {
     const url = new URL(event.request.url);
 
-    // Jangan tangani request ke origin lain (API, Cloudflare) - biarkan lewat ke jaringan
-    // Supaya tidak kena CSP saat SW melakukan fetch()
-    const externalOrigins = ['https://api.bisnisonlinebgs.com', 'https://static.cloudflareinsights.com', 'https://cloudflareinsights.com'];
-    if (externalOrigins.some(origin => url.origin === origin)) {
+    // Skip semua request cross-origin - jangan panggil event.respondWith()
+    if (url.origin !== self.location.origin) {
         return;
     }
-    
-    // For navigation requests (pages), try network first
-    if (event.request.mode === 'navigate' || (event.request.method === 'GET' && event.request.headers.get('accept') && event.request.headers.get('accept').includes('text/html'))) {
+
+    // Hanya handle GET
+    if (event.request.method !== 'GET') {
+        return;
+    }
+
+    // Navigasi (HTML) - network first, fallback ke cache
+    if (event.request.mode === 'navigate') {
         event.respondWith(
             fetch(event.request)
-                .catch(() => caches.match(event.request) || caches.match('./'))
+                .catch(() => caches.match(event.request).then(r => r || caches.match('./')))
         );
         return;
     }
 
-    // For static assets, try cache first
+    // Aset statis - cache first, fallback ke network
     event.respondWith(
-        caches.match(event.request)
-            .then(response => {
-                return response || fetch(event.request).then(fetchResponse => {
-                    // Cache images or other assets dynamically if needed
-                    if (url.origin === self.location.origin && 
-                        (url.pathname.includes('/assets/images/') || url.pathname.includes('/assets/fonts/'))) {
-                        return caches.open(CACHE_NAME).then(cache => {
-                            cache.put(event.request, fetchResponse.clone());
-                            return fetchResponse;
-                        });
-                    }
-                    return fetchResponse;
-                });
-            })
+        caches.match(event.request).then(cached => {
+            if (cached) return cached;
+
+            return fetch(event.request).then(response => {
+                // Cache hanya aset gambar dan font
+                if (response.ok &&
+                    (url.pathname.includes('/assets/images/') ||
+                     url.pathname.includes('/assets/fonts/'))) {
+                    const clone = response.clone();
+                    caches.open(CACHE_NAME).then(cache => cache.put(event.request, clone));
+                }
+                return response;
+            });
+        })
     );
 });
