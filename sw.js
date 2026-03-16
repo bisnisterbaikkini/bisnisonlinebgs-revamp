@@ -47,9 +47,16 @@ self.addEventListener('activate', event => {
 // Fetch Event - network first for HTML, cache first for others
 self.addEventListener('fetch', event => {
     const url = new URL(event.request.url);
+
+    // Jangan tangani request ke origin lain (API, Cloudflare) - biarkan lewat ke jaringan
+    // Supaya tidak kena CSP saat SW melakukan fetch()
+    const externalOrigins = ['https://api.bisnisonlinebgs.com', 'https://static.cloudflareinsights.com', 'https://cloudflareinsights.com'];
+    if (externalOrigins.some(origin => url.origin === origin)) {
+        return;
+    }
     
     // For navigation requests (pages), try network first
-    if (event.request.mode === 'navigate' || (event.request.method === 'GET' && event.request.headers.get('accept').includes('text/html'))) {
+    if (event.request.mode === 'navigate' || (event.request.method === 'GET' && event.request.headers.get('accept') && event.request.headers.get('accept').includes('text/html'))) {
         event.respondWith(
             fetch(event.request)
                 .catch(() => caches.match(event.request) || caches.match('./'))

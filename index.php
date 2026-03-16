@@ -42,6 +42,8 @@ if ($currentPage !== 'home') {
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <!-- CSP di HTML agar tetap dipakai jika header di-override server (api + Cloudflare) -->
+    <meta http-equiv="Content-Security-Policy" content="<?php echo htmlspecialchars($csp, ENT_QUOTES, 'UTF-8'); ?>">
 
     <!-- SEO Meta Tags -->
     <title><?php echo $router->getPageTitle(); ?> | BisnisonlineBGS - Bisnis Online Terpercaya</title>
