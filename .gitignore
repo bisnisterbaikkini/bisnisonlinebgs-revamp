@@ -1,1 +1,6 @@
 assets/video/*
+
+# Archives (GitHub limit 100 MB)
+*.zip
+*.rar
+*.7z
