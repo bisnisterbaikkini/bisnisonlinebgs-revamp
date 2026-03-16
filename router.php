@@ -32,8 +32,8 @@ class Router {
         }
         
         // Asset Versioning (Cache Busting)
-        // Increment this whenever you update CSS/JS/Manifest
-        define('APP_VERSION', '1.0.5');
+        // Automatic timestamp versioning
+        define('APP_VERSION', time());
         define('BASE_PATH', $this->basePath);
     }
     
@@ -140,14 +140,21 @@ class Router {
     }
     
     /**
-     * Generate asset URL
+     * Generate asset URL with automatic Cache Busting
      */
     public static function asset($path) {
-        $url = BASE_URL . '/assets/' . ltrim($path, '/');
-        // Add version to CSS and JS files for cache busting
-        if (APP_VERSION && (str_ends_with($path, '.css') || str_ends_with($path, '.js') || str_ends_with($path, '.webmanifest'))) {
-            $url .= '?v=' . APP_VERSION;
-        }
+        $assetPath = ltrim($path, '/');
+        $fullPath = __DIR__ . '/assets/' . $assetPath;
+        
+        // Get version: use file modification time if file exists, fallback to APP_VERSION
+        $v = (file_exists($fullPath)) ? filemtime($fullPath) : APP_VERSION;
+        
+        $url = BASE_URL . '/assets/' . $assetPath;
+        
+        // Add versioning to prevent caching issues on updates
+        // Apply to CSS, JS, and potentially images if specified
+        $url .= '?v=' . $v;
+        
         return $url;
     }
     

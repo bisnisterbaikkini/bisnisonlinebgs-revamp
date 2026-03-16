@@ -53,7 +53,7 @@
             }
 
             $.ajax({
-                url: App.config.baseUrl + '/assets/lang/lang_' + lang + '.json',
+                url: App.config.baseUrl + '/assets/lang/lang_' + lang + '.json?v=' + (App.config.version || Date.now()),
                 dataType: 'json',
                 success: function (data) {
                     self.translations[lang] = data;
