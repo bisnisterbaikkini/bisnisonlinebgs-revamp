@@ -21,13 +21,13 @@
                             digital yang inovatif.
                         </p>
                         <div class="social-links-modern">
-                            <a href="https://facebook.com" class="social-link" aria-label="Facebook" target="_blank"
+                            <a href="https://www.facebook.com/officialbiogreenscience" class="social-link" aria-label="Facebook" target="_blank"
                                 rel="noopener"><i class="bi bi-facebook"></i></a>
-                            <a href="https://instagram.com" class="social-link" aria-label="Instagram" target="_blank"
+                            <a href="https://www.instagram.com/biogreenscience" class="social-link" aria-label="Instagram" target="_blank"
                                 rel="noopener"><i class="bi bi-instagram"></i></a>
-                            <a href="https://tiktok.com" class="social-link" aria-label="TikTok" target="_blank"
+                            <a href="https://www.tiktok.com/@biogreenscience" class="social-link" aria-label="TikTok" target="_blank"
                                 rel="noopener"><i class="bi bi-tiktok"></i></a>
-                            <a href="https://youtube.com" class="social-link" aria-label="YouTube" target="_blank"
+                            <a href=https://www.youtube.com/biogreenscience" class="social-link" aria-label="YouTube" target="_blank"
                                 rel="noopener"><i class="bi bi-youtube"></i></a>
                         </div>
                     </div>

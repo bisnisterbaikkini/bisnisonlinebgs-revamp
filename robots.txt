@@ -1,0 +1,21 @@
+# robots.txt - BisnisonlineBGS
+# https://www.bisnisonlinebgs.com
+
+User-agent: *
+Allow: /
+
+# Blok asset yang tidak perlu di-index (opsional, tetap boleh di-crawl untuk LCP)
+Disallow: /assets/js/
+Disallow: /assets/libs/
+Disallow: /assets/fonts/
+
+# Sitemap (wajib untuk indeksasi cepat)
+Sitemap: https://www.bisnisonlinebgs.com/sitemap.xml
+
+# Googlebot spesifik (opsional)
+User-agent: Googlebot
+Allow: /
+Sitemap: https://www.bisnisonlinebgs.com/sitemap.xml
+
+User-agent: Googlebot-Image
+Allow: /assets/images/

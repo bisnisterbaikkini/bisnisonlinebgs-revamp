@@ -11,8 +11,15 @@ require_once __DIR__ . '/router.php';
 // Get current language from cookie or default to Indonesian
 $currentLang = isset($_COOKIE['lang']) ? $_COOKIE['lang'] : 'id';
 
-// Canonical URL
-$canonicalUrl = BASE_URL . '/' . ($currentPage === 'home' ? '' : $currentPage);
+// Canonical URL (per section untuk SEO)
+$reqPath = $router->getRequestedPath();
+if ($currentPage !== 'home') {
+    $canonicalUrl = BASE_URL . '/' . $currentPage;
+} elseif ($reqPath !== '' && $reqPath !== 'beranda') {
+    $canonicalUrl = BASE_URL . '/' . $reqPath;
+} else {
+    $canonicalUrl = BASE_URL . '/';
+}
 ?>
 <!DOCTYPE html>
 <html lang="<?php echo $currentLang === 'id' ? 'id' : 'en'; ?>">
@@ -158,6 +165,30 @@ $canonicalUrl = BASE_URL . '/' . ($currentPage === 'home' ? '' : $currentPage);
         }
     }
     </script>
+
+    <?php
+    // BreadcrumbList Schema (SEO - per section)
+    $reqPath = $router->getRequestedPath();
+    $breadcrumbNames = [
+        '' => 'Beranda', 'beranda' => 'Beranda', 'profil' => 'Profil', 'about' => 'Tentang Kami',
+        'produk' => 'Produk', 'products' => 'Produk', 'bisnis' => 'Bisnis', 'business' => 'Bisnis',
+        'media' => 'Media', 'registrasi' => 'Registrasi', 'register' => 'Daftar', 'daftar' => 'Daftar'
+    ];
+    if ($currentPage === 'home' && isset($breadcrumbNames[$reqPath]) && $reqPath !== '') {
+        $crumbName = $breadcrumbNames[$reqPath];
+        $crumbUrl = BASE_URL . '/' . $reqPath;
+    ?>
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "BreadcrumbList",
+        "itemListElement": [
+            { "@type": "ListItem", "position": 1, "name": "Beranda", "item": "<?php echo BASE_URL; ?>" },
+            { "@type": "ListItem", "position": 2, "name": "<?php echo htmlspecialchars($crumbName, ENT_QUOTES, 'UTF-8'); ?>", "item": "<?php echo $crumbUrl; ?>" }
+        ]
+    }
+    </script>
+    <?php } ?>
 </head>
 
 <body class="page-<?php echo $currentPage; ?>" data-page="<?php echo $currentPage; ?>"

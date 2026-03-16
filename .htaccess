@@ -13,6 +13,9 @@ RewriteBase /bisnisonlinebgs-revamp/
 # URL ROUTING
 # ============================================
 
+# Sitemap XML (untuk Google crawling)
+RewriteRule ^sitemap\.xml$ sitemap.php [L]
+
 # Redirect semua request ke index.php (SPA Routing)
 # Kecuali file/folder yang ada secara fisik
 RewriteCond %{REQUEST_FILENAME} !-f

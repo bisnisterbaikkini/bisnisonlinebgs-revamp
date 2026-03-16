@@ -147,8 +147,6 @@ $currentLang = isset($currentLang) ? $currentLang : (isset($_COOKIE['lang']) ? $
                             alt="Larry Widjaja" width="400" height="500" class="lazy-load">
                         <div class="photo-overlay">
                             <div class="social-links">
-                                <a href="#"><i class="bi bi-linkedin"></i></a>
-                                <a href="#"><i class="bi bi-instagram"></i></a>
                             </div>
                         </div>
                     </div>
@@ -189,8 +187,6 @@ $currentLang = isset($currentLang) ? $currentLang : (isset($_COOKIE['lang']) ? $
                             alt="Ferry Lesmana Admaja" width="400" height="500" class="lazy-load">
                         <div class="photo-overlay">
                             <div class="social-links">
-                                <a href="#"><i class="bi bi-linkedin"></i></a>
-                                <a href="#"><i class="bi bi-instagram"></i></a>
                             </div>
                         </div>
                     </div>
@@ -229,8 +225,6 @@ $currentLang = isset($currentLang) ? $currentLang : (isset($_COOKIE['lang']) ? $
                             alt="Richard" width="400" height="500" class="lazy-load">
                         <div class="photo-overlay">
                             <div class="social-links">
-                                <a href="#"><i class="bi bi-linkedin"></i></a>
-                                <a href="#"><i class="bi bi-instagram"></i></a>
                             </div>
                         </div>
                     </div>
