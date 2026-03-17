@@ -1877,36 +1877,8 @@
         // Trigger initial scroll to update nav state
         $(window).trigger('scroll');
 
-        // Service Worker Registration
-        if ('serviceWorker' in navigator) {
-            window.addEventListener('load', () => {
-                const swPath = window.APP_CONFIG ? `${window.APP_CONFIG.basePath}sw.js` : '/sw.js';
-                const SW_VERSION = '1.2.0';
-
-                // Unregister SW lama jika versi berbeda, lalu register ulang SW baru
-                navigator.serviceWorker.getRegistrations().then(registrations => {
-                    const unregisterPromises = registrations.map(reg => {
-                        // Cek apakah SW aktif adalah versi lama (tidak mengandung versi baru)
-                        const swUrl = reg.active ? reg.active.scriptURL : '';
-                        if (!swUrl.includes(SW_VERSION)) {
-                            return reg.unregister();
-                        }
-                        return Promise.resolve(false);
-                    });
-
-                    return Promise.all(unregisterPromises);
-                }).then(() => {
-                    // Register SW baru dengan updateViaCache: 'none' agar selalu cek versi terbaru
-                    return navigator.serviceWorker.register(swPath, { updateViaCache: 'none' });
-                }).then(registration => {
-                    console.log('SW: Registered successfully with scope:', registration.scope);
-                    // Force update agar sw.js terbaru langsung dipakai
-                    registration.update();
-                }).catch(error => {
-                    console.error('SW: Registration failed:', error);
-                });
-            });
-        }
+        // Service Worker dinonaktifkan sementara untuk menghindari konflik CSP di production
+        // Jika ingin diaktifkan lagi, registrasi SW dapat dikembalikan setelah kebijakan CSP stabil.
 
         console.log('BisnisonlineBGS App Initialized');
     });

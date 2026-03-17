@@ -208,6 +208,29 @@ if ($currentPage !== 'home') {
     </script>
     <?php } ?>
 
+    <!-- Force disable Service Worker lama secepat mungkin -->
+    <script>
+        (function() {
+            if (!('serviceWorker' in navigator)) return;
+            // Jalankan sekali per tab agar tidak reload loop
+            if (sessionStorage.getItem('sw_cleanup_done') === '1') return;
+            sessionStorage.setItem('sw_cleanup_done', '1');
+            navigator.serviceWorker.getRegistrations().then(function(regs) {
+                var tasks = regs.map(function(reg) { return reg.unregister(); });
+                return Promise.all(tasks);
+            }).then(function() {
+                if (window.caches && caches.keys) {
+                    return caches.keys().then(function(keys) {
+                        return Promise.all(keys.map(function(k) { return caches.delete(k); }));
+                    });
+                }
+            }).finally(function() {
+                // Reload sekali agar request berikutnya sudah tanpa SW lama
+                window.location.reload();
+            });
+        })();
+    </script>
+
     <!-- Google Analytics (GA4) -->
     <?php if (IS_PRODUCTION): ?>
     <script async src="https://www.googletagmanager.com/gtag/js?id=G-CKJ9Q68J7E"></script>
@@ -222,22 +245,6 @@ if ($currentPage !== 'home') {
 
 <body class="page-<?php echo $currentPage; ?>" data-page="<?php echo $currentPage; ?>"
     data-lang="<?php echo $currentLang; ?>">
-
-    <!-- Force unregister SW lama sebelum apapun dimuat -->
-    <script>
-    (function() {
-        if ('serviceWorker' in navigator) {
-            navigator.serviceWorker.getRegistrations().then(function(regs) {
-                regs.forEach(function(reg) {
-                    var url = (reg.active && reg.active.scriptURL) || '';
-                    if (url.indexOf('1.2.0') === -1) {
-                        reg.unregister();
-                    }
-                });
-            });
-        }
-    })();
-    </script>
 
     <!-- Global Loading Bar -->
     <div id="loading-bar" class="loading-bar"></div>
