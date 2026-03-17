@@ -223,6 +223,22 @@ if ($currentPage !== 'home') {
 <body class="page-<?php echo $currentPage; ?>" data-page="<?php echo $currentPage; ?>"
     data-lang="<?php echo $currentLang; ?>">
 
+    <!-- Force unregister SW lama sebelum apapun dimuat -->
+    <script>
+    (function() {
+        if ('serviceWorker' in navigator) {
+            navigator.serviceWorker.getRegistrations().then(function(regs) {
+                regs.forEach(function(reg) {
+                    var url = (reg.active && reg.active.scriptURL) || '';
+                    if (url.indexOf('1.2.0') === -1) {
+                        reg.unregister();
+                    }
+                });
+            });
+        }
+    })();
+    </script>
+
     <!-- Global Loading Bar -->
     <div id="loading-bar" class="loading-bar"></div>
 

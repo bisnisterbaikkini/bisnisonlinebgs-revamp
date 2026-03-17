@@ -1881,25 +1881,30 @@
         if ('serviceWorker' in navigator) {
             window.addEventListener('load', () => {
                 const swPath = window.APP_CONFIG ? `${window.APP_CONFIG.basePath}sw.js` : '/sw.js';
-                navigator.serviceWorker.register(swPath)
-                    .then(registration => {
-                        console.log('SW: Registered successfully with scope:', registration.scope);
-                        
-                        // Check for updates
-                        registration.addEventListener('updatefound', () => {
-                            const newWorker = registration.installing;
-                            newWorker.addEventListener('statechange', () => {
-                                if (newWorker.state === 'installed' && navigator.serviceWorker.controller) {
-                                    console.log('SW: New content is available; please refresh.');
-                                    // Optional: Notify user about update
-                                    // Utils.showToast('New update available. Please refresh for the latest content.');
-                                }
-                            });
-                        });
-                    })
-                    .catch(error => {
-                        console.error('SW: Registration failed:', error);
+                const SW_VERSION = '1.2.0';
+
+                // Unregister SW lama jika versi berbeda, lalu register ulang SW baru
+                navigator.serviceWorker.getRegistrations().then(registrations => {
+                    const unregisterPromises = registrations.map(reg => {
+                        // Cek apakah SW aktif adalah versi lama (tidak mengandung versi baru)
+                        const swUrl = reg.active ? reg.active.scriptURL : '';
+                        if (!swUrl.includes(SW_VERSION)) {
+                            return reg.unregister();
+                        }
+                        return Promise.resolve(false);
                     });
+
+                    return Promise.all(unregisterPromises);
+                }).then(() => {
+                    // Register SW baru dengan updateViaCache: 'none' agar selalu cek versi terbaru
+                    return navigator.serviceWorker.register(swPath, { updateViaCache: 'none' });
+                }).then(registration => {
+                    console.log('SW: Registered successfully with scope:', registration.scope);
+                    // Force update agar sw.js terbaru langsung dipakai
+                    registration.update();
+                }).catch(error => {
+                    console.error('SW: Registration failed:', error);
+                });
             });
         }
 
