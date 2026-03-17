@@ -10,15 +10,18 @@ require_once __DIR__ . '/router.php';
 
 // CSP via PHP agar pasti dipakai (termasuk Cloudflare Insights untuk SW)
 $csp = "default-src 'self' https://www.bisnisonlinebgs.com https://bisnisonlinebgs.com; " .
-    "script-src 'self' 'unsafe-inline' 'unsafe-eval' https://www.bisnisonlinebgs.com https://bisnisonlinebgs.com https://static.cloudflareinsights.com; " .
-    "script-src-elem 'self' 'unsafe-inline' 'unsafe-eval' https://www.bisnisonlinebgs.com https://bisnisonlinebgs.com https://static.cloudflareinsights.com; " .
+    "script-src 'self' 'unsafe-inline' 'unsafe-eval' https://www.bisnisonlinebgs.com https://bisnisonlinebgs.com https://static.cloudflareinsights.com https://www.googletagmanager.com https://www.google-analytics.com; " .
+    "script-src-elem 'self' 'unsafe-inline' 'unsafe-eval' https://www.bisnisonlinebgs.com https://bisnisonlinebgs.com https://static.cloudflareinsights.com https://www.googletagmanager.com https://www.google-analytics.com; " .
     "style-src 'self' 'unsafe-inline' https://www.bisnisonlinebgs.com https://bisnisonlinebgs.com; " .
     "style-src-elem 'self' 'unsafe-inline' https://www.bisnisonlinebgs.com https://bisnisonlinebgs.com; " .
-    "img-src 'self' data: https:; font-src 'self' data: https://www.bisnisonlinebgs.com https://bisnisonlinebgs.com; " .
-    "connect-src 'self' https://www.bisnisonlinebgs.com https://bisnisonlinebgs.com https://api.bisnisonlinebgs.com https://cloudflareinsights.com https://static.cloudflareinsights.com; " .
+    "img-src 'self' data: https:; " .
+    "font-src 'self' data: https://www.bisnisonlinebgs.com https://bisnisonlinebgs.com; " .
+    "connect-src 'self' https://www.bisnisonlinebgs.com https://bisnisonlinebgs.com https://api.bisnisonlinebgs.com https://cloudflareinsights.com https://static.cloudflareinsights.com https://www.googletagmanager.com https://www.google-analytics.com https://analytics.google.com https://stats.g.doubleclick.net; " .
     "manifest-src 'self' https://www.bisnisonlinebgs.com https://bisnisonlinebgs.com; " .
-    "frame-src 'self' https://www.youtube.com https://www.google.com; " .
+    "frame-src 'self' https://www.youtube.com https://www.google.com https://www.googletagmanager.com; " .
     "media-src 'self' https://www.bisnisonlinebgs.com https://bisnisonlinebgs.com;";
+// Hapus CSP dari Apache/.htaccess agar tidak ada dua CSP (intersection) yang menyebabkan domain diblokir
+header_remove('Content-Security-Policy');
 header("Content-Security-Policy: " . $csp);
 
 // Get current language from cookie or default to Indonesian
@@ -204,6 +207,17 @@ if ($currentPage !== 'home') {
     }
     </script>
     <?php } ?>
+
+    <!-- Google Analytics (GA4) -->
+    <?php if (IS_PRODUCTION): ?>
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-CKJ9Q68J7E"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag(){dataLayer.push(arguments);}
+        gtag('js', new Date());
+        gtag('config', 'G-CKJ9Q68J7E');
+    </script>
+    <?php endif; ?>
 </head>
 
 <body class="page-<?php echo $currentPage; ?>" data-page="<?php echo $currentPage; ?>"

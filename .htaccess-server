@@ -64,7 +64,10 @@ SetEnvIf Request_URI "^/assets/" CORS_ASSET=1
     # HSTS (HTTP Strict Transport Security)
     Header set Strict-Transport-Security "max-age=31536000; includeSubDomains; preload"
     
-    # CSP dikontrol di index.php (jangan set di sini agar tidak bentrok / intersection)
+    # CSP dikontrol sepenuhnya di index.php (PHP)
+    # Baris ini menghapus CSP yang mungkin diset server/panel hosting lain
+    Header unset Content-Security-Policy
+    Header unset X-Content-Security-Policy
     
     # Permissions Policy
     Header set Permissions-Policy "geolocation=(), microphone=(), camera=()"
